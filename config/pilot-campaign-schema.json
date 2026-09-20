@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PilotCampaignManifest",
+  "description": "Contrato formal para el manifiesto y certificación end-to-end de la campaña piloto de ADCRA.",
+  "type": "object",
+  "required": [
+    "pilot_id",
+    "campaign_id",
+    "execution_timestamp",
+    "pipeline_stages",
+    "e2e_metrics",
+    "deliverables_summary",
+    "quality_certification",
+    "final_status"
+  ],
+  "properties": {
+    "pilot_id": {
+      "type": "string",
+      "pattern": "^pilot_[a-z0-9_]+$"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "execution_timestamp": {
+      "type": "string"
+    },
+    "pipeline_stages": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "stage_id",
+          "stage_name",
+          "domain",
+          "status",
+          "execution_time_ms",
+          "artifacts_verified",
+          "summary"
+        ],
+        "properties": {
+          "stage_id": {
+            "type": "string"
+          },
+          "stage_name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string",
+            "enum": [
+              "strategy",
+              "creative",
+              "analysis",
+              "production",
+              "tools",
+              "post-production",
+              "quality-control",
+              "memory",
+              "meta"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "SUCCESS",
+              "WARNING",
+              "FAILED"
+            ]
+          },
+          "execution_time_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "artifacts_verified": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "e2e_metrics": {
+      "type": "object",
+      "required": [
+        "duration_seconds",
+        "resolution",
+        "fps",
+        "loudness_lufs",
+        "total_scenes",
+        "quality_score",
+        "iterations_count"
+      ],
+      "properties": {
+        "duration_seconds": {
+          "type": "number",
+          "minimum": 20.0,
+          "maximum": 35.0
+        },
+        "resolution": {
+          "type": "string"
+        },
+        "fps": {
+          "type": "number"
+        },
+        "loudness_lufs": {
+          "type": "number"
+        },
+        "total_scenes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "quality_score": {
+          "type": "number",
+          "minimum": 90.0,
+          "maximum": 100.0
+        },
+        "iterations_count": {
+          "type": "integer",
+          "maximum": 3
+        }
+      }
+    },
+    "deliverables_summary": {
+      "type": "object",
+      "required": [
+        "audio_master_wav",
+        "audio_master_mp3",
+        "color_manifest",
+        "timeline_edl",
+        "timeline_xml",
+        "social_formats_count"
+      ],
+      "properties": {
+        "audio_master_wav": {
+          "type": "string"
+        },
+        "audio_master_mp3": {
+          "type": "string"
+        },
+        "color_manifest": {
+          "type": "string"
+        },
+        "timeline_edl": {
+          "type": "string"
+        },
+        "timeline_xml": {
+          "type": "string"
+        },
+        "social_formats_count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "quality_certification": {
+      "type": "object",
+      "required": [
+        "verdict",
+        "technical_score",
+        "creative_score",
+        "brand_score"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "REJECTED",
+            "NEEDS_REVISION"
+          ]
+        },
+        "technical_score": {
+          "type": "number"
+        },
+        "creative_score": {
+          "type": "number"
+        },
+        "brand_score": {
+          "type": "number"
+        }
+      }
+    },
+    "final_status": {
+      "type": "string",
+      "enum": [
+        "COMPLETED",
+        "FAILED"
+      ]
+    }
+  }
+}

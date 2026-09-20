@@ -1,0 +1,20 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "max_allowed_iterations": 3,
+  "total_iterations_run": 1,
+  "final_decision": "APPROVED",
+  "iteration_log": [
+    {
+      "iteration_index": 1,
+      "timestamp": "2026-09-19T11:23:57.712663+00:00",
+      "trigger": "automated_qc_audit",
+      "initial_score": 100.0,
+      "issues_identified": [],
+      "actions_taken": [
+        "Certificación formal completa: todos los checks técnicos, creativos y de marca superados al 100%"
+      ],
+      "post_score": 100.0,
+      "post_status": "APPROVED"
+    }
+  ]
+}

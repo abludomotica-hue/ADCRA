@@ -1,0 +1,178 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "project_name": "Locos_Materos_2026_Campaign",
+  "timeline_settings": {
+    "width": 720,
+    "height": 1280,
+    "frame_rate": 24.0,
+    "color_science_mode": "DaVinci YRGB",
+    "working_color_space": "Rec.709 / Gamma 2.4"
+  },
+  "media_pool_structure": {
+    "bins": [
+      "01_Footage",
+      "02_Audio",
+      "03_Motion_Graphics",
+      "04_Timelines"
+    ],
+    "clips_registered": [
+      {
+        "clip_name": "Escena 01 Ya está sonando el hervidor.mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 01 Ya está sonando el hervidor.mp4",
+        "media_type": "video",
+        "scene_id": "scene_01"
+      },
+      {
+        "clip_name": "Escena 02 Macro de yerba y bombilla.mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 02 Macro de yerba y bombilla.mp4",
+        "media_type": "video",
+        "scene_id": "scene_02"
+      },
+      {
+        "clip_name": "Escena 03 El sol asoma en la cordillera.mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 03 El sol asoma en la cordillera.mp4",
+        "media_type": "video",
+        "scene_id": "scene_03"
+      },
+      {
+        "clip_name": "Escena 04 Cebando arranca todo Chile.mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 04 Cebando arranca todo Chile.mp4",
+        "media_type": "video",
+        "scene_id": "scene_04"
+      },
+      {
+        "clip_name": "Escena 05 Caminando por el barrio..mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 05 Caminando por el barrio..mp4",
+        "media_type": "video",
+        "scene_id": "scene_05"
+      },
+      {
+        "clip_name": "Escena 06 Transición trabajohogar..mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 06 Transición trabajohogar..mp4",
+        "media_type": "video",
+        "scene_id": "scene_06"
+      },
+      {
+        "clip_name": "Escena 07 Estudiantes en la universidad..mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 07 Estudiantes en la universidad..mp4",
+        "media_type": "video",
+        "scene_id": "scene_07"
+      },
+      {
+        "clip_name": "Escena 08 Primer plano de mate y sorbo..mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 08 Primer plano de mate y sorbo..mp4",
+        "media_type": "video",
+        "scene_id": "scene_08"
+      },
+      {
+        "clip_name": "Escena 09 Dónde estás tú.mp4",
+        "bin": "01_Footage",
+        "file_path": "Recursos/videos/Escena 09 Dónde estás tú.mp4",
+        "media_type": "video",
+        "scene_id": "scene_09"
+      },
+      {
+        "clip_name": "Entre_mates_y_sol.mp3",
+        "bin": "02_Audio",
+        "file_path": "Recursos/Audios/Entre_mates_y_sol.mp3",
+        "media_type": "audio",
+        "scene_id": "all"
+      },
+      {
+        "clip_name": "overlay_scene_01.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_01.png",
+        "media_type": "graphic",
+        "scene_id": "scene_01"
+      },
+      {
+        "clip_name": "overlay_scene_02.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_02.png",
+        "media_type": "graphic",
+        "scene_id": "scene_02"
+      },
+      {
+        "clip_name": "overlay_scene_03.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_03.png",
+        "media_type": "graphic",
+        "scene_id": "scene_03"
+      },
+      {
+        "clip_name": "overlay_scene_04.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_04.png",
+        "media_type": "graphic",
+        "scene_id": "scene_04"
+      },
+      {
+        "clip_name": "overlay_scene_05.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_05.png",
+        "media_type": "graphic",
+        "scene_id": "scene_05"
+      },
+      {
+        "clip_name": "overlay_scene_06.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_06.png",
+        "media_type": "graphic",
+        "scene_id": "scene_06"
+      },
+      {
+        "clip_name": "overlay_scene_07.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_07.png",
+        "media_type": "graphic",
+        "scene_id": "scene_07"
+      },
+      {
+        "clip_name": "overlay_scene_08.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_08.png",
+        "media_type": "graphic",
+        "scene_id": "scene_08"
+      },
+      {
+        "clip_name": "overlay_scene_09.png",
+        "bin": "03_Motion_Graphics",
+        "file_path": "campaign/motion-graphics/renders/overlay_scene_09.png",
+        "media_type": "graphic",
+        "scene_id": "scene_09"
+      }
+    ]
+  },
+  "timelines": [
+    {
+      "timeline_name": "LocosMateros_BeatSynced_Master",
+      "source_xml": "campaign/timeline/locos_materos_edit.xml",
+      "source_edl": "campaign/timeline/locos_materos_edit.edl",
+      "tracks_count": {
+        "video": 2,
+        "audio": 1
+      }
+    }
+  ],
+  "render_settings": {
+    "target_format": "QuickTime",
+    "video_codec": "H264",
+    "audio_codec": "AAC",
+    "bitrate_kbps": 12000,
+    "render_preset": "ADCRA Vertical 9:16 Master"
+  },
+  "execution_status": {
+    "mode": "conformed_project_package",
+    "resolve_binary": "/opt/resolve/bin/resolve",
+    "fusionscript_loaded": true,
+    "validation_status": "passed"
+  }
+}

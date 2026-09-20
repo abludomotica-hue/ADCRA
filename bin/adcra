@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# ADCRA CLI Wrapper
+set -e
+
+# Resolve script directory and workspace root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKSPACE_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+# Run python entrypoint
+exec python3 "${WORKSPACE_ROOT}/adcra_cli.py" "$@"

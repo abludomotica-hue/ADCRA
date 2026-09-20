@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADCRA Mission Control — Autonomous Digital Campaign Dashboard</title>
+  <meta name="description" content="Centro de mando, monitoreo en tiempo real y reproductor broadcast de la agencia autónoma ADCRA para la campaña Locos Materos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="dark-theme">
+  <!-- Glow Elements for Glassmorphism -->
+  <div class="ambient-glow glow-green"></div>
+  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-blue"></div>
+
+  <!-- Header / Top Bar -->
+  <header class="top-nav" id="topNav">
+    <div class="nav-brand">
+      <div class="logo-badge">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">ADCRA</span>
+      </div>
+      <div class="system-meta">
+        <span class="system-title">Mission Control</span>
+        <span class="version-tag">v1.0.0-gold</span>
+      </div>
+    </div>
+
+    <div class="campaign-pill">
+      <span class="pill-dot"></span>
+      <span class="campaign-title">Locos Materos</span>
+      <span class="campaign-claim">"¿Dónde estás tú? Está tu mate"</span>
+    </div>
+
+    <div class="nav-actions">
+      <a href="/intake" class="btn btn-primary btn-sm" id="btnGoToIntake" style="text-decoration:none; background: linear-gradient(135deg, #10B981, #059669); border-color: #34D399; color: #fff; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+        <span class="btn-icon">✦</span> Nueva Campaña (Intake)
+      </a>
+      <span class="status-badge status-ready" id="systemStatusBadge">
+        <span class="pulse-indicator"></span> PRODUCTION READY
+      </span>
+      <button class="btn btn-secondary btn-sm" id="btnRefresh" title="Refrescar métricas">
+        <span class="btn-icon">↻</span> Refrescar
+      </button>
+      <button class="btn btn-primary btn-sm" id="btnQuickBenchmark" title="Ejecutar prueba de estrés">
+        <span class="btn-icon">⚡</span> Benchmark
+      </button>
+    </div>
+  </header>
+
+  <!-- Metric Ribbon -->
+  <section class="metric-ribbon" id="metricRibbon">
+    <div class="metric-card">
+      <div class="metric-label">Progreso del Pipeline</div>
+      <div class="metric-value text-emerald" id="valPipelineProgress">100.0%</div>
+      <div class="metric-sub">22 de 22 fases completadas</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Certificación de Calidad</div>
+      <div class="metric-value text-gold" id="valQcScore">100.0 / 100</div>
+      <div class="metric-sub">APPROVED (Auditoría Tricameral)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Sonoridad EBU R128</div>
+      <div class="metric-value text-blue" id="valLoudness">-12.7 LUFS</div>
+      <div class="metric-sub">True Peak: -1.0 dBTP (Broadcast)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Latencia Estimada</div>
+      <div class="metric-value text-purple" id="valLatency">68.8 ms</div>
+      <div class="metric-sub">Rating: EXCELLENT (8 Motores)</div>
+    </div>
+  </section>
+
+  <!-- Main Navigation Tabs -->
+  <nav class="tab-navigation" id="tabNav">
+    <button class="tab-btn active" data-tab="theater" id="tabBtnTheater">
+      <span class="tab-icon">🎬</span> Video Theater & Entregables
+    </button>
+    <button class="tab-btn" data-tab="pipeline" id="tabBtnPipeline">
+      <span class="tab-icon">📊</span> Matriz de Fases (22)
+    </button>
+    <button class="tab-btn" data-tab="telemetry" id="tabBtnTelemetry">
+      <span class="tab-icon">⚡</span> Telemetría & Profiling
+    </button>
+    <button class="tab-btn" data-tab="qc" id="tabBtnQc">
+      <span class="tab-icon">🛡️</span> Auditoría Broadcast & QC
+    </button>
+    <button class="tab-btn" data-tab="skills" id="tabBtnSkills">
+      <span class="tab-icon">🧠</span> Ecosistema de Skills (23)
+    </button>
+    <button class="tab-btn" data-tab="vault" id="tabBtnVault">
+      <span class="tab-icon">📦</span> Bóveda de Entrega
+    </button>
+  </nav>
+
+  <!-- Main Application Content Panels -->
+  <main class="dashboard-content" id="dashboardContent">
+
+    <!-- PANEL 1: VIDEO THEATER & MULTI-PLATFORM DELIVERABLES -->
+    <section class="tab-panel active" id="panelTheater">
+      <div class="theater-grid">
+        <!-- Main Player Box -->
+        <div class="player-container">
+          <div class="player-card glass-panel">
+            <div class="player-header">
+              <div class="player-meta">
+                <span class="badge-format" id="activeFormatBadge">9:16 VERTICAL</span>
+                <span class="player-title" id="activeVideoTitle">Master Oficial — Locos Materos 9x16</span>
+              </div>
+              <div class="player-controls-top">
+                <label class="toggle-switch" title="Mostrar/ocultar guías visuales de safe zones para redes sociales">
+                  <input type="checkbox" id="chkSafeZone" checked>
+                  <span class="toggle-slider"></span>
+                  <span class="toggle-text">Safe Zones</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Video Viewport Frame -->
+            <div class="viewport-wrapper">
+              <div class="video-viewport aspect-9-16" id="videoViewport">
+                <video id="mainVideoPlayer" controls autoplay loop playsinline preload="metadata">
+                  <source src="/campaign/deliverables/masters/locos_materos_master_9x16.mp4" type="video/mp4">
+                  Tu navegador no soporta reproducción de video HTML5.
+                </video>
+                <!-- Dynamic Safe Zone PNG Overlay -->
+                <div class="safe-zone-overlay visible" id="safeZoneOverlay">
+                  <img id="safeZoneImg" src="/campaign/deliverables/guides/tiktok_9_16_safe_zone.png" alt="Guía de Safe Zone">
+                </div>
+              </div>
+            </div>
+
+            <!-- Player Quick Technical Strip -->
+            <div class="player-footer">
+              <div class="spec-item">
+                <span class="spec-name">Resolución:</span>
+                <span class="spec-val" id="specResolution">720x1280</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-name">Framerate:</span>
+                <span class="spec-val" id="specFps">24.0 fps</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-name">Duración:</span>
+                <span class="spec-val" id="specDuration">29.21 s</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-name">Audio:</span>
+                <span class="spec-val" id="specAudio">AAC 48kHz (-12.7 LUFS)</span>
+              </div>
+              <div class="spec-item spec-hash">
+                <span class="spec-name">SHA-256:</span>
+                <span class="spec-val hash-preview" id="specHash" title="Click para copiar">dbeb0168...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Platform Format Switcher Sidebar -->
+        <div class="format-sidebar">
+          <div class="glass-panel sidebar-card">
+            <h3 class="sidebar-title">
+              <span>📱</span> Formatos de Emisión Omnicanal
+            </h3>
+            <p class="sidebar-subtitle">Selecciona cualquier variante para reproducirla en tiempo real y probar la geometría adaptativa:</p>
+
+            <div class="format-list" id="formatList">
+              <!-- Master 9:16 -->
+              <div class="format-card active" data-format="master" data-src="/campaign/deliverables/masters/locos_materos_master_9x16.mp4" data-aspect="aspect-9-16" data-res="720x1280" data-guide="/campaign/deliverables/guides/tiktok_9_16_safe_zone.png" data-hash="dbeb016878deb5d1b0bc14c7e440fef6086ccc941d21f2624d937bda3be0b05d">
+                <div class="format-badge-row">
+                  <span class="format-pill">MASTER</span>
+                  <span class="aspect-pill">9:16</span>
+                </div>
+                <div class="format-name">Locos Materos Master 9x16</div>
+                <div class="format-details">Vertical nativo cinematográfico con 9 overlays tipográficos y audio masterizado.</div>
+              </div>
+
+              <!-- TikTok 9:16 -->
+              <div class="format-card" data-format="tiktok" data-src="/campaign/deliverables/exports/locos_materos_tiktok_9x16.mp4" data-aspect="aspect-9-16" data-res="720x1280" data-guide="/campaign/deliverables/guides/tiktok_9_16_safe_zone.png" data-hash="0c3118aa04cd5ad56aa85c10af69ef1b6aa5b90118e38c26075c4e3ab79949b8">
+                <div class="format-badge-row">
+                  <span class="format-pill pill-tiktok">TIKTOK</span>
+                  <span class="aspect-pill">9:16</span>
+                </div>
+                <div class="format-name">TikTok Vertical</div>
+                <div class="format-details">Alineado a safe zones para evitar botones de UI de comentarios y perfiles.</div>
+              </div>
+
+              <!-- Instagram Reels 9:16 -->
+              <div class="format-card" data-format="reels" data-src="/campaign/deliverables/exports/locos_materos_instagram_reels_9x16.mp4" data-aspect="aspect-9-16" data-res="720x1280" data-guide="/campaign/deliverables/guides/instagram_reels_9_16_safe_zone.png" data-hash="0c3118aa04cd5ad56aa85c10af69ef1b6aa5b90118e38c26075c4e3ab79949b8">
+                <div class="format-badge-row">
+                  <span class="format-pill pill-ig">INSTAGRAM</span>
+                  <span class="aspect-pill">9:16</span>
+                </div>
+                <div class="format-name">Instagram Reels</div>
+                <div class="format-details">Márgenes inferiores y laterales respetados para feed y carrusel de Reels.</div>
+              </div>
+
+              <!-- YouTube Shorts 9:16 -->
+              <div class="format-card" data-format="shorts" data-src="/campaign/deliverables/exports/locos_materos_youtube_shorts_9x16.mp4" data-aspect="aspect-9-16" data-res="720x1280" data-guide="/campaign/deliverables/guides/youtube_shorts_9_16_safe_zone.png" data-hash="0c3118aa04cd5ad56aa85c10af69ef1b6aa5b90118e38c26075c4e3ab79949b8">
+                <div class="format-badge-row">
+                  <span class="format-pill pill-yt">SHORTS</span>
+                  <span class="aspect-pill">9:16</span>
+                </div>
+                <div class="format-name">YouTube Shorts</div>
+                <div class="format-details">Composición centrada con espacio libre para botón de suscripción y like.</div>
+              </div>
+
+              <!-- Meta Feed 1:1 -->
+              <div class="format-card" data-format="feed" data-src="/campaign/deliverables/exports/locos_materos_feed_square_1x1.mp4" data-aspect="aspect-1-1" data-res="720x720" data-guide="/campaign/deliverables/guides/meta_feed_1_1_safe_zone.png" data-hash="bd7d09f0f0ec76ebd94250ee63cfa8d9e685934fb68d99c7d42cf89aee70f5e1">
+                <div class="format-badge-row">
+                  <span class="format-pill pill-feed">FEED CUADRADO</span>
+                  <span class="aspect-pill">1:1</span>
+                </div>
+                <div class="format-name">Meta Feed Square</div>
+                <div class="format-details">Pillarbox estilizado con color institucional Verde Mate (#0D5C3A).</div>
+              </div>
+
+              <!-- YouTube Widescreen 16:9 -->
+              <div class="format-card" data-format="wide" data-src="/campaign/deliverables/exports/locos_materos_youtube_widescreen_16x9.mp4" data-aspect="aspect-16-9" data-res="1280x720" data-guide="/campaign/deliverables/guides/youtube_widescreen_16_9_safe_zone.png" data-hash="692855b14a439868dd268e0d65b7501a37c35e7dfbbd1c5d3361e6878b4b73b5">
+                <div class="format-badge-row">
+                  <span class="format-pill pill-yt">WIDESCREEN</span>
+                  <span class="aspect-pill">16:9</span>
+                </div>
+                <div class="format-name">YouTube Widescreen 16:9</div>
+                <div class="format-details">Composición con fondo cinemático desenfocado (Boxblur 20:5) para TV y escritorio.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 2: PIPELINE MATRIX (22 PHASES) -->
+    <section class="tab-panel" id="panelPipeline">
+      <div class="panel-header">
+        <div>
+          <h2 class="section-title">Matriz de Ejecución de ADCRA (22 Fases)</h2>
+          <p class="section-desc">Estructura secuencial y modular del pipeline autónomo con enlace directo a artefactos:</p>
+        </div>
+        <div class="filter-controls">
+          <input type="text" id="pipelineSearch" class="search-input" placeholder="Buscar fase por nombre o categoría...">
+        </div>
+      </div>
+
+      <div class="phases-grid" id="phasesGrid">
+        <!-- Inyectado dinámicamente vía app.js -->
+      </div>
+    </section>
+
+    <!-- PANEL 3: TELEMETRY & REAL-TIME PROFILING -->
+    <section class="tab-panel" id="panelTelemetry">
+      <div class="panel-header">
+        <div>
+          <h2 class="section-title">Telemetría de Rendimiento y Profiling de Motores</h2>
+          <p class="section-desc">Monitoreo de latencia en milisegundos, throughput y consumo de memoria:</p>
+        </div>
+        <button class="btn btn-primary" id="btnRunBenchmarkLive">
+          <span class="btn-icon">⚡</span> Ejecutar Stress-Test en Vivo
+        </button>
+      </div>
+
+      <div class="telemetry-layout">
+        <!-- Hardware Telemetry Card -->
+        <div class="glass-panel hw-card">
+          <h3 class="card-title">Entorno de Ejecución</h3>
+          <div class="hw-grid">
+            <div class="hw-item">
+              <span class="hw-label">Sistema Operativo</span>
+              <span class="hw-val" id="hwOs">Linux (x86_64)</span>
+            </div>
+            <div class="hw-item">
+              <span class="hw-label">Núcleos de CPU</span>
+              <span class="hw-val" id="hwCpu">8 Cores</span>
+            </div>
+            <div class="hw-item">
+              <span class="hw-label">Memoria RAM</span>
+              <span class="hw-val" id="hwRam">8.65 GB</span>
+            </div>
+            <div class="hw-item">
+              <span class="hw-label">Aceleración Gráfica</span>
+              <span class="hw-val text-emerald" id="hwGpu">NVIDIA GeForce GTX 750 Ti</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engines Benchmark Table -->
+        <div class="glass-panel engines-card">
+          <div class="card-header-flex">
+            <h3 class="card-title">Latencia y Throughput por Motor Algorítmico</h3>
+            <span class="rating-badge rating-excellent" id="perfRatingBadge">RATING: EXCELLENT</span>
+          </div>
+
+          <div class="engine-bars" id="engineBarsContainer">
+            <!-- Inyectado dinámicamente vía app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 4: QC CERTIFICATION & BROADCAST AUDIT -->
+    <section class="tab-panel" id="panelQc">
+      <div class="panel-header">
+        <div>
+          <h2 class="section-title">Certificación Tricameral de Control de Calidad (QC)</h2>
+          <p class="section-desc">Dictamen oficial de emisión broadcast basado en auditoría técnica, creativa y de marca:</p>
+        </div>
+        <div class="cert-stamp">
+          <span class="stamp-icon">🛡️</span> CERTIFIED APPROVED
+        </div>
+      </div>
+
+      <div class="qc-grid">
+        <!-- Technical Audit -->
+        <div class="glass-panel qc-card">
+          <div class="qc-card-header">
+            <h3 class="card-title">1. Auditoría Técnica</h3>
+            <span class="score-pill score-perfect">100% PASS</span>
+          </div>
+          <ul class="qc-checklist">
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Resolución y Geometría</span>
+                <span class="check-desc">720x1280 píxeles a 24 fps progresivo exactos.</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Cumplimiento de Sonoridad</span>
+                <span class="check-desc">-12.7 LUFS integrados y True Peak de -1.0 dBTP (EBU R128).</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Duración Temporal</span>
+                <span class="check-desc">29.21 segundos dentro del límite publicitario estricto (&lt; 30s).</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Codificación y Multiplexación</span>
+                <span class="check-desc">Video H.264 High Profile @ L4.1 con audio estéreo AAC 48kHz.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Creative Audit -->
+        <div class="glass-panel qc-card">
+          <div class="qc-card-header">
+            <h3 class="card-title">2. Auditoría Creativa</h3>
+            <span class="score-pill score-perfect">100% PASS</span>
+          </div>
+          <ul class="qc-checklist">
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Sincronización al Beat</span>
+                <span class="check-desc">9 escenas perfectamente cortadas al compás de 107.7 BPM.</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Cinética Tipográfica</span>
+                <span class="check-desc">Overlays de HyperFrames con animaciones de entrada y salida fluidas.</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Arco Dramático</span>
+                <span class="check-desc">Introducción de cotidianeidad, aceleración y remate heroico final.</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Integración Semántica</span>
+                <span class="check-desc">Alineación rigurosa de los versos de la canción con el metraje visual.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Brand Audit -->
+        <div class="glass-panel qc-card">
+          <div class="qc-card-header">
+            <h3 class="card-title">3. Auditoría de Marca</h3>
+            <span class="score-pill score-perfect">100% PASS</span>
+          </div>
+          <ul class="qc-checklist">
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Identidad Cromática</span>
+                <span class="check-desc">Paleta obligatoria: Verde Mate (#0D5C3A) y Dorado Yerba (#D4AF37).</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Claim Institucional Verificado</span>
+                <span class="check-desc">"¿Dónde estás tú? Está tu mate" destacado en el Hero Packshot.</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Progresión de Visibilidad</span>
+                <span class="check-desc">Cierre culminante con el packshot oficial y logotipo de Locos Materos.</span>
+              </div>
+            </li>
+            <li class="qc-item pass">
+              <span class="check-icon">✓</span>
+              <div class="check-body">
+                <span class="check-title">Safe Zones Protegidas</span>
+                <span class="check-desc">Cero oclusión de logotipos ni claims por la interfaz de las apps.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 5: SKILL ECOSYSTEM EXPLORER (23 SKILLS) -->
+    <section class="tab-panel" id="panelSkills">
+      <div class="panel-header">
+        <div>
+          <h2 class="section-title">Catálogo e Introspección de Habilidades (23 Skills)</h2>
+          <p class="section-desc">Ecosistema modular de agentes distribuidos en 9 dominios operativos:</p>
+        </div>
+        <div class="filter-controls">
+          <select id="domainSelect" class="search-input">
+            <option value="all">Todos los dominios</option>
+            <option value="analysis">Analysis</option>
+            <option value="creative">Creative</option>
+            <option value="memory">Memory</option>
+            <option value="meta">Meta / Learning</option>
+            <option value="post-production">Post-Production</option>
+            <option value="production">Production</option>
+            <option value="quality-control">Quality Control</option>
+            <option value="strategy">Strategy</option>
+            <option value="tools">Tools</option>
+          </select>
+          <input type="text" id="skillSearch" class="search-input" placeholder="Buscar habilidad por nombre o función...">
+        </div>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Inyectado dinámicamente vía app.js -->
+      </div>
+    </section>
+
+    <!-- PANEL 6: DELIVERY VAULT & SPECS -->
+    <section class="tab-panel" id="panelVault">
+      <div class="panel-header">
+        <div>
+          <h2 class="section-title">Bóveda de Entregables Comerciales</h2>
+          <p class="section-desc">Paquete formal de emisión con trazabilidad criptográfica SHA-256 y Ficha Técnica:</p>
+        </div>
+        <a href="/campaign/deliverables/masters/FICHA_TECNICA.md" target="_blank" class="btn btn-secondary">
+          <span class="btn-icon">📄</span> Abrir Ficha Técnica Completa
+        </a>
+      </div>
+
+      <div class="vault-table-container glass-panel">
+        <table class="vault-table">
+          <thead>
+            <tr>
+              <th>Canal / Tipo</th>
+              <th>Aspecto</th>
+              <th>Resolución</th>
+              <th>Duración</th>
+              <th>Tamaño</th>
+              <th>Checksum SHA-256</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="vaultTableBody">
+            <!-- Inyectado dinámicamente vía app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ARTIFACT INSPECTOR MODAL -->
+  <div class="modal-overlay" id="artifactModal">
+    <div class="modal-container glass-panel">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="modalArtifactTitle">Inspección de Artefacto</h3>
+          <span class="modal-subtitle" id="modalArtifactPath">campaign/path.json</span>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-secondary btn-sm" id="btnCopyJson">Copiar Contenido</button>
+          <button class="btn-close" id="btnCloseModal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <pre class="json-viewer"><code id="modalJsonContent">// Cargando contenido...</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript App -->
+  <script src="app.js"></script>
+</body>
+</html>

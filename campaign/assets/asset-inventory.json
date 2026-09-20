@@ -1,0 +1,370 @@
+{
+  "summary": {
+    "total_video_assets": 9,
+    "total_video_duration_seconds": 62.0,
+    "native_video_aspect_ratio": "9:16 (720x1280)",
+    "native_video_fps": 24.0,
+    "total_image_assets": 6,
+    "total_audio_assets": 1
+  },
+  "video_assets": [
+    {
+      "asset_id": "vid_escena_01_ya_está_sonand",
+      "filename": "Escena 01 Ya está sonando el hervidor.mp4",
+      "relative_path": "Recursos/videos/Escena 01 Ya está sonando el hervidor.mp4",
+      "technical_specs": {
+        "duration_seconds": 8.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 2827.0,
+        "has_audio": true,
+        "file_size_bytes": 2827039
+      },
+      "cinematography": {
+        "scene_id": "scene_01",
+        "shot_type": "medium_shot",
+        "lighting": "warm_natural_window",
+        "camera_movement": "handheld_organic",
+        "setting_type": "interior_hogar",
+        "mate_visible": true,
+        "primary_subjects": [
+          "hervidor",
+          "vapor",
+          "cocina",
+          "mesa de madera"
+        ],
+        "emotion_evoked": "Intimidad, despertar y calidez de hogar"
+      }
+    },
+    {
+      "asset_id": "vid_escena_02_macro_de_yerba",
+      "filename": "Escena 02 Macro de yerba y bombilla.mp4",
+      "relative_path": "Recursos/videos/Escena 02 Macro de yerba y bombilla.mp4",
+      "technical_specs": {
+        "duration_seconds": 6.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 3011.1,
+        "has_audio": true,
+        "file_size_bytes": 2264378
+      },
+      "cinematography": {
+        "scene_id": "scene_02",
+        "shot_type": "macro_detail",
+        "lighting": "warm_natural_window",
+        "camera_movement": "static",
+        "setting_type": "interior_hogar",
+        "mate_visible": true,
+        "primary_subjects": [
+          "yerba mate verde",
+          "bombilla de acero inoxidable",
+          "calabaza tradicional"
+        ],
+        "emotion_evoked": "Precisión artesanal, textura y calma"
+      }
+    },
+    {
+      "asset_id": "vid_escena_03_el_sol_asoma_e",
+      "filename": "Escena 03 El sol asoma en la cordillera.mp4",
+      "relative_path": "Recursos/videos/Escena 03 El sol asoma en la cordillera.mp4",
+      "technical_specs": {
+        "duration_seconds": 8.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 4489.6,
+        "has_audio": true,
+        "file_size_bytes": 4489621
+      },
+      "cinematography": {
+        "scene_id": "scene_03",
+        "shot_type": "wide_establishing",
+        "lighting": "golden_hour_morning",
+        "camera_movement": "slow_pan",
+        "setting_type": "exterior_cordillera",
+        "mate_visible": false,
+        "primary_subjects": [
+          "Cordillera de los Andes",
+          "sol matutino",
+          "cielo dorado",
+          "ciudad de Santiago"
+        ],
+        "emotion_evoked": "Grandeza andina, horizonte y orgullo territorial"
+      }
+    },
+    {
+      "asset_id": "vid_escena_04_cebando_arranc",
+      "filename": "Escena 04 Cebando arranca todo Chile.mp4",
+      "relative_path": "Recursos/videos/Escena 04 Cebando arranca todo Chile.mp4",
+      "technical_specs": {
+        "duration_seconds": 8.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 3103.1,
+        "has_audio": true,
+        "file_size_bytes": 3103135
+      },
+      "cinematography": {
+        "scene_id": "scene_04",
+        "shot_type": "medium_shot",
+        "lighting": "golden_hour_morning",
+        "camera_movement": "handheld_organic",
+        "setting_type": "interior_hogar",
+        "mate_visible": true,
+        "primary_subjects": [
+          "manos cebando",
+          "termo",
+          "chorro de agua caliente",
+          "mate humeante"
+        ],
+        "emotion_evoked": "Impulso, energía matutina y sincronía nacional"
+      }
+    },
+    {
+      "asset_id": "vid_escena_05_caminando_por_",
+      "filename": "Escena 05 Caminando por el barrio..mp4",
+      "relative_path": "Recursos/videos/Escena 05 Caminando por el barrio..mp4",
+      "technical_specs": {
+        "duration_seconds": 6.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 4782.4,
+        "has_audio": true,
+        "file_size_bytes": 3596339
+      },
+      "cinematography": {
+        "scene_id": "scene_05",
+        "shot_type": "medium_shot",
+        "lighting": "soft_daylight",
+        "camera_movement": "slow_dolly_tracking",
+        "setting_type": "calle_barrio",
+        "mate_visible": true,
+        "primary_subjects": [
+          "persona caminando",
+          "vereda arbolada",
+          "termo bajo el brazo",
+          "mate en mano"
+        ],
+        "emotion_evoked": "Pertenencia, cercanía vecinal y paseo tranquilo"
+      }
+    },
+    {
+      "asset_id": "vid_escena_06_transición_tra",
+      "filename": "Escena 06 Transición trabajohogar..mp4",
+      "relative_path": "Recursos/videos/Escena 06 Transición trabajohogar..mp4",
+      "technical_specs": {
+        "duration_seconds": 6.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 3167.6,
+        "has_audio": true,
+        "file_size_bytes": 2382021
+      },
+      "cinematography": {
+        "scene_id": "scene_06",
+        "shot_type": "medium_shot",
+        "lighting": "interior_ambient",
+        "camera_movement": "static",
+        "setting_type": "espacio_laboral",
+        "mate_visible": true,
+        "primary_subjects": [
+          "espacio de trabajo",
+          "mesa",
+          "computador/herramientas",
+          "mate compañero"
+        ],
+        "emotion_evoked": "Pausa reflexiva, concentración y perseverancia"
+      }
+    },
+    {
+      "asset_id": "vid_escena_07_estudiantes_en",
+      "filename": "Escena 07 Estudiantes en la universidad..mp4",
+      "relative_path": "Recursos/videos/Escena 07 Estudiantes en la universidad..mp4",
+      "technical_specs": {
+        "duration_seconds": 6.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 3081.2,
+        "has_audio": true,
+        "file_size_bytes": 2317047
+      },
+      "cinematography": {
+        "scene_id": "scene_07",
+        "shot_type": "group_shot",
+        "lighting": "soft_daylight",
+        "camera_movement": "handheld_organic",
+        "setting_type": "universidad",
+        "mate_visible": true,
+        "primary_subjects": [
+          "jóvenes estudiantes",
+          "patio universitario",
+          "apuntes",
+          "mate compartido"
+        ],
+        "emotion_evoked": "Complicidad juvenil, estudio colaborativo y alegría"
+      }
+    },
+    {
+      "asset_id": "vid_escena_08_primer_plano_d",
+      "filename": "Escena 08 Primer plano de mate y sorbo..mp4",
+      "relative_path": "Recursos/videos/Escena 08 Primer plano de mate y sorbo..mp4",
+      "technical_specs": {
+        "duration_seconds": 6.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 2929.1,
+        "has_audio": true,
+        "file_size_bytes": 2202685
+      },
+      "cinematography": {
+        "scene_id": "scene_08",
+        "shot_type": "close_up",
+        "lighting": "warm_natural_window",
+        "camera_movement": "static",
+        "setting_type": "interior_hogar",
+        "mate_visible": true,
+        "primary_subjects": [
+          "mate sostenido con dos manos",
+          "gesto de sorbo",
+          "expresión de disfrute"
+        ],
+        "emotion_evoked": "Satisfacción profunda, calidez sensorial y pausa"
+      }
+    },
+    {
+      "asset_id": "vid_escena_09_dónde_estás_tú",
+      "filename": "Escena 09 Dónde estás tú.mp4",
+      "relative_path": "Recursos/videos/Escena 09 Dónde estás tú.mp4",
+      "technical_specs": {
+        "duration_seconds": 8.0,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "aspect_ratio_numeric": 0.5625,
+        "fps": 24.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "bitrate_kbps": 3726.5,
+        "has_audio": true,
+        "file_size_bytes": 3726534
+      },
+      "cinematography": {
+        "scene_id": "scene_09",
+        "shot_type": "group_shot",
+        "lighting": "golden_hour_morning",
+        "camera_movement": "slow_dolly_tracking",
+        "setting_type": "reunion_amigos",
+        "mate_visible": true,
+        "primary_subjects": [
+          "amigos compartiendo mate",
+          "risas",
+          "encuentro colectivo",
+          "packshot de cierre"
+        ],
+        "emotion_evoked": "Comunidad, amistad entrañable y pertenencia a la marca"
+      }
+    }
+  ],
+  "image_assets": [
+    {
+      "filename": "WhatsApp Image 2026-09-16 at 10.21.13 PM (1).jpeg",
+      "relative_path": "Recursos/Imeges/WhatsApp Image 2026-09-16 at 10.21.13 PM (1).jpeg",
+      "width": 1284,
+      "height": 1600,
+      "format": "mjpeg",
+      "file_size_bytes": 359548,
+      "intended_usage": "editorial_lifestyle_reference"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-16 at 10.21.13 PM (2).jpeg",
+      "relative_path": "Recursos/Imeges/WhatsApp Image 2026-09-16 at 10.21.13 PM (2).jpeg",
+      "width": 1284,
+      "height": 1282,
+      "format": "mjpeg",
+      "file_size_bytes": 142845,
+      "intended_usage": "landscape_reference"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-16 at 10.21.13 PM.jpeg",
+      "relative_path": "Recursos/Imeges/WhatsApp Image 2026-09-16 at 10.21.13 PM.jpeg",
+      "width": 1280,
+      "height": 1600,
+      "format": "mjpeg",
+      "file_size_bytes": 216191,
+      "intended_usage": "editorial_lifestyle_reference"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-16 at 10.21.14 PM (1).jpeg",
+      "relative_path": "Recursos/Imeges/WhatsApp Image 2026-09-16 at 10.21.14 PM (1).jpeg",
+      "width": 1256,
+      "height": 1600,
+      "format": "mjpeg",
+      "file_size_bytes": 360028,
+      "intended_usage": "editorial_lifestyle_reference"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-16 at 10.21.14 PM (2).jpeg",
+      "relative_path": "Recursos/Imeges/WhatsApp Image 2026-09-16 at 10.21.14 PM (2).jpeg",
+      "width": 1266,
+      "height": 1600,
+      "format": "mjpeg",
+      "file_size_bytes": 177682,
+      "intended_usage": "editorial_lifestyle_reference"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-16 at 10.21.14 PM.jpeg",
+      "relative_path": "Recursos/Imeges/WhatsApp Image 2026-09-16 at 10.21.14 PM.jpeg",
+      "width": 708,
+      "height": 576,
+      "format": "mjpeg",
+      "file_size_bytes": 37556,
+      "intended_usage": "brand_logo"
+    }
+  ],
+  "audio_assets": [
+    {
+      "filename": "Entre_mates_y_sol.mp3",
+      "relative_path": "Recursos/Audios/Entre_mates_y_sol.mp3",
+      "file_size_bytes": 1592230
+    }
+  ]
+}

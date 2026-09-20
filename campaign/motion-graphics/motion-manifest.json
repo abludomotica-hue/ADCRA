@@ -1,0 +1,141 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "format": {
+    "aspect_ratio": "9:16",
+    "width": 720,
+    "height": 1280,
+    "fps": 24.0
+  },
+  "brand_palette": {
+    "primary": "#0D5C3A",
+    "accent": "#D4AF37",
+    "background": "transparent",
+    "text_light": "#FFFFFF",
+    "text_dark": "#1A1A1A"
+  },
+  "safe_zones": {
+    "top_px": 120,
+    "bottom_px": 200,
+    "left_px": 40,
+    "right_px": 40
+  },
+  "overlays": [
+    {
+      "scene_id": "scene_01",
+      "start_seconds": 0.0,
+      "end_seconds": 3.5,
+      "duration_seconds": 3.5,
+      "animation_style": "fade_in_word_by_word",
+      "text_content": "Cada día comienza con una pausa.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 34,
+      "html_template_path": "campaign/motion-graphics/templates/scene_01.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_01.png"
+    },
+    {
+      "scene_id": "scene_02",
+      "start_seconds": 3.5,
+      "end_seconds": 6.8,
+      "duration_seconds": 3.3,
+      "animation_style": "slide_up_reveal",
+      "text_content": "El arte de prepararse para lo bueno.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 34,
+      "html_template_path": "campaign/motion-graphics/templates/scene_02.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_02.png"
+    },
+    {
+      "scene_id": "scene_03",
+      "start_seconds": 6.8,
+      "end_seconds": 10.2,
+      "duration_seconds": 3.4,
+      "animation_style": "lower_third_pill",
+      "text_content": "Un país que despierta con la cordillera.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 32,
+      "html_template_path": "campaign/motion-graphics/templates/scene_03.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_03.png"
+    },
+    {
+      "scene_id": "scene_04",
+      "start_seconds": 10.2,
+      "end_seconds": 13.5,
+      "duration_seconds": 3.3,
+      "animation_style": "slide_up_reveal",
+      "text_content": "La energía de arrancar juntos.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 34,
+      "html_template_path": "campaign/motion-graphics/templates/scene_04.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_04.png"
+    },
+    {
+      "scene_id": "scene_05",
+      "start_seconds": 13.5,
+      "end_seconds": 16.8,
+      "duration_seconds": 3.3,
+      "animation_style": "kinetic_stomp",
+      "text_content": "En cada esquina, en cada paso.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 38,
+      "html_template_path": "campaign/motion-graphics/templates/scene_05.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_05.png"
+    },
+    {
+      "scene_id": "scene_06",
+      "start_seconds": 16.8,
+      "end_seconds": 20.0,
+      "duration_seconds": 3.2,
+      "animation_style": "lower_third_pill",
+      "text_content": "El mate que acompaña tu esfuerzo.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 32,
+      "html_template_path": "campaign/motion-graphics/templates/scene_06.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_06.png"
+    },
+    {
+      "scene_id": "scene_07",
+      "start_seconds": 20.0,
+      "end_seconds": 23.2,
+      "duration_seconds": 3.2,
+      "animation_style": "fade_in_word_by_word",
+      "text_content": "Ideas que se comparten mejor.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 34,
+      "html_template_path": "campaign/motion-graphics/templates/scene_07.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_07.png"
+    },
+    {
+      "scene_id": "scene_08",
+      "start_seconds": 23.2,
+      "end_seconds": 26.0,
+      "duration_seconds": 2.8,
+      "animation_style": "slide_up_reveal",
+      "text_content": "Un sabor que nos vuelve a reunir.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 34,
+      "html_template_path": "campaign/motion-graphics/templates/scene_08.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_08.png"
+    },
+    {
+      "scene_id": "scene_09",
+      "start_seconds": 26.0,
+      "end_seconds": 29.187,
+      "duration_seconds": 3.187,
+      "animation_style": "hero_packshot_reveal",
+      "text_content": "¿Dónde estás tú? Está tu mate.",
+      "font_family": "Outfit, -apple-system, BlinkMacSystemFont, sans-serif",
+      "font_size_px": 40,
+      "html_template_path": "campaign/motion-graphics/templates/scene_09.html",
+      "render_status": "rendered",
+      "output_asset_path": "campaign/motion-graphics/renders/overlay_scene_09.png"
+    }
+  ]
+}

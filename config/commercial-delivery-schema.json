@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CommercialDeliveryPackage",
+  "description": "Contrato formal para el paquete de entrega final del comercial publicitario de Locos Materos.",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "delivery_id",
+    "timestamp",
+    "master_video",
+    "master_audio",
+    "variants",
+    "technical_specifications",
+    "broadcast_certification"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "delivery_id": {
+      "type": "string",
+      "pattern": "^deliv_[a-z0-9_]+$"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "master_video": {
+      "type": "object",
+      "required": [
+        "file_path",
+        "resolution",
+        "aspect_ratio",
+        "fps",
+        "duration_seconds",
+        "video_codec",
+        "pixel_format",
+        "sha256"
+      ],
+      "properties": {
+        "file_path": {
+          "type": "string"
+        },
+        "resolution": {
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "type": "string"
+        },
+        "fps": {
+          "type": "number"
+        },
+        "duration_seconds": {
+          "type": "number",
+          "minimum": 25.0,
+          "maximum": 35.0
+        },
+        "video_codec": {
+          "type": "string"
+        },
+        "pixel_format": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "master_audio": {
+      "type": "object",
+      "required": [
+        "file_path_wav",
+        "file_path_mp3",
+        "sample_rate_hz",
+        "loudness_lufs",
+        "true_peak_dbtp",
+        "standard"
+      ],
+      "properties": {
+        "file_path_wav": {
+          "type": "string"
+        },
+        "file_path_mp3": {
+          "type": "string"
+        },
+        "sample_rate_hz": {
+          "type": "integer"
+        },
+        "loudness_lufs": {
+          "type": "number"
+        },
+        "true_peak_dbtp": {
+          "type": "number"
+        },
+        "standard": {
+          "type": "string"
+        }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "platform",
+          "aspect_ratio",
+          "resolution",
+          "file_path",
+          "sha256"
+        ],
+        "properties": {
+          "platform": {
+            "type": "string",
+            "enum": [
+              "tiktok",
+              "instagram_reels",
+              "youtube_shorts",
+              "meta_feed_1x1",
+              "youtube_widescreen_16x9"
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string"
+          },
+          "resolution": {
+            "type": "string"
+          },
+          "file_path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "technical_specifications": {
+      "type": "object",
+      "required": [
+        "color_temperature_target",
+        "color_space",
+        "brand_colors"
+      ],
+      "properties": {
+        "color_temperature_target": {
+          "type": "integer"
+        },
+        "color_space": {
+          "type": "string"
+        },
+        "brand_colors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "broadcast_certification": {
+      "type": "object",
+      "required": [
+        "status",
+        "qc_score",
+        "claim_verified"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "REJECTED"
+          ]
+        },
+        "qc_score": {
+          "type": "number",
+          "minimum": 90.0,
+          "maximum": 100.0
+        },
+        "claim_verified": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

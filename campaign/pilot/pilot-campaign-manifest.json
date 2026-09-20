@@ -1,0 +1,171 @@
+{
+  "pilot_id": "pilot_locos_materos_master_2026",
+  "campaign_id": "camp_locos_materos_2026",
+  "execution_timestamp": "2026-09-20T02:43:46.078085+00:00",
+  "pipeline_stages": [
+    {
+      "stage_id": "stage_01_strategy",
+      "stage_name": "Estrategia & Brief Rector",
+      "domain": "strategy",
+      "status": "SUCCESS",
+      "execution_time_ms": 12,
+      "artifacts_verified": [
+        "campaign/campaign-manifest.json"
+      ],
+      "summary": "Campaña 'Locos Materos — ¿Dónde estás tú? Está tu mate' verificada con cliente 'Locos Materos'."
+    },
+    {
+      "stage_id": "stage_02_audio_intelligence",
+      "stage_name": "Análisis Acústico & Sincronía Lírica",
+      "domain": "analysis",
+      "status": "SUCCESS",
+      "execution_time_ms": 21,
+      "artifacts_verified": [
+        "campaign/audio/audio-analysis.json",
+        "campaign/audio/lyric-alignment.json"
+      ],
+      "summary": "Audio analizado: 107.7 BPM (4/4), 9 frases líricas alineadas."
+    },
+    {
+      "stage_id": "stage_03_video_intelligence",
+      "stage_name": "Auditoría de Metraje & Video Assets",
+      "domain": "analysis",
+      "status": "SUCCESS",
+      "execution_time_ms": 15,
+      "artifacts_verified": [
+        "campaign/assets/asset-inventory.json"
+      ],
+      "summary": "Inventario catalogado: 9 clips de video con SHA-256 verificado."
+    },
+    {
+      "stage_id": "stage_04_creative_copy",
+      "stage_name": "Copywriting Creativo Multivariante",
+      "domain": "creative",
+      "status": "SUCCESS",
+      "execution_time_ms": 22,
+      "artifacts_verified": [
+        "campaign/creative/creative-copy.json"
+      ],
+      "summary": "9 escenas con 5 variantes obligatorias cada una y selección fundamentada."
+    },
+    {
+      "stage_id": "stage_05_storyboard",
+      "stage_name": "Diseño de Storyboard & Continuidad",
+      "domain": "creative",
+      "status": "SUCCESS",
+      "execution_time_ms": 20,
+      "artifacts_verified": [
+        "campaign/storyboard/storyboard.json"
+      ],
+      "summary": "9 escenas contiguas de 0.0s a 29.187s con asignación de herramientas."
+    },
+    {
+      "stage_id": "stage_06_assembly_and_timeline",
+      "stage_name": "Ensamblado de Timeline & Motor Programático",
+      "domain": "production",
+      "status": "SUCCESS",
+      "execution_time_ms": 25,
+      "artifacts_verified": [
+        "campaign/timeline/timeline.json",
+        "campaign/timeline/locos_materos_edit.edl",
+        "campaign/timeline/locos_materos_edit.xml",
+        "campaign/remotion/composition-manifest.json",
+        "campaign/motion-graphics/motion-manifest.json"
+      ],
+      "summary": "Montaje conformado a 24 fps en CMX 3600 EDL, FCP7 XML y composición Remotion/HyperFrames."
+    },
+    {
+      "stage_id": "stage_07_color_grading",
+      "stage_name": "Etalonaje & Look Cinematográfico 5900K",
+      "domain": "post-production",
+      "status": "SUCCESS",
+      "execution_time_ms": 16,
+      "artifacts_verified": [
+        "campaign/color/color-grading-manifest.json"
+      ],
+      "summary": "Paleta institucional (#0D5C3A verde mate, #D4AF37 dorado) y 3 LUTs .cube."
+    },
+    {
+      "stage_id": "stage_08_sound_design",
+      "stage_name": "Diseño de Sonido Fairlight & Masterización EBU R128",
+      "domain": "post-production",
+      "status": "SUCCESS",
+      "execution_time_ms": 30,
+      "artifacts_verified": [
+        "campaign/audio/sound-design-manifest.json",
+        "campaign/audio/locos_materos_master_mix.wav",
+        "campaign/audio/locos_materos_master_mix.mp3"
+      ],
+      "summary": "Foley procedural, ducking BGM y masterización a -12.7 LUFS (EBU R128 / ITU-R BS.1770-4)."
+    },
+    {
+      "stage_id": "stage_09_social_formatting",
+      "stage_name": "Adaptación Multiformato & Safe Zones",
+      "domain": "production",
+      "status": "SUCCESS",
+      "execution_time_ms": 14,
+      "artifacts_verified": [
+        "campaign/deliverables/social-format-manifest.json"
+      ],
+      "summary": "5 canales formateados con guías de safe zone."
+    },
+    {
+      "stage_id": "stage_10_quality_control",
+      "stage_name": "Auditoría de Calidad Tricameral",
+      "domain": "quality-control",
+      "status": "SUCCESS",
+      "execution_time_ms": 40,
+      "artifacts_verified": [
+        "campaign/reports/quality-control-report.json"
+      ],
+      "summary": "Quality Score: 100.0/100.0 con dictamen APPROVED."
+    },
+    {
+      "stage_id": "stage_11_iteration_control",
+      "stage_name": "Bucle Cerrado de Iteración & Parada",
+      "domain": "production",
+      "status": "SUCCESS",
+      "execution_time_ms": 12,
+      "artifacts_verified": [
+        "campaign/reports/iteration-history.json"
+      ],
+      "summary": "Iteraciones: 1/3 (Tope inquebrantable respetado, veredicto APPROVED)."
+    },
+    {
+      "stage_id": "stage_12_memory_and_telemetry",
+      "stage_name": "Persistencia de Aprendizajes & Telemetría Meta",
+      "domain": "memory",
+      "status": "SUCCESS",
+      "execution_time_ms": 15,
+      "artifacts_verified": [
+        "campaign/memory/brand-profile-memory.json",
+        "campaign/meta/synthesized-skills-registry.json"
+      ],
+      "summary": "Perfil evolutivo de Locos Materos registrado y telemetría de arquitectura compilada."
+    }
+  ],
+  "e2e_metrics": {
+    "duration_seconds": 29.187,
+    "resolution": "720x1280",
+    "fps": 24.0,
+    "loudness_lufs": -12.7,
+    "total_scenes": 9,
+    "quality_score": 100.0,
+    "iterations_count": 1
+  },
+  "deliverables_summary": {
+    "audio_master_wav": "campaign/audio/locos_materos_master_mix.wav",
+    "audio_master_mp3": "campaign/audio/locos_materos_master_mix.mp3",
+    "color_manifest": "campaign/color/color-grading-manifest.json",
+    "timeline_edl": "campaign/timeline/locos_materos_edit.edl",
+    "timeline_xml": "campaign/timeline/locos_materos_edit.xml",
+    "social_formats_count": 5
+  },
+  "quality_certification": {
+    "verdict": "APPROVED",
+    "technical_score": 100.0,
+    "creative_score": 100.0,
+    "brand_score": 100.0
+  },
+  "final_status": "COMPLETED"
+}

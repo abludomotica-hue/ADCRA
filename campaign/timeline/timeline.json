@@ -1,0 +1,319 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "timeline_id": "timeline_locos_materos_master",
+  "timeline_format": {
+    "width": 720,
+    "height": 1280,
+    "fps": 24.0,
+    "duration_seconds": 29.167,
+    "duration_frames": 700
+  },
+  "audio_master": {
+    "file_path": "Recursos/Audios/Entre_mates_y_sol.mp3",
+    "tempo_bpm": 107.7,
+    "commercial_cut_seconds": 29.167
+  },
+  "tracks": {
+    "video_tracks": [
+      {
+        "track_index": 1,
+        "track_name": "V1_Base_Footage",
+        "clips": [
+          {
+            "clip_id": "v1_scene_01",
+            "scene_id": "scene_01",
+            "source_path": "Recursos/videos/Escena 01 Ya está sonando el hervidor.mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 84,
+            "record_in_frame": 0,
+            "record_out_frame": 84,
+            "duration_frames": 84,
+            "record_in_seconds": 0.0,
+            "record_out_seconds": 3.5,
+            "beat_sync": {
+              "aligned_beat_seconds": 3.506,
+              "drift_ms": 6.0,
+              "is_downbeat": false
+            }
+          },
+          {
+            "clip_id": "v1_scene_02",
+            "scene_id": "scene_02",
+            "source_path": "Recursos/videos/Escena 02 Macro de yerba y bombilla.mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 79,
+            "record_in_frame": 84,
+            "record_out_frame": 163,
+            "duration_frames": 79,
+            "record_in_seconds": 3.5,
+            "record_out_seconds": 6.792,
+            "beat_sync": {
+              "aligned_beat_seconds": 6.803,
+              "drift_ms": 11.0,
+              "is_downbeat": true
+            }
+          },
+          {
+            "clip_id": "v1_scene_03",
+            "scene_id": "scene_03",
+            "source_path": "Recursos/videos/Escena 03 El sol asoma en la cordillera.mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 82,
+            "record_in_frame": 163,
+            "record_out_frame": 245,
+            "duration_frames": 82,
+            "record_in_seconds": 6.792,
+            "record_out_seconds": 10.208,
+            "beat_sync": {
+              "aligned_beat_seconds": 10.194,
+              "drift_ms": 14.0,
+              "is_downbeat": false
+            }
+          },
+          {
+            "clip_id": "v1_scene_04",
+            "scene_id": "scene_04",
+            "source_path": "Recursos/videos/Escena 04 Cebando arranca todo Chile.mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 79,
+            "record_in_frame": 245,
+            "record_out_frame": 324,
+            "duration_frames": 79,
+            "record_in_seconds": 10.208,
+            "record_out_seconds": 13.5,
+            "beat_sync": {
+              "aligned_beat_seconds": 13.537,
+              "drift_ms": 37.0,
+              "is_downbeat": true
+            }
+          },
+          {
+            "clip_id": "v1_scene_05",
+            "scene_id": "scene_05",
+            "source_path": "Recursos/videos/Escena 05 Caminando por el barrio..mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 79,
+            "record_in_frame": 324,
+            "record_out_frame": 403,
+            "duration_frames": 79,
+            "record_in_seconds": 13.5,
+            "record_out_seconds": 16.792,
+            "beat_sync": {
+              "aligned_beat_seconds": 16.881,
+              "drift_ms": 89.0,
+              "is_downbeat": false
+            }
+          },
+          {
+            "clip_id": "v1_scene_06",
+            "scene_id": "scene_06",
+            "source_path": "Recursos/videos/Escena 06 Transición trabajohogar..mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 77,
+            "record_in_frame": 403,
+            "record_out_frame": 480,
+            "duration_frames": 77,
+            "record_in_seconds": 16.792,
+            "record_out_seconds": 20.0,
+            "beat_sync": {
+              "aligned_beat_seconds": 20.225,
+              "drift_ms": 225.0,
+              "is_downbeat": false
+            }
+          },
+          {
+            "clip_id": "v1_scene_07",
+            "scene_id": "scene_07",
+            "source_path": "Recursos/videos/Escena 07 Estudiantes en la universidad..mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 77,
+            "record_in_frame": 480,
+            "record_out_frame": 557,
+            "duration_frames": 77,
+            "record_in_seconds": 20.0,
+            "record_out_seconds": 23.208,
+            "beat_sync": {
+              "aligned_beat_seconds": 23.057,
+              "drift_ms": 151.0,
+              "is_downbeat": false
+            }
+          },
+          {
+            "clip_id": "v1_scene_08",
+            "scene_id": "scene_08",
+            "source_path": "Recursos/videos/Escena 08 Primer plano de mate y sorbo..mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 67,
+            "record_in_frame": 557,
+            "record_out_frame": 624,
+            "duration_frames": 67,
+            "record_in_seconds": 23.208,
+            "record_out_seconds": 26.0,
+            "beat_sync": {
+              "aligned_beat_seconds": 25.867,
+              "drift_ms": 133.0,
+              "is_downbeat": false
+            }
+          },
+          {
+            "clip_id": "v1_scene_09",
+            "scene_id": "scene_09",
+            "source_path": "Recursos/videos/Escena 09 Dónde estás tú.mp4",
+            "source_in_frame": 0,
+            "source_out_frame": 76,
+            "record_in_frame": 624,
+            "record_out_frame": 700,
+            "duration_frames": 76,
+            "record_in_seconds": 26.0,
+            "record_out_seconds": 29.167,
+            "beat_sync": {
+              "aligned_beat_seconds": 29.187,
+              "drift_ms": 20.0,
+              "is_downbeat": true
+            }
+          }
+        ]
+      },
+      {
+        "track_index": 2,
+        "track_name": "V2_Motion_Graphics_Overlays",
+        "clips": [
+          {
+            "clip_id": "v2_scene_01",
+            "scene_id": "scene_01",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_01.png",
+            "source_in_frame": 0,
+            "source_out_frame": 84,
+            "record_in_frame": 0,
+            "record_out_frame": 84,
+            "duration_frames": 84,
+            "record_in_seconds": 0.0,
+            "record_out_seconds": 3.5
+          },
+          {
+            "clip_id": "v2_scene_02",
+            "scene_id": "scene_02",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_02.png",
+            "source_in_frame": 0,
+            "source_out_frame": 79,
+            "record_in_frame": 84,
+            "record_out_frame": 163,
+            "duration_frames": 79,
+            "record_in_seconds": 3.5,
+            "record_out_seconds": 6.792
+          },
+          {
+            "clip_id": "v2_scene_03",
+            "scene_id": "scene_03",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_03.png",
+            "source_in_frame": 0,
+            "source_out_frame": 82,
+            "record_in_frame": 163,
+            "record_out_frame": 245,
+            "duration_frames": 82,
+            "record_in_seconds": 6.792,
+            "record_out_seconds": 10.208
+          },
+          {
+            "clip_id": "v2_scene_04",
+            "scene_id": "scene_04",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_04.png",
+            "source_in_frame": 0,
+            "source_out_frame": 79,
+            "record_in_frame": 245,
+            "record_out_frame": 324,
+            "duration_frames": 79,
+            "record_in_seconds": 10.208,
+            "record_out_seconds": 13.5
+          },
+          {
+            "clip_id": "v2_scene_05",
+            "scene_id": "scene_05",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_05.png",
+            "source_in_frame": 0,
+            "source_out_frame": 79,
+            "record_in_frame": 324,
+            "record_out_frame": 403,
+            "duration_frames": 79,
+            "record_in_seconds": 13.5,
+            "record_out_seconds": 16.792
+          },
+          {
+            "clip_id": "v2_scene_06",
+            "scene_id": "scene_06",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_06.png",
+            "source_in_frame": 0,
+            "source_out_frame": 77,
+            "record_in_frame": 403,
+            "record_out_frame": 480,
+            "duration_frames": 77,
+            "record_in_seconds": 16.792,
+            "record_out_seconds": 20.0
+          },
+          {
+            "clip_id": "v2_scene_07",
+            "scene_id": "scene_07",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_07.png",
+            "source_in_frame": 0,
+            "source_out_frame": 77,
+            "record_in_frame": 480,
+            "record_out_frame": 557,
+            "duration_frames": 77,
+            "record_in_seconds": 20.0,
+            "record_out_seconds": 23.208
+          },
+          {
+            "clip_id": "v2_scene_08",
+            "scene_id": "scene_08",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_08.png",
+            "source_in_frame": 0,
+            "source_out_frame": 67,
+            "record_in_frame": 557,
+            "record_out_frame": 624,
+            "duration_frames": 67,
+            "record_in_seconds": 23.208,
+            "record_out_seconds": 26.0
+          },
+          {
+            "clip_id": "v2_scene_09",
+            "scene_id": "scene_09",
+            "source_path": "campaign/motion-graphics/renders/overlay_scene_09.png",
+            "source_in_frame": 0,
+            "source_out_frame": 76,
+            "record_in_frame": 624,
+            "record_out_frame": 700,
+            "duration_frames": 76,
+            "record_in_seconds": 26.0,
+            "record_out_seconds": 29.167
+          }
+        ]
+      }
+    ],
+    "audio_tracks": [
+      {
+        "track_index": 1,
+        "track_name": "A1_Master_Music",
+        "clips": [
+          {
+            "clip_id": "a1_master_music",
+            "source_path": "Recursos/Audios/Entre_mates_y_sol.mp3",
+            "source_in_frame": 0,
+            "source_out_frame": 700,
+            "record_in_frame": 0,
+            "record_out_frame": 700,
+            "duration_frames": 700,
+            "record_in_seconds": 0.0,
+            "record_out_seconds": 29.167
+          }
+        ]
+      }
+    ]
+  },
+  "sync_metrics": {
+    "total_cuts": 9,
+    "max_beat_drift_ms": 225.0,
+    "average_beat_drift_ms": 76.22,
+    "beat_alignment_rate": 0.78,
+    "downbeat_cuts_count": 3
+  }
+}

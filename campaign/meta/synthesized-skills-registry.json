@@ -1,0 +1,264 @@
+{
+  "version": "1.0.0",
+  "ecosystem_introspection": {
+    "total_skills_discovered": 20,
+    "domains_discovered": [
+      "strategy",
+      "creative",
+      "analysis",
+      "production",
+      "tools",
+      "post-production",
+      "quality-control",
+      "memory",
+      "meta"
+    ],
+    "discovered_skills": [
+      {
+        "skill_name": "audio-analysis",
+        "domain": "analysis",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de inteligencia y análisis de audio para ADCRA. Extrae duración con precisión de muestra, calcula tempo (BPM), rastrea beats y compases, evalúa envolventes de energía y segmenta la estructura musical para sincronización rítmica publicitaria.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "lyric-intelligence",
+        "domain": "analysis",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Inteligencia lírica y alineación semántica para ADCRA. Alinea versos y palabras clave con timestamps de audio, analiza el significado temático y mapea momentos líricos con intenciones visuales y metraje correspondiente.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "video-analysis",
+        "domain": "analysis",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de análisis y catalogación de video para ADCRA. Inspecciona streams técnicos de metraje (resolución, códec, fps, bitrate), clasifica planos cinematográficos (macro, medio, general), evalúa iluminación y movimiento de cámara, y genera el inventario estructurado de activos.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "creative-copy-engine",
+        "domain": "creative",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de redacción publicitaria y copywriting multivariante para ADCRA. Genera obligatoriamente 5 variantes de copy por escena (emocional, publicitaria, conversacional, minimalista, identidad de marca), evalúa métricas de impacto y selecciona la variante ganadora con justificación estratégica.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "storyboard-engine",
+        "domain": "creative",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de dirección creativa y diseño de storyboard para ADCRA. Traduce el concepto estratégico, el análisis musical, la lírica y el inventario de metraje en un storyboard escena por escena rigurosamente validado contra config/storyboard-schema.json con justificación estratégica obligatoria.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "campaign-memory",
+        "domain": "memory",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Sistema de memoria episódica y persistencia de aprendizajes cross-campaign para Locos Materos. Consolida lineamientos estéticos, patrones rítmicos óptimos, benchmarks de rendimiento y reglas de retención para futuras iteraciones creativas.",
+        "schema_reference": "config/campaign-memory-schema.json"
+      },
+      {
+        "skill_name": "skill-builder",
+        "domain": "meta",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de meta-aprendizaje, introspección del ecosistema y síntesis autónoma de nuevas habilidades modulares para ADCRA. Permite auditar el estado de capacidades de la arquitectura, detectar brechas operativas y sintetizar dinámicamente nuevos skills con contratos formales, código ejecutable y pruebas unitarias.",
+        "schema_reference": "config/skill-builder-schema.json"
+      },
+      {
+        "skill_name": "telemetry-monitor",
+        "domain": "meta",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Monitor de telemetría y salud operativa del pipeline ADCRA.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "color-grading",
+        "domain": "post-production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Asistente de etalonaje y corrección de color para DaVinci Resolve y FFmpeg con identidad visual de marca, generación matemática de LUTs 3D .cube y balance cromático plano a plano.",
+        "schema_reference": "config/color-grading-schema.json"
+      },
+      {
+        "skill_name": "davinci-resolve-orchestrator",
+        "domain": "post-production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Orquestador de integración con DaVinci Resolve para creación de proyectos, conformación de Media Pool, estructuración de timelines XML/EDL y configuración de render en GPU OpenCL.",
+        "schema_reference": "config/resolve-integration-schema.json"
+      },
+      {
+        "skill_name": "sound-designer",
+        "domain": "post-production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Diseñador de sonido, foley publicitario, ducking inteligente y masterización broadcast/streaming bajo norma EBU R128 (-14 LUFS, -1.0 dBTP).",
+        "schema_reference": "config/sound-design-schema.json"
+      },
+      {
+        "skill_name": "beat-sync-editor",
+        "domain": "production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Editor de montaje sincronizado al beat musical con precisión de cuadro, alineación a transientes y exportación universal de timelines (EDL CMX 3600, FCP7 XML, JSON Timeline).",
+        "schema_reference": "config/timeline-schema.json"
+      },
+      {
+        "skill_name": "hyperframes-orchestrator",
+        "domain": "production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Orquestador de motion graphics, cinética tipográfica y overlays animados basados en HTML/CSS/SVG para campañas audiovisuales ADCRA.",
+        "schema_reference": "config/motion-graphics-schema.json"
+      },
+      {
+        "skill_name": "iteration-engine",
+        "domain": "production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de ciclo cerrado de retroalimentación e iteración controlada para ADCRA. Gestiona correcciones automáticas derivadas de auditorías de calidad o feedback humano con un tope estricto de 3 iteraciones y protocolo de escalamiento.",
+        "schema_reference": "config/iteration-engine-schema.json"
+      },
+      {
+        "skill_name": "remotion-orchestrator",
+        "domain": "production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de video programático en React con Remotion para la composición procedural, parametrización por props y generación de variantes masivas de video en ADCRA.",
+        "schema_reference": "config/remotion-composition-schema.json"
+      },
+      {
+        "skill_name": "social-formatter",
+        "domain": "production",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Formateador multiplataforma para redes sociales (TikTok, Instagram Reels, YouTube Shorts, Feed 1:1, Widescreen 16:9) con cálculo estricto de Safe Zones, prevención de oclusiones de interfaz móvil y adaptación de ratios visuales.",
+        "schema_reference": "config/social-formatter-schema.json"
+      },
+      {
+        "skill_name": "qc-evaluator",
+        "domain": "quality-control",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Motor de evaluación y auditoría tricameral de control de calidad publicitario (Técnico, Creativo y de Marca) con cálculo ponderado de Quality Score y certificación formal de entrega.",
+        "schema_reference": "config/quality-control-schema.json"
+      },
+      {
+        "skill_name": "campaign-director",
+        "domain": "strategy",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Director Estratégico y de Campaña para ADCRA. Ingiere briefs publicitarios, clasifica requisitos bajo taxonomía epistemológica de 5 niveles, formula conceptos estratégicos, orquesta sub-habilidades y gobierna el ciclo de vida de la campaña con un límite estricto de 3 iteraciones.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "tool-discovery",
+        "domain": "tools",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Habilidad de descubrimiento e inspección activa de herramientas de renderizado, hardware y software en el entorno ADCRA. Detecta versiones, rutas, estado operativo de GPU y disponibilidad de motores audiovisuales.",
+        "schema_reference": null
+      },
+      {
+        "skill_name": "tool-router",
+        "domain": "tools",
+        "has_skill_md": true,
+        "has_script": true,
+        "version": "1.0.0",
+        "description": "Enrutador dinámico de herramientas y motores audiovisuales para ADCRA. Asigna la herramienta óptima según la necesidad técnica y creativa (motion graphics, timeline, color grading, Fairlight, transcodificación, QC) con resolución de alternativas y fallbacks.",
+        "schema_reference": null
+      }
+    ],
+    "last_introspection_timestamp": "2026-09-19T21:04:06.953771+00:00"
+  },
+  "synthesized_skills": [
+    {
+      "skill_name": "telemetry-monitor",
+      "domain": "meta",
+      "version": "1.0.0",
+      "status": "ACTIVE",
+      "purpose": "Monitorea tiempos de ciclo, latencia de renderizado y disponibilidad de aceleración GPU/OpenCL.",
+      "created_at": "2026-09-19T21:04:06.948134+00:00",
+      "updated_at": "2026-09-19T21:04:06.949229+00:00",
+      "files_generated": [
+        ".agents/skills/meta/telemetry-monitor/SKILL.md",
+        ".agents/skills/meta/telemetry-monitor/scripts/telemetry_collector.py"
+      ],
+      "contract_schema": null,
+      "lifecycle_history": [
+        {
+          "from_status": "NONE",
+          "to_status": "DRAFT",
+          "timestamp": "2026-09-19T21:04:06.948134+00:00",
+          "reason": "Iniciación de síntesis para nueva habilidad telemetry-monitor en dominio meta"
+        },
+        {
+          "from_status": "DRAFT",
+          "to_status": "SYNTHESIZED",
+          "timestamp": "2026-09-19T21:04:06.948241+00:00",
+          "reason": "Artefactos SKILL.md y script operacional generados en memoria"
+        },
+        {
+          "from_status": "SYNTHESIZED",
+          "to_status": "VALIDATED",
+          "timestamp": "2026-09-19T21:04:06.948628+00:00",
+          "reason": "Verificación AST completada exitosamente: AST syntax check passed"
+        },
+        {
+          "from_status": "VALIDATED",
+          "to_status": "ACTIVE",
+          "timestamp": "2026-09-19T21:04:06.949218+00:00",
+          "reason": "Compuertas de calidad superadas. Habilidad desplegada en el ecosistema .agents/skills/"
+        }
+      ],
+      "validation_report": {
+        "schema_valid": true,
+        "syntax_valid": true,
+        "tests_passed": true,
+        "details": "Sintaxis AST validada y artefactos generados en conformidad arquitectónica."
+      }
+    }
+  ],
+  "meta_learning_policies": {
+    "max_synthetic_skills_per_domain": 5,
+    "require_automated_tests": true,
+    "require_formal_schema": false,
+    "allowed_domains": [
+      "strategy",
+      "creative",
+      "analysis",
+      "production",
+      "tools",
+      "post-production",
+      "quality-control",
+      "memory",
+      "meta"
+    ]
+  }
+}

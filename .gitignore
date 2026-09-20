@@ -1,0 +1,26 @@
+# DaVinci Installer Zip (3.9 GB)
+DaVinci_Resolve_*.zip
+*.zip
+*.tar.gz
+*.iso
+
+# Credentials & Secrets
+SECRET/
+secret.md
+*.token
+*.key
+
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+.env
+
+# Cache & Node & Remotion Binaries
+.cache/
+node_modules/
+.remotion/
+.DS_Store
+

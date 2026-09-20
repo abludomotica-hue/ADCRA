@@ -1,0 +1,245 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SocialFormatterManifest",
+  "description": "Contrato formal para el formateador multiplataforma de redes sociales (TikTok, Reels, Shorts, Feed, Widescreen) y especificación de Safe Zones de Locos Materos.",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "master_format",
+    "platforms",
+    "adaptation_strategies",
+    "deliverables"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "master_format": {
+      "type": "object",
+      "required": [
+        "aspect_ratio",
+        "width",
+        "height",
+        "fps"
+      ],
+      "properties": {
+        "aspect_ratio": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "fps": {
+          "type": "number"
+        }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "platform_id",
+          "name",
+          "aspect_ratio",
+          "target_resolution",
+          "safe_zone",
+          "ui_occlusion_zones"
+        ],
+        "properties": {
+          "platform_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "aspect_ratio": {
+            "type": "string"
+          },
+          "target_resolution": {
+            "type": "object",
+            "required": [
+              "width",
+              "height"
+            ],
+            "properties": {
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              }
+            }
+          },
+          "safe_zone": {
+            "type": "object",
+            "required": [
+              "top_px",
+              "bottom_px",
+              "left_px",
+              "right_px"
+            ],
+            "properties": {
+              "top_px": {
+                "type": "integer"
+              },
+              "bottom_px": {
+                "type": "integer"
+              },
+              "left_px": {
+                "type": "integer"
+              },
+              "right_px": {
+                "type": "integer"
+              }
+            }
+          },
+          "ui_occlusion_zones": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "zone_name",
+                "description",
+                "bounding_box"
+              ],
+              "properties": {
+                "zone_name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "bounding_box": {
+                  "type": "object",
+                  "required": [
+                    "x",
+                    "y",
+                    "width",
+                    "height"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "integer"
+                    },
+                    "y": {
+                      "type": "integer"
+                    },
+                    "width": {
+                      "type": "integer"
+                    },
+                    "height": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "adaptation_strategies": {
+      "type": "object",
+      "required": [
+        "vertical_9_16",
+        "square_1_1",
+        "widescreen_16_9"
+      ],
+      "properties": {
+        "vertical_9_16": {
+          "type": "object",
+          "required": [
+            "method",
+            "description"
+          ],
+          "properties": {
+            "method": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "square_1_1": {
+          "type": "object",
+          "required": [
+            "method",
+            "brand_fill_color",
+            "description"
+          ],
+          "properties": {
+            "method": {
+              "type": "string"
+            },
+            "brand_fill_color": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "widescreen_16_9": {
+          "type": "object",
+          "required": [
+            "method",
+            "blur_sigma",
+            "description"
+          ],
+          "properties": {
+            "method": {
+              "type": "string"
+            },
+            "blur_sigma": {
+              "type": "number"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "deliverable_id",
+          "platform_id",
+          "aspect_ratio",
+          "resolution",
+          "guide_overlay_path",
+          "ffmpeg_command"
+        ],
+        "properties": {
+          "deliverable_id": {
+            "type": "string"
+          },
+          "platform_id": {
+            "type": "string"
+          },
+          "aspect_ratio": {
+            "type": "string"
+          },
+          "resolution": {
+            "type": "string"
+          },
+          "guide_overlay_path": {
+            "type": "string"
+          },
+          "ffmpeg_command": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

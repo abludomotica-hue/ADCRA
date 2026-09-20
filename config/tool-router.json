@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "ADCRA Tool Router Matrix",
+  "version": "1.0.0",
+  "description": "Matriz de enrutamiento y selección de herramientas para ADCRA basada en la auditoría real de entorno",
+  "routing_policy": {
+    "evaluation_criteria": [
+      "capacidades_tecnicas",
+      "calidad_render",
+      "velocidad_ejecucion",
+      "determinismo",
+      "coste_computacional",
+      "complejidad_mantenimiento",
+      "reutilizacion_componentes"
+    ],
+    "fallback_rule": "Si la herramienta primaria no se encuentra instalada o falla tras verificación, invocar la alternativa declarada y registrar advertencia en execution_report."
+  },
+  "routes": [
+    {
+      "necesidad": "HTML motion graphics",
+      "herramienta_primaria": "HyperFrames",
+      "alternativa": "Remotion",
+      "criterio_decision": "HyperFrames provee workflows nativos HTML/CSS/JS con exportación optimizada para motion graphics web",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Motion graphics",
+      "herramienta_primaria": "HyperFrames",
+      "alternativa": "Remotion",
+      "criterio_decision": "HyperFrames para animaciones basadas en web/timeline ligero; Remotion si se requiere lógica procedural React",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Video programático React",
+      "herramienta_primaria": "Remotion",
+      "alternativa": "HyperFrames",
+      "criterio_decision": "Remotion ofrece el mejor soporte para árboles de componentes React, props tipadas y parametrización",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Variantes masivas",
+      "herramienta_primaria": "Remotion",
+      "alternativa": "HyperFrames",
+      "criterio_decision": "Remotion batch rendering permite renderizar cientos de versiones localizadas o personalizadas con un solo dataset JSON",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Beat-synced composition",
+      "herramienta_primaria": "HyperFrames",
+      "alternativa": "Remotion",
+      "criterio_decision": "HyperFrames incluye workflow /music-to-video especializado en alineación temporal de cortes con BPM y transiciones rítmicas",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Timeline profesional",
+      "herramienta_primaria": "DaVinci Resolve",
+      "alternativa": "FFmpeg",
+      "criterio_decision": "DaVinci Resolve proporciona timeline multicapa profesional, gestión de pistas complejas y soporte de formatos broadcast",
+      "requiere_gpu": true
+    },
+    {
+      "necesidad": "Color grading",
+      "herramienta_primaria": "DaVinci Resolve",
+      "alternativa": null,
+      "criterio_decision": "DaVinci Resolve es el estándar de la industria en corrección de color (Color page, LUTs, color wheels, scopes GPU)",
+      "requiere_gpu": true
+    },
+    {
+      "necesidad": "Fairlight/audio",
+      "herramienta_primaria": "DaVinci Resolve",
+      "alternativa": "FFmpeg",
+      "criterio_decision": "Fairlight en Resolve para mezcla, EQ y masterización multipista; FFmpeg para normalización y filtros rápidos",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Fusion",
+      "herramienta_primaria": "DaVinci Resolve",
+      "alternativa": null,
+      "criterio_decision": "Compositing avanzado basado en nodos, keying y tracking de video",
+      "requiere_gpu": true
+    },
+    {
+      "necesidad": "Conversión técnica",
+      "herramienta_primaria": "FFmpeg",
+      "alternativa": null,
+      "criterio_decision": "FFmpeg es la herramienta más rápida y determinista para transcodificación, cambio de contenedores y reescalado técnico",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Media probing",
+      "herramienta_primaria": "FFprobe",
+      "alternativa": "DaVinci Resolve",
+      "criterio_decision": "FFprobe extrae metadatos precisos (duración en microsegundos, streams, FPS exacto, sample rate) en milisegundos sin interfaz gráfica",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "QC técnico",
+      "herramienta_primaria": "FFprobe/FFmpeg",
+      "alternativa": "DaVinci Resolve",
+      "criterio_decision": "Detección automatizada de black frames, silent audio, congelamientos y verificación de conformance de entrega",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Render HTML",
+      "herramienta_primaria": "HyperFrames",
+      "alternativa": null,
+      "criterio_decision": "Renderizado headless de escenas web interactivas a secuencias de video",
+      "requiere_gpu": false
+    },
+    {
+      "necesidad": "Render React",
+      "herramienta_primaria": "Remotion",
+      "alternativa": null,
+      "criterio_decision": "Renderizado headless de composiciones React con soporte multi-hilo",
+      "requiere_gpu": false
+    }
+  ]
+}

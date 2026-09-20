@@ -1,0 +1,104 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "timestamp": "2026-09-19T11:08:34.391495+00:00",
+  "overall_score": 100.0,
+  "certification_status": "APPROVED",
+  "audits": {
+    "technical_audit": {
+      "score": 100.0,
+      "status": "PASSED",
+      "checks": [
+        {
+          "check_id": "tech_01_resolution_9_16",
+          "name": "Resolución Vertical 9:16 (720x1280)",
+          "passed": true,
+          "details": "Resolución detectada: 720x1280 (Esperado: 720x1280 vertical)"
+        },
+        {
+          "check_id": "tech_02_framerate_duration",
+          "name": "Velocidad de Cuadro 24.0 fps y 700 Frames (29.167s)",
+          "passed": true,
+          "details": "Framerate: 24.0 fps, Cuadros totales: 700 (Duración: 29.167s)"
+        },
+        {
+          "check_id": "tech_03_ebu_r128_loudness",
+          "name": "Normalización de Audio Broadcast EBU R128",
+          "passed": true,
+          "details": "Sonoridad: -12.7 LUFS (Target: -14.0 LUFS), True Peak: -1.0 dBTP, Sample Rate: 48000 Hz"
+        },
+        {
+          "check_id": "tech_04_timeline_conformance",
+          "name": "Conformación Estándar NLE (CMX 3600 EDL y FCP7 XML)",
+          "passed": true,
+          "details": "Archivos conformados: EDL (True), XML (True)"
+        },
+        {
+          "check_id": "tech_05_master_audio_assets",
+          "name": "Integridad de Archivos Master de Audio",
+          "passed": true,
+          "details": "Master WAV (PCM 24b/48k): True, Master MP3: True"
+        }
+      ]
+    },
+    "creative_audit": {
+      "score": 100.0,
+      "status": "PASSED",
+      "checks": [
+        {
+          "check_id": "creat_01_beat_sync_cuts",
+          "name": "Alineación de Cortes a Transientes Musicales (107.7 BPM)",
+          "passed": true,
+          "details": "Total de tomas montadas: 9, Cortes sincronizados a transientes rítmicos: True"
+        },
+        {
+          "check_id": "creat_02_narrative_progression",
+          "name": "Estructura Narrativa Completa y Justificaciones Estratégicas",
+          "passed": true,
+          "details": "Escenas con justificación cinematográfica: 9/9"
+        },
+        {
+          "check_id": "creat_03_motion_graphics_overlays",
+          "name": "Cinética Tipográfica y Overlays Gráficos 720x1280",
+          "passed": true,
+          "details": "Plantillas cinéticas generadas e hiperframes renderizados: 9/9"
+        },
+        {
+          "check_id": "creat_04_safe_zones_adherence",
+          "name": "Márgenes de Seguridad y Prevención de Oclusiones UI Móvil",
+          "passed": true,
+          "details": "Plataformas móviles y widescreen mapeadas con safe zones: 5"
+        }
+      ]
+    },
+    "brand_audit": {
+      "score": 100.0,
+      "status": "PASSED",
+      "checks": [
+        {
+          "check_id": "brand_01_color_palette_harmony",
+          "name": "Identidad Cromática Oficial (#0D5C3A Verde Mate, #D4AF37 Dorado Yerba)",
+          "passed": true,
+          "details": "Colores institucionales verificados en motion graphics y LUTs 3D"
+        },
+        {
+          "check_id": "brand_02_cinematic_warmth_look",
+          "name": "Temperatura Cálida (~5900K) y LUTs 3D .cube",
+          "passed": true,
+          "details": "Temperatura calibrada: 5900K, LUTs 3D registradas: 3"
+        },
+        {
+          "check_id": "brand_03_official_campaign_claim",
+          "name": "Presencia del Lema Rector '¿Dónde estás tú? Está tu mate'",
+          "passed": true,
+          "details": "Claim publicitario verificado en storyboard: '¿Dónde estás tú? Está tu mate.'"
+        },
+        {
+          "check_id": "brand_04_packshot_hero_closing",
+          "name": "Cierre Hero Packshot con Logotipo en Escena 09",
+          "passed": true,
+          "details": "Remate publicitario de escena final: brand_visibility=hero_packshot"
+        }
+      ]
+    }
+  }
+}

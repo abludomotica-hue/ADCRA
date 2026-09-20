@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRASoundDesignSchema",
+  "description": "Esquema formal para el diseño sonoro, foley, ducking rítmico y masterización EBU R128 en ADCRA",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "audio_format",
+    "loudness_compliance",
+    "tracks",
+    "master_outputs"
+  ],
+  "properties": {
+    "campaign_id": { "type": "string" },
+    "audio_format": {
+      "type": "object",
+      "required": ["sample_rate_hz", "bit_depth", "channels", "duration_seconds"],
+      "properties": {
+        "sample_rate_hz": { "type": "integer", "enum": [44100, 48000, 96000] },
+        "bit_depth": { "type": "integer", "enum": [16, 24, 32] },
+        "channels": { "type": "integer", "enum": [1, 2] },
+        "duration_seconds": { "type": "number", "minimum": 0.1 }
+      }
+    },
+    "loudness_compliance": {
+      "type": "object",
+      "required": [
+        "standard",
+        "target_integrated_lufs",
+        "measured_integrated_lufs",
+        "target_true_peak_dbtp",
+        "measured_true_peak_dbtp",
+        "loudness_range_lu"
+      ],
+      "properties": {
+        "standard": { "type": "string" },
+        "target_integrated_lufs": { "type": "number" },
+        "measured_integrated_lufs": { "type": "number", "minimum": -20.0, "maximum": -10.0 },
+        "target_true_peak_dbtp": { "type": "number" },
+        "measured_true_peak_dbtp": { "type": "number", "maximum": -0.8 },
+        "loudness_range_lu": { "type": "number", "minimum": 1.0, "maximum": 20.0 }
+      }
+    },
+    "tracks": {
+      "type": "object",
+      "required": ["bgm_track", "sfx_foley_track"],
+      "properties": {
+        "bgm_track": {
+          "type": "object",
+          "required": ["file_path", "base_level_db", "ducking_events_count"],
+          "properties": {
+            "file_path": { "type": "string" },
+            "base_level_db": { "type": "number" },
+            "ducking_events_count": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "sfx_foley_track": {
+          "type": "object",
+          "required": ["total_cues", "cues"],
+          "properties": {
+            "total_cues": { "type": "integer", "minimum": 1 },
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "cue_id",
+                  "scene_id",
+                  "name",
+                  "start_seconds",
+                  "duration_seconds",
+                  "gain_db",
+                  "ducking_trigger_db",
+                  "description"
+                ],
+                "properties": {
+                  "cue_id": { "type": "string" },
+                  "scene_id": { "type": "string" },
+                  "name": { "type": "string" },
+                  "start_seconds": { "type": "number", "minimum": 0.0 },
+                  "duration_seconds": { "type": "number", "minimum": 0.1 },
+                  "gain_db": { "type": "number" },
+                  "ducking_trigger_db": { "type": "number" },
+                  "description": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "master_outputs": {
+      "type": "object",
+      "required": ["wav_master_path", "mp3_delivery_path"],
+      "properties": {
+        "wav_master_path": { "type": "string" },
+        "mp3_delivery_path": { "type": "string" }
+      }
+    }
+  }
+}

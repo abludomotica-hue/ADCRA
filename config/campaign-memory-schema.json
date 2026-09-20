@@ -1,0 +1,199 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BrandCampaignMemoryProfile",
+  "description": "Contrato formal para el sistema de memoria y aprendizaje acumulado de marca cross-campaign de Locos Materos.",
+  "type": "object",
+  "required": [
+    "brand_id",
+    "brand_name",
+    "last_updated",
+    "historical_campaigns",
+    "aesthetic_learnings",
+    "musical_tempo_learnings",
+    "editing_rhythm_learnings",
+    "audience_profile",
+    "retention_rules"
+  ],
+  "properties": {
+    "brand_id": {
+      "type": "string"
+    },
+    "brand_name": {
+      "type": "string"
+    },
+    "last_updated": {
+      "type": "string"
+    },
+    "historical_campaigns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "campaign_id",
+          "name",
+          "concept",
+          "quality_score",
+          "certification_status"
+        ],
+        "properties": {
+          "campaign_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "concept": {
+            "type": "string"
+          },
+          "quality_score": {
+            "type": "number"
+          },
+          "certification_status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "aesthetic_learnings": {
+      "type": "object",
+      "required": [
+        "primary_palette",
+        "color_temperature_target_kelvin",
+        "recommended_luts",
+        "lighting_preference"
+      ],
+      "properties": {
+        "primary_palette": {
+          "type": "object",
+          "required": [
+            "primary_green",
+            "golden_highlight",
+            "neutral_dark"
+          ],
+          "properties": {
+            "primary_green": {
+              "type": "string"
+            },
+            "golden_highlight": {
+              "type": "string"
+            },
+            "neutral_dark": {
+              "type": "string"
+            }
+          }
+        },
+        "color_temperature_target_kelvin": {
+          "type": "integer"
+        },
+        "recommended_luts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lighting_preference": {
+          "type": "string"
+        }
+      }
+    },
+    "musical_tempo_learnings": {
+      "type": "object",
+      "required": [
+        "optimal_bpm_range",
+        "last_successful_bpm",
+        "meter",
+        "rhythmic_sync_rule"
+      ],
+      "properties": {
+        "optimal_bpm_range": {
+          "type": "object",
+          "required": [
+            "min",
+            "max"
+          ],
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            }
+          }
+        },
+        "last_successful_bpm": {
+          "type": "number"
+        },
+        "meter": {
+          "type": "string"
+        },
+        "rhythmic_sync_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "editing_rhythm_learnings": {
+      "type": "object",
+      "required": [
+        "target_commercial_duration_sec",
+        "scene_count",
+        "average_scene_duration_sec",
+        "cut_pacing_strategy"
+      ],
+      "properties": {
+        "target_commercial_duration_sec": {
+          "type": "number"
+        },
+        "scene_count": {
+          "type": "integer"
+        },
+        "average_scene_duration_sec": {
+          "type": "number"
+        },
+        "cut_pacing_strategy": {
+          "type": "string"
+        }
+      }
+    },
+    "audience_profile": {
+      "type": "object",
+      "required": [
+        "target_demographic",
+        "psychographic",
+        "geographic_context"
+      ],
+      "properties": {
+        "target_demographic": {
+          "type": "string"
+        },
+        "psychographic": {
+          "type": "string"
+        },
+        "geographic_context": {
+          "type": "string"
+        }
+      }
+    },
+    "retention_rules": {
+      "type": "object",
+      "required": [
+        "mandatory_rules",
+        "prohibited_patterns"
+      ],
+      "properties": {
+        "mandatory_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "prohibited_patterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRACreativeCopySchema",
+  "description": "Esquema formal para la generación, evaluación y selección de copy publicitario multivariante en ADCRA",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "scene_copies",
+    "overall_narrative_thread"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "overall_narrative_thread": {
+      "type": "string",
+      "description": "Hilo conductor narrativo que une todos los copys de la campaña"
+    },
+    "scene_copies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "context_inputs",
+          "alternatives",
+          "selected_variant",
+          "selection_rationale"
+        ],
+        "properties": {
+          "scene_id": {
+            "type": "string"
+          },
+          "context_inputs": {
+            "type": "object",
+            "required": [
+              "visual_description",
+              "music_cue",
+              "lyric_reference",
+              "emotion_target",
+              "objective",
+              "audience_target",
+              "brand_tone",
+              "previous_scene_copy",
+              "next_scene_copy"
+            ],
+            "properties": {
+              "visual_description": { "type": "string" },
+              "music_cue": { "type": "string" },
+              "lyric_reference": { "type": "string" },
+              "emotion_target": { "type": "string" },
+              "objective": { "type": "string" },
+              "audience_target": { "type": "string" },
+              "brand_tone": { "type": "string" },
+              "previous_scene_copy": { "type": "string" },
+              "next_scene_copy": { "type": "string" }
+            }
+          },
+          "alternatives": {
+            "type": "object",
+            "required": [
+              "emocional",
+              "publicitaria",
+              "conversacional",
+              "minimalista",
+              "identidad_de_marca"
+            ],
+            "properties": {
+              "emocional": {
+                "type": "object",
+                "required": ["text", "emotional_impact_score"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "emotional_impact_score": { "type": "number", "minimum": 0, "maximum": 10 }
+                }
+              },
+              "publicitaria": {
+                "type": "object",
+                "required": ["text", "call_to_action_score"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "call_to_action_score": { "type": "number", "minimum": 0, "maximum": 10 }
+                }
+              },
+              "conversacional": {
+                "type": "object",
+                "required": ["text", "naturalness_score"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "naturalness_score": { "type": "number", "minimum": 0, "maximum": 10 }
+                }
+              },
+              "minimalista": {
+                "type": "object",
+                "required": ["text", "word_count"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "word_count": { "type": "integer" }
+                }
+              },
+              "identidad_de_marca": {
+                "type": "object",
+                "required": ["text", "brand_alignment_score"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "brand_alignment_score": { "type": "number", "minimum": 0, "maximum": 10 }
+                }
+              }
+            }
+          },
+          "selected_variant": {
+            "type": "string",
+            "enum": [
+              "emocional",
+              "publicitaria",
+              "conversacional",
+              "minimalista",
+              "identidad_de_marca"
+            ]
+          },
+          "selected_text": {
+            "type": "string",
+            "description": "Texto final elegido para desplegarse en pantalla"
+          },
+          "selection_rationale": {
+            "type": "string",
+            "description": "Explicación de por qué esta variante supera a las otras cuatro en el contexto de la escena"
+          }
+        }
+      }
+    }
+  }
+}

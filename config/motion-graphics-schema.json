@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRAMotionGraphicsSchema",
+  "description": "Esquema formal para el diseño, composición y renderizado de motion graphics y cinética tipográfica en ADCRA",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "format",
+    "brand_palette",
+    "safe_zones",
+    "overlays"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "format": {
+      "type": "object",
+      "required": ["aspect_ratio", "width", "height", "fps"],
+      "properties": {
+        "aspect_ratio": { "type": "string", "enum": ["9:16", "1:1", "16:9"] },
+        "width": { "type": "integer", "minimum": 360 },
+        "height": { "type": "integer", "minimum": 640 },
+        "fps": { "type": "number", "minimum": 12.0 }
+      }
+    },
+    "brand_palette": {
+      "type": "object",
+      "required": ["primary", "accent", "background", "text_light", "text_dark"],
+      "properties": {
+        "primary": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "background": { "type": "string" },
+        "text_light": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "text_dark": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+      }
+    },
+    "safe_zones": {
+      "type": "object",
+      "required": ["top_px", "bottom_px", "left_px", "right_px"],
+      "properties": {
+        "top_px": { "type": "integer", "minimum": 0 },
+        "bottom_px": { "type": "integer", "minimum": 0 },
+        "left_px": { "type": "integer", "minimum": 0 },
+        "right_px": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "overlays": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "start_seconds",
+          "end_seconds",
+          "duration_seconds",
+          "animation_style",
+          "text_content",
+          "html_template_path",
+          "render_status"
+        ],
+        "properties": {
+          "scene_id": { "type": "string" },
+          "start_seconds": { "type": "number", "minimum": 0.0 },
+          "end_seconds": { "type": "number", "minimum": 0.0 },
+          "duration_seconds": { "type": "number", "minimum": 0.1 },
+          "animation_style": {
+            "type": "string",
+            "enum": [
+              "fade_in_word_by_word",
+              "slide_up_reveal",
+              "lower_third_pill",
+              "kinetic_stomp",
+              "hero_packshot_reveal"
+            ]
+          },
+          "text_content": { "type": "string", "minLength": 1 },
+          "font_family": { "type": "string" },
+          "font_size_px": { "type": "integer", "minimum": 12 },
+          "html_template_path": { "type": "string" },
+          "render_status": {
+            "type": "string",
+            "enum": ["generated", "validated", "rendered"]
+          },
+          "output_asset_path": { "type": "string" }
+        }
+      }
+    }
+  }
+}

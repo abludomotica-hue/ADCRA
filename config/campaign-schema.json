@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRACampaignSchema",
+  "description": "Esquema formal para la definición y manifest de campañas publicitarias en ADCRA",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "campaign_name",
+    "version",
+    "client",
+    "strategic_brief",
+    "deliverables",
+    "workflow_status"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+$"
+    },
+    "campaign_name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "client": {
+      "type": "object",
+      "required": ["name", "industry", "brand_values"],
+      "properties": {
+        "name": { "type": "string" },
+        "industry": { "type": "string" },
+        "brand_values": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "brand_profile_ref": { "type": "string" },
+        "visual_identity_ref": { "type": "string" }
+      }
+    },
+    "strategic_brief": {
+      "type": "object",
+      "required": ["objective", "target_audience", "core_message", "requirements"],
+      "properties": {
+        "objective": {
+          "type": "string",
+          "enum": ["awareness", "engagement", "conversion", "retention", "brand_repositioning", "product_launch"]
+        },
+        "target_audience": {
+          "type": "object",
+          "required": ["demographic", "psychographic", "context"],
+          "properties": {
+            "demographic": { "type": "string" },
+            "psychographic": { "type": "string" },
+            "context": { "type": "string" }
+          }
+        },
+        "core_message": { "type": "string" },
+        "tone_of_voice": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "requirements": {
+          "type": "array",
+          "description": "Lista de requisitos categorizados estrictamente según su naturaleza epistemológica",
+          "items": {
+            "type": "object",
+            "required": ["id", "type", "description", "origin"],
+            "properties": {
+              "id": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "USER_REQUIREMENT",
+                  "CLIENT_REQUIREMENT",
+                  "CREATIVE_RECOMMENDATION",
+                  "TECHNICAL_REQUIREMENT",
+                  "AGENT_ASSUMPTION"
+                ]
+              },
+              "description": { "type": "string" },
+              "origin": { "type": "string" },
+              "is_mandatory": { "type": "boolean" },
+              "validation_status": {
+                "type": "string",
+                "enum": ["pending", "verified", "rejected"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["format_id", "aspect_ratio", "target_channels", "duration_target_seconds"],
+        "properties": {
+          "format_id": { "type": "string" },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": ["9:16", "16:9", "1:1", "4:5"]
+          },
+          "resolution": {
+            "type": "object",
+            "required": ["width", "height"],
+            "properties": {
+              "width": { "type": "integer" },
+              "height": { "type": "integer" }
+            }
+          },
+          "fps": { "type": "number" },
+          "target_channels": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "duration_target_seconds": { "type": "number" }
+        }
+      }
+    },
+    "workflow_status": {
+      "type": "object",
+      "required": ["current_phase", "iteration_count", "max_iterations"],
+      "properties": {
+        "current_phase": { "type": "string" },
+        "iteration_count": { "type": "integer", "default": 0 },
+        "max_iterations": { "type": "integer", "default": 3 },
+        "is_approved": { "type": "boolean", "default": false }
+      }
+    }
+  }
+}

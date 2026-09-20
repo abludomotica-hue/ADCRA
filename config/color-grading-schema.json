@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRAColorGradingSchema",
+  "description": "Esquema formal para la identidad cromática, LUTs 3D y ajustes de color grading escena por escena en ADCRA",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "color_science",
+    "brand_color_harmony",
+    "luts_registered",
+    "scene_grades"
+  ],
+  "properties": {
+    "campaign_id": { "type": "string" },
+    "color_science": {
+      "type": "object",
+      "required": ["color_space", "gamma", "target_display"],
+      "properties": {
+        "color_space": { "type": "string" },
+        "gamma": { "type": "string" },
+        "target_display": { "type": "string" }
+      }
+    },
+    "brand_color_harmony": {
+      "type": "object",
+      "required": [
+        "primary_green",
+        "golden_highlight",
+        "deep_neutral_black",
+        "color_temperature_target_kelvin"
+      ],
+      "properties": {
+        "primary_green": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "golden_highlight": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "deep_neutral_black": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "color_temperature_target_kelvin": { "type": "integer", "minimum": 3000, "maximum": 9000 }
+      }
+    },
+    "luts_registered": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["lut_name", "lut_path", "lut_type", "grid_size", "description"],
+        "properties": {
+          "lut_name": { "type": "string" },
+          "lut_path": { "type": "string" },
+          "lut_type": { "type": "string", "enum": ["3D", "1D"] },
+          "grid_size": { "type": "integer", "enum": [17, 33, 65] },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "scene_grades": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "base_lut",
+          "exposure_offset_ev",
+          "contrast",
+          "color_temperature_k",
+          "saturation",
+          "lift",
+          "gamma",
+          "gain",
+          "intent_rationale"
+        ],
+        "properties": {
+          "scene_id": { "type": "string" },
+          "base_lut": { "type": "string" },
+          "exposure_offset_ev": { "type": "number", "minimum": -2.0, "maximum": 2.0 },
+          "contrast": { "type": "number", "minimum": 0.8, "maximum": 1.5 },
+          "color_temperature_k": { "type": "integer", "minimum": 3000, "maximum": 8000 },
+          "tint": { "type": "number", "minimum": -20.0, "maximum": 20.0 },
+          "saturation": { "type": "number", "minimum": 0.5, "maximum": 1.8 },
+          "lift": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "gamma": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "gain": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "intent_rationale": { "type": "string", "minLength": 20 }
+        }
+      }
+    }
+  }
+}

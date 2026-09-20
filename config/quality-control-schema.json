@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QualityControlReport",
+  "description": "Contrato formal para el informe de auditoría tricameral (Técnica, Creativa, Marca) y certificación de calidad de campaña de Locos Materos.",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "timestamp",
+    "overall_score",
+    "certification_status",
+    "audits"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "overall_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 100.0
+    },
+    "certification_status": {
+      "type": "string",
+      "enum": [
+        "APPROVED",
+        "NEEDS_REVISION",
+        "REJECTED"
+      ]
+    },
+    "audits": {
+      "type": "object",
+      "required": [
+        "technical_audit",
+        "creative_audit",
+        "brand_audit"
+      ],
+      "properties": {
+        "technical_audit": {
+          "type": "object",
+          "required": [
+            "score",
+            "status",
+            "checks"
+          ],
+          "properties": {
+            "score": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 100.0
+            },
+            "status": {
+              "type": "string"
+            },
+            "checks": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "object",
+                "required": [
+                  "check_id",
+                  "name",
+                  "passed",
+                  "details"
+                ],
+                "properties": {
+                  "check_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "passed": {
+                    "type": "boolean"
+                  },
+                  "details": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "creative_audit": {
+          "type": "object",
+          "required": [
+            "score",
+            "status",
+            "checks"
+          ],
+          "properties": {
+            "score": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 100.0
+            },
+            "status": {
+              "type": "string"
+            },
+            "checks": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "object",
+                "required": [
+                  "check_id",
+                  "name",
+                  "passed",
+                  "details"
+                ],
+                "properties": {
+                  "check_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "passed": {
+                    "type": "boolean"
+                  },
+                  "details": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "brand_audit": {
+          "type": "object",
+          "required": [
+            "score",
+            "status",
+            "checks"
+          ],
+          "properties": {
+            "score": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 100.0
+            },
+            "status": {
+              "type": "string"
+            },
+            "checks": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "object",
+                "required": [
+                  "check_id",
+                  "name",
+                  "passed",
+                  "details"
+                ],
+                "properties": {
+                  "check_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "passed": {
+                    "type": "boolean"
+                  },
+                  "details": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

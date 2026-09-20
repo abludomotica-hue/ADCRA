@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IterationEngineHistoryLog",
+  "description": "Contrato formal para el registro histórico del motor de iteración y ciclo cerrado de retroalimentación de ADCRA.",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "max_allowed_iterations",
+    "total_iterations_run",
+    "final_decision",
+    "iteration_log"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "max_allowed_iterations": {
+      "type": "integer",
+      "maximum": 3
+    },
+    "total_iterations_run": {
+      "type": "integer",
+      "maximum": 3
+    },
+    "final_decision": {
+      "type": "string",
+      "enum": [
+        "APPROVED",
+        "ESCALATED_TO_HUMAN",
+        "REJECTED"
+      ]
+    },
+    "iteration_log": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "iteration_index",
+          "timestamp",
+          "trigger",
+          "initial_score",
+          "issues_identified",
+          "actions_taken",
+          "post_score",
+          "post_status"
+        ],
+        "properties": {
+          "iteration_index": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          },
+          "initial_score": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          "issues_identified": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actions_taken": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "post_score": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          "post_status": {
+            "type": "string",
+            "enum": [
+              "APPROVED",
+              "NEEDS_REVISION",
+              "REJECTED",
+              "ESCALATED_TO_HUMAN"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

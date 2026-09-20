@@ -1,0 +1,38 @@
+TITLE: LOCOS_MATEROS_COMMERCIAL
+FCM: NON-DROP FRAME
+
+001  AX01     V     C        00:00:00:00 00:00:03:12 00:00:00:00 00:00:03:12
+* FROM CLIP NAME: Escena 01 Ya está sonando el hervidor.mp4
+* SCENE: scene_01
+
+002  AX02     V     C        00:00:00:00 00:00:03:07 00:00:03:12 00:00:06:19
+* FROM CLIP NAME: Escena 02 Macro de yerba y bombilla.mp4
+* SCENE: scene_02
+
+003  AX03     V     C        00:00:00:00 00:00:03:10 00:00:06:19 00:00:10:05
+* FROM CLIP NAME: Escena 03 El sol asoma en la cordillera.mp4
+* SCENE: scene_03
+
+004  AX04     V     C        00:00:00:00 00:00:03:07 00:00:10:05 00:00:13:12
+* FROM CLIP NAME: Escena 04 Cebando arranca todo Chile.mp4
+* SCENE: scene_04
+
+005  AX05     V     C        00:00:00:00 00:00:03:07 00:00:13:12 00:00:16:19
+* FROM CLIP NAME: Escena 05 Caminando por el barrio..mp4
+* SCENE: scene_05
+
+006  AX06     V     C        00:00:00:00 00:00:03:05 00:00:16:19 00:00:20:00
+* FROM CLIP NAME: Escena 06 Transición trabajohogar..mp4
+* SCENE: scene_06
+
+007  AX07     V     C        00:00:00:00 00:00:03:05 00:00:20:00 00:00:23:05
+* FROM CLIP NAME: Escena 07 Estudiantes en la universidad..mp4
+* SCENE: scene_07
+
+008  AX08     V     C        00:00:00:00 00:00:02:19 00:00:23:05 00:00:26:00
+* FROM CLIP NAME: Escena 08 Primer plano de mate y sorbo..mp4
+* SCENE: scene_08
+
+009  AX09     V     C        00:00:00:00 00:00:03:04 00:00:26:00 00:00:29:04
+* FROM CLIP NAME: Escena 09 Dónde estás tú.mp4
+* SCENE: scene_09

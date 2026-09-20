@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADCRA — Campaign Intake Studio</title>
+  <meta name="description" content="Sistema inteligente de onboarding, briefing y preparación de campañas publicitarias de ADCRA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="intake.css">
+</head>
+<body class="intake-body dark-theme">
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-green"></div>
+  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-blue"></div>
+
+  <!-- Studio Top Navigation Header -->
+  <header class="intake-header" id="intakeHeader">
+    <div class="header-left">
+      <a href="/" class="btn-back-nav" title="Volver al Dashboard Mission Control">
+        <span class="btn-icon">←</span> Dashboard
+      </a>
+      <div class="intake-brand">
+        <div class="brand-badge">⚡ ADCRA</div>
+        <div class="brand-text">
+          <span class="studio-title">Campaign Intake Studio</span>
+          <span class="studio-sub">Sistema Agéntico de Briefing & Preparación</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="mode-selector-pill" id="clientModeSelector">
+        <button class="mode-btn active" id="btnModeNewClient" data-mode="NEW_CLIENT">
+          <span class="mode-icon">✦</span> Nuevo Cliente
+        </button>
+        <button class="mode-btn" id="btnModeExistingClient" data-mode="EXISTING_CLIENT">
+          <span class="mode-icon">🏛️</span> Cliente Existente
+        </button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="autosave-status autosave-badge" id="autosaveBadge">
+        <span class="autosave-dot"></span>
+        <span class="autosave-text" id="autosaveText">Guardado automático</span>
+      </div>
+      <button class="btn btn-secondary btn-sm" id="btnResetDraft" title="Reiniciar borrador actual">
+        Reiniciar
+      </button>
+      <button class="btn btn-primary btn-sm" id="btnPreflightHeader" title="Ejecutar diagnóstico pre-flight">
+        <span class="btn-icon">🛡️</span> Readiness Check
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Three-Zone Spatial Layout -->
+  <div class="intake-app-container">
+
+    <!-- ZONE 1: CAMPAIGN PROGRESS (SIDEBAR) -->
+    <aside class="sidebar-progress campaign-progress" id="sidebarProgress">
+      <div class="progress-header">
+        <div class="progress-title-row">
+          <span class="progress-title">Progreso del Intake</span>
+          <span class="progress-count" id="progressStepCount">1 / 17</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressBarFill" style="width: 6%;"></div>
+        </div>
+      </div>
+
+      <!-- 17 Sequential Campaign Steps -->
+      <nav class="steps-nav" id="stepsNav">
+        <div class="step-item active" data-step="1" id="stepItem1">
+          <div class="step-number">01</div>
+          <div class="step-info">
+            <span class="step-name">Cliente</span>
+            <span class="step-sub">Identidad y canales</span>
+          </div>
+          <span class="step-status status-ready" id="stepBadge1">READY</span>
+        </div>
+
+        <div class="step-item" data-step="2" id="stepItem2">
+          <div class="step-number">02</div>
+          <div class="step-info">
+            <span class="step-name">Objetivo</span>
+            <span class="step-sub">Meta comercial</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge2">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="3" id="stepItem3">
+          <div class="step-number">03</div>
+          <div class="step-info">
+            <span class="step-name">Audiencia</span>
+            <span class="step-sub">Segmentación tripartita</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge3">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="4" id="stepItem4">
+          <div class="step-number">04</div>
+          <div class="step-info">
+            <span class="step-name">Marca</span>
+            <span class="step-sub">Valores y paleta HEX</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge4">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="5" id="stepItem5">
+          <div class="step-number">05</div>
+          <div class="step-info">
+            <span class="step-name">Producto</span>
+            <span class="step-sub">Beneficios y claims</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge5">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="6" id="stepItem6">
+          <div class="step-number">06</div>
+          <div class="step-info">
+            <span class="step-name">Oferta</span>
+            <span class="step-sub">Comercial o Branding</span>
+          </div>
+          <span class="step-status status-optional" id="stepBadge6">OPTIONAL</span>
+        </div>
+
+        <div class="step-item" data-step="7" id="stepItem7">
+          <div class="step-number">07</div>
+          <div class="step-info">
+            <span class="step-name">Creatividad</span>
+            <span class="step-sub">Emociones y enfoque</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge7">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="8" id="stepItem8">
+          <div class="step-number">08</div>
+          <div class="step-info">
+            <span class="step-name">Audio</span>
+            <span class="step-sub">Música, BPM y letra</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge8">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="9" id="stepItem9">
+          <div class="step-number">09</div>
+          <div class="step-info">
+            <span class="step-name">Video Assets</span>
+            <span class="step-sub">Metraje crudo y calidad</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge9">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="10" id="stepItem10">
+          <div class="step-number">10</div>
+          <div class="step-info">
+            <span class="step-name">Referencias</span>
+            <span class="step-sub">Moodboard e inspiración</span>
+          </div>
+          <span class="step-status status-optional" id="stepBadge10">OPTIONAL</span>
+        </div>
+
+        <div class="step-item" data-step="11" id="stepItem11">
+          <div class="step-number">11</div>
+          <div class="step-info">
+            <span class="step-name">Canales</span>
+            <span class="step-sub">TikTok, Reels, Shorts</span>
+          </div>
+          <span class="step-status status-ready" id="stepBadge11">READY</span>
+        </div>
+
+        <div class="step-item" data-step="12" id="stepItem12">
+          <div class="step-number">12</div>
+          <div class="step-info">
+            <span class="step-name">Duración</span>
+            <span class="step-sub">15s, 30s o sugerida</span>
+          </div>
+          <span class="step-status status-ready" id="stepBadge12">READY</span>
+        </div>
+
+        <div class="step-item" data-step="13" id="stepItem13">
+          <div class="step-number">13</div>
+          <div class="step-info">
+            <span class="step-name">CTA</span>
+            <span class="step-sub">Llamado a la acción</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge13">MISSING</span>
+        </div>
+
+        <div class="step-item" data-step="14" id="stepItem14">
+          <div class="step-number">14</div>
+          <div class="step-info">
+            <span class="step-name">Restricciones</span>
+            <span class="step-sub">Brand safety y legal</span>
+          </div>
+          <span class="step-status status-optional" id="stepBadge14">OPTIONAL</span>
+        </div>
+
+        <div class="step-item" data-step="15" id="stepItem15">
+          <div class="step-number">15</div>
+          <div class="step-info">
+            <span class="step-name">Presupuesto</span>
+            <span class="step-sub">Medios e IA (opcional)</span>
+          </div>
+          <span class="step-status status-optional" id="stepBadge15">OPTIONAL</span>
+        </div>
+
+        <div class="step-item" data-step="16" id="stepItem16">
+          <div class="step-number">16</div>
+          <div class="step-info">
+            <span class="step-name">Automatización</span>
+            <span class="step-sub">Nivel de autonomía IA</span>
+          </div>
+          <span class="step-status status-ready" id="stepBadge16">READY</span>
+        </div>
+
+        <div class="step-item" data-step="17" id="stepItem17">
+          <div class="step-number">17</div>
+          <div class="step-info">
+            <span class="step-name">Aprobación</span>
+            <span class="step-sub">Puntos de control y Readiness</span>
+          </div>
+          <span class="step-status status-missing" id="stepBadge17">MISSING</span>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ZONE 2: MAIN WORKSPACE -->
+    <main class="main-workspace" id="mainWorkspace">
+      <!-- Workspace Header (Dynamic) -->
+      <div class="workspace-header glass-panel">
+        <div class="step-indicator-row">
+          <span class="step-tag" id="currentStepTag">Paso 01 de 17</span>
+          <span class="step-category-pill" id="currentCategoryPill">CLIENTE</span>
+        </div>
+        <h1 class="workspace-title" id="currentStepTitle">Identificación y Perfil del Cliente</h1>
+        <p class="workspace-desc" id="currentStepDesc">Define los datos fundamentales de la marca, enlaces web y canales oficiales para iniciar la inferencia agéntica de identidad.</p>
+      </div>
+
+      <!-- Step Content Dynamic Container -->
+      <div class="step-content-area" id="stepContentArea">
+        <!-- Contenido dinámico inyectado por intake.js según el paso activo -->
+      </div>
+
+      <!-- Workspace Footer Navigation -->
+      <footer class="workspace-footer glass-panel">
+        <button class="btn btn-secondary" id="btnStepPrev" disabled>
+          <span class="btn-icon">←</span> Anterior
+        </button>
+        <div class="footer-center-info">
+          <span class="info-tag" id="footerStepIndicator">Paso 1: Cliente</span>
+        </div>
+        <button class="btn btn-primary" id="btnStepNext">
+          Siguiente <span class="btn-icon">→</span>
+        </button>
+      </footer>
+    </main>
+
+  </div>
+
+  <!-- ZONE 3: AI CAMPAIGN ASSISTANT (CONTEXTUAL BOTTOM BAR) -->
+  <aside class="ai-assistant-bar glass-panel" id="aiAssistantBar">
+    <div class="assistant-lead">
+      <div class="assistant-avatar">
+        <span class="avatar-sparkle">✦</span>
+      </div>
+      <div class="assistant-label">
+        <span class="assistant-title">AI Campaign Assistant</span>
+        <span class="assistant-badge" id="assistantBadgeStatus">MONITORING</span>
+      </div>
+    </div>
+
+    <div class="assistant-message-box" id="assistantMessageBox">
+      <p class="assistant-text" id="assistantText">
+        Bienvenido al Campaign Intake Studio. Introduce el nombre de la marca o la URL de su sitio web para que ADCRA comience a inferir colores, tono y propuesta de valor automáticamente.
+      </p>
+    </div>
+
+    <div class="assistant-actions" id="assistantActions">
+      <button class="btn btn-secondary btn-sm" id="btnAssistantAction1" style="display: none;">
+        Acción Rápida
+      </button>
+      <button class="btn btn-secondary btn-sm" id="btnToggleAssistantDrawer" title="Ver diagnóstico detallado">
+        <span class="btn-icon">▲</span> Diagnóstico
+      </button>
+    </div>
+  </aside>
+
+  <!-- Diagnostic Drawer Overlay (Expandable) -->
+  <div class="diagnostic-drawer glass-panel" id="diagnosticDrawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Diagnóstico Agéntico en Tiempo Real</h3>
+      <button class="btn-close" id="btnCloseDrawer">&times;</button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <div class="diagnostic-stat-row">
+        <div class="diag-stat">
+          <span class="stat-num text-emerald" id="diagCountReady">1</span>
+          <span class="stat-label">Completados</span>
+        </div>
+        <div class="diag-stat">
+          <span class="stat-num text-gold" id="diagCountWarnings">0</span>
+          <span class="stat-label">Advertencias</span>
+        </div>
+        <div class="diag-stat">
+          <span class="stat-num text-rose" id="diagCountBlockers">1</span>
+          <span class="stat-label">Bloqueantes</span>
+        </div>
+      </div>
+      <div class="diag-issues-list" id="diagIssuesList">
+        <!-- Lista de issues detectados por el asistente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript App -->
+  <script src="intake.js"></script>
+</body>
+</html>

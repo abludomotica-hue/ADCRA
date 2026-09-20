@@ -1,0 +1,415 @@
+{
+  "song_title": "Entre mates y sol",
+  "audio_reference": "Recursos/Audios/Entre_mates_y_sol.mp3",
+  "target_duration_seconds": 29.187,
+  "total_scenes": 9,
+  "thematic_arc": "Intimidad matutina -> Identidad andina -> Movimiento y trabajo -> Comunidad y cierre de marca",
+  "thematic_categories_present": [
+    "BRAND_CORE",
+    "COMMUNITY_MOVEMENT",
+    "NATURAL_IDENTITY",
+    "RITUAL_START",
+    "SENSORY_CLOSENESS",
+    "WORK_AND_STUDY"
+  ],
+  "alignment": [
+    {
+      "phrase_id": "lyric_01",
+      "scene_number": 1,
+      "lyric_text": "Ya está sonando el hervidor",
+      "thematic_category": "RITUAL_START",
+      "emotional_tone": "Intimidad, despertar y calidez de hogar",
+      "timeline_segment": {
+        "start": 0.0,
+        "end": 3.5,
+        "duration": 3.5
+      },
+      "video_asset": {
+        "filename": "Escena 01 Ya está sonando el hervidor.mp4",
+        "relative_path": "Recursos/videos/Escena 01 Ya está sonando el hervidor.mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Cocina chilena al amanecer, plano medio del hervidor humeando bajo la luz dorada",
+      "keywords": [
+        "hervidor",
+        "sonando",
+        "amanecer"
+      ],
+      "word_timings": [
+        {
+          "word": "Ya",
+          "approx_timestamp": 0.0
+        },
+        {
+          "word": "está",
+          "approx_timestamp": 0.7
+        },
+        {
+          "word": "sonando",
+          "approx_timestamp": 1.4
+        },
+        {
+          "word": "el",
+          "approx_timestamp": 2.1
+        },
+        {
+          "word": "hervidor",
+          "approx_timestamp": 2.8
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_02",
+      "scene_number": 2,
+      "lyric_text": "Macro de yerba y bombilla",
+      "thematic_category": "SENSORY_CLOSENESS",
+      "emotional_tone": "Textura artesanal, detalle botánico y concentración",
+      "timeline_segment": {
+        "start": 3.5,
+        "end": 6.8,
+        "duration": 3.3
+      },
+      "video_asset": {
+        "filename": "Escena 02 Macro de yerba y bombilla.mp4",
+        "relative_path": "Recursos/videos/Escena 02 Macro de yerba y bombilla.mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Macro 85mm con poca profundidad de campo de la yerba verde y bombilla de acero",
+      "keywords": [
+        "yerba",
+        "bombilla",
+        "mate"
+      ],
+      "word_timings": [
+        {
+          "word": "Macro",
+          "approx_timestamp": 3.5
+        },
+        {
+          "word": "de",
+          "approx_timestamp": 4.16
+        },
+        {
+          "word": "yerba",
+          "approx_timestamp": 4.82
+        },
+        {
+          "word": "y",
+          "approx_timestamp": 5.48
+        },
+        {
+          "word": "bombilla",
+          "approx_timestamp": 6.14
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_03",
+      "scene_number": 3,
+      "lyric_text": "El sol asoma en la cordillera",
+      "thematic_category": "NATURAL_IDENTITY",
+      "emotional_tone": "Grandeza paisajística y despertar territorial",
+      "timeline_segment": {
+        "start": 6.8,
+        "end": 10.2,
+        "duration": 3.4
+      },
+      "video_asset": {
+        "filename": "Escena 03 El sol asoma en la cordillera.mp4",
+        "relative_path": "Recursos/videos/Escena 03 El sol asoma en la cordillera.mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Plano general 24mm de la Cordillera de los Andes bañada en luz dorada matutina",
+      "keywords": [
+        "sol",
+        "cordillera",
+        "Andes"
+      ],
+      "word_timings": [
+        {
+          "word": "El",
+          "approx_timestamp": 6.8
+        },
+        {
+          "word": "sol",
+          "approx_timestamp": 7.367
+        },
+        {
+          "word": "asoma",
+          "approx_timestamp": 7.933
+        },
+        {
+          "word": "en",
+          "approx_timestamp": 8.5
+        },
+        {
+          "word": "la",
+          "approx_timestamp": 9.067
+        },
+        {
+          "word": "cordillera",
+          "approx_timestamp": 9.633
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_04",
+      "scene_number": 4,
+      "lyric_text": "Cebando arranca todo Chile",
+      "thematic_category": "COMMUNITY_MOVEMENT",
+      "emotional_tone": "Energía colectiva, impulso y sincronía nacional",
+      "timeline_segment": {
+        "start": 10.2,
+        "end": 13.5,
+        "duration": 3.3
+      },
+      "video_asset": {
+        "filename": "Escena 04 Cebando arranca todo Chile.mp4",
+        "relative_path": "Recursos/videos/Escena 04 Cebando arranca todo Chile.mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Plano de manos cebando con precisión mientras la ciudad cobra ritmo",
+      "keywords": [
+        "Cebando",
+        "arranca",
+        "Chile"
+      ],
+      "word_timings": [
+        {
+          "word": "Cebando",
+          "approx_timestamp": 10.2
+        },
+        {
+          "word": "arranca",
+          "approx_timestamp": 11.025
+        },
+        {
+          "word": "todo",
+          "approx_timestamp": 11.85
+        },
+        {
+          "word": "Chile",
+          "approx_timestamp": 12.675
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_05",
+      "scene_number": 5,
+      "lyric_text": "Caminando por el barrio",
+      "thematic_category": "COMMUNITY_MOVEMENT",
+      "emotional_tone": "Pertenencia, cercanía vecinal y vida barrial",
+      "timeline_segment": {
+        "start": 13.5,
+        "end": 16.8,
+        "duration": 3.3
+      },
+      "video_asset": {
+        "filename": "Escena 05 Caminando por el barrio..mp4",
+        "relative_path": "Recursos/videos/Escena 05 Caminando por el barrio..mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Cámara en seguimiento elegante de una persona caminando por vereda arbolada con termo",
+      "keywords": [
+        "Caminando",
+        "barrio",
+        "calles"
+      ],
+      "word_timings": [
+        {
+          "word": "Caminando",
+          "approx_timestamp": 13.5
+        },
+        {
+          "word": "por",
+          "approx_timestamp": 14.325
+        },
+        {
+          "word": "el",
+          "approx_timestamp": 15.15
+        },
+        {
+          "word": "barrio",
+          "approx_timestamp": 15.975
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_06",
+      "scene_number": 6,
+      "lyric_text": "Transición trabajo hogar",
+      "thematic_category": "WORK_AND_STUDY",
+      "emotional_tone": "Pausa reflexiva y continuidad entre trabajo y descanso",
+      "timeline_segment": {
+        "start": 16.8,
+        "end": 20.0,
+        "duration": 3.2
+      },
+      "video_asset": {
+        "filename": "Escena 06 Transición trabajohogar..mp4",
+        "relative_path": "Recursos/videos/Escena 06 Transición trabajohogar..mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Ambiente de trabajo o taller con termo y mate como compañero de jornada",
+      "keywords": [
+        "trabajo",
+        "hogar",
+        "pausa"
+      ],
+      "word_timings": [
+        {
+          "word": "Transición",
+          "approx_timestamp": 16.8
+        },
+        {
+          "word": "trabajo",
+          "approx_timestamp": 17.867
+        },
+        {
+          "word": "hogar",
+          "approx_timestamp": 18.933
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_07",
+      "scene_number": 7,
+      "lyric_text": "Estudiantes en la universidad",
+      "thematic_category": "WORK_AND_STUDY",
+      "emotional_tone": "Juventud, compañerismo y estudio colaborativo",
+      "timeline_segment": {
+        "start": 20.0,
+        "end": 23.2,
+        "duration": 3.2
+      },
+      "video_asset": {
+        "filename": "Escena 07 Estudiantes en la universidad..mp4",
+        "relative_path": "Recursos/videos/Escena 07 Estudiantes en la universidad..mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Grupo de jóvenes en patio universitario compartiendo mate entre apuntes y risas",
+      "keywords": [
+        "Estudiantes",
+        "universidad",
+        "juntos"
+      ],
+      "word_timings": [
+        {
+          "word": "Estudiantes",
+          "approx_timestamp": 20.0
+        },
+        {
+          "word": "en",
+          "approx_timestamp": 20.8
+        },
+        {
+          "word": "la",
+          "approx_timestamp": 21.6
+        },
+        {
+          "word": "universidad",
+          "approx_timestamp": 22.4
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_08",
+      "scene_number": 8,
+      "lyric_text": "Primer plano de mate y sorbo",
+      "thematic_category": "SENSORY_CLOSENESS",
+      "emotional_tone": "Satisfacción pura, placer del ritual y sabor",
+      "timeline_segment": {
+        "start": 23.2,
+        "end": 26.0,
+        "duration": 2.8
+      },
+      "video_asset": {
+        "filename": "Escena 08 Primer plano de mate y sorbo..mp4",
+        "relative_path": "Recursos/videos/Escena 08 Primer plano de mate y sorbo..mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Primer plano del mate sostenido con ambas manos seguido del gesto cálido del sorbo",
+      "keywords": [
+        "mate",
+        "sorbo",
+        "calidez"
+      ],
+      "word_timings": [
+        {
+          "word": "Primer",
+          "approx_timestamp": 23.2
+        },
+        {
+          "word": "plano",
+          "approx_timestamp": 23.667
+        },
+        {
+          "word": "de",
+          "approx_timestamp": 24.133
+        },
+        {
+          "word": "mate",
+          "approx_timestamp": 24.6
+        },
+        {
+          "word": "y",
+          "approx_timestamp": 25.067
+        },
+        {
+          "word": "sorbo",
+          "approx_timestamp": 25.533
+        }
+      ]
+    },
+    {
+      "phrase_id": "lyric_09",
+      "scene_number": 9,
+      "lyric_text": "¿Dónde estás tú? Está tu mate",
+      "thematic_category": "BRAND_CORE",
+      "emotional_tone": "Pertenencia profunda, encuentro humano y promesa de marca",
+      "timeline_segment": {
+        "start": 26.0,
+        "end": 29.187,
+        "duration": 3.187
+      },
+      "video_asset": {
+        "filename": "Escena 09 Dónde estás tú.mp4",
+        "relative_path": "Recursos/videos/Escena 09 Dónde estás tú.mp4",
+        "exists_on_disk": true
+      },
+      "visual_intention": "Rueda de amigos riendo y compartiendo mate; transición limpia al packshot final",
+      "keywords": [
+        "Dónde",
+        "estás",
+        "tú",
+        "mate"
+      ],
+      "word_timings": [
+        {
+          "word": "¿Dónde",
+          "approx_timestamp": 26.0
+        },
+        {
+          "word": "estás",
+          "approx_timestamp": 26.531
+        },
+        {
+          "word": "tú?",
+          "approx_timestamp": 27.062
+        },
+        {
+          "word": "Está",
+          "approx_timestamp": 27.593
+        },
+        {
+          "word": "tu",
+          "approx_timestamp": 28.125
+        },
+        {
+          "word": "mate",
+          "approx_timestamp": 28.656
+        }
+      ]
+    }
+  ]
+}

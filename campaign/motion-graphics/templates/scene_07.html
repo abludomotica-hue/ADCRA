@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=720, height=1280, initial-scale=1.0">
+<title>ADCRA Overlay — scene_07</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:ital,wght@1,600&display=swap');
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    width: 720px;
+    height: 1280px;
+    background: transparent;
+    overflow: hidden;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Safe Zones Guide (Toggleable) */
+  .safe-area {
+    position: absolute;
+    top: 120px;
+    bottom: 200px;
+    left: 40px;
+    right: 40px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  /* STYLES */
+
+  /* 1. Fade in word by word */
+  .style-fade-in-word {
+    text-align: center;
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+  .style-fade-in-word .word {
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: 34px;
+    font-weight: 600;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0,0,0,0.9);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInWord 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes fadeInWord {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 2. Slide Up Reveal */
+  .style-slide-up {
+    text-align: center;
+    max-width: 620px;
+    margin-bottom: 40px;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .style-slide-up h2 {
+    color: #FFFFFF;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85);
+  }
+  .style-slide-up .accent-line {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #D4AF37, #0D5C3A);
+    margin: 14px auto 0 auto;
+    border-radius: 2px;
+  }
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 3. Lower Third Pill */
+  .style-lower-third {
+    margin-bottom: 30px;
+    background: rgba(26, 26, 26, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid #D4AF37;
+    border-radius: 40px;
+    padding: 16px 36px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    max-width: 620px;
+    text-align: center;
+  }
+  .style-lower-third span {
+    color: #FFFFFF;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.85) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* 4. Kinetic Stomp */
+  .style-kinetic-stomp {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: stomp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  .style-kinetic-stomp h2 {
+    color: #D4AF37;
+    font-size: 34px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+  }
+  @keyframes stomp {
+    0% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* 5. Hero Packshot Reveal (Scene 9) */
+  .style-hero-packshot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle at center, rgba(13, 92, 58, 0.45) 0%, rgba(0, 0, 0, 0.85) 75%);
+    animation: heroFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    padding: 20px;
+    text-align: center;
+  }
+  .hero-logo-card {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #D4AF37;
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.6), 0 12px 30px rgba(0,0,0,0.7);
+    margin-bottom: 30px;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: logoPulse 1.2s ease-out forwards;
+  }
+  .hero-logo-card img {
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+  }
+  .hero-claim {
+    color: #FFFFFF;
+    font-size: 34px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.25;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+    max-width: 580px;
+  }
+  .hero-claim span {
+    color: #D4AF37;
+  }
+  .hero-cta-btn {
+    background: linear-gradient(135deg, #D4AF37, #B38F24);
+    color: #1A1A1A;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 14px 38px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  @keyframes heroFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes logoPulse {
+    0% { transform: scale(0.6); opacity: 0; }
+    70% { transform: scale(1.08); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="safe-area">
+    <div class="style-fade-in-word">
+      <span class="word" style="animation-delay: 0.00s">Ideas</span> <span class="word" style="animation-delay: 0.32s">que</span> <span class="word" style="animation-delay: 0.64s">se</span> <span class="word" style="animation-delay: 0.96s">comparten</span> <span class="word" style="animation-delay: 1.28s">mejor.</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "delivery_id": "deliv_locos_materos_broadcast_2026",
+  "timestamp": "2026-09-20T02:43:46.676472+00:00",
+  "master_video": {
+    "file_path": "campaign/deliverables/masters/locos_materos_master_9x16.mp4",
+    "resolution": "720x1280",
+    "aspect_ratio": "9:16",
+    "fps": 24.0,
+    "duration_seconds": 29.21,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "sha256": "dbeb016878deb5d1b0bc14c7e440fef6086ccc941d21f2624d937bda3be0b05d"
+  },
+  "master_audio": {
+    "file_path_wav": "campaign/audio/locos_materos_master_mix.wav",
+    "file_path_mp3": "campaign/audio/locos_materos_master_mix.mp3",
+    "sample_rate_hz": 48000,
+    "loudness_lufs": -12.7,
+    "true_peak_dbtp": -1.0,
+    "standard": "EBU R128 / ITU-R BS.1770-4"
+  },
+  "variants": [
+    {
+      "platform": "tiktok",
+      "aspect_ratio": "9:16",
+      "resolution": "720x1280",
+      "file_path": "campaign/deliverables/exports/locos_materos_tiktok_9x16.mp4",
+      "sha256": "0c3118aa04cd5ad56aa85c10af69ef1b6aa5b90118e38c26075c4e3ab79949b8"
+    },
+    {
+      "platform": "instagram_reels",
+      "aspect_ratio": "9:16",
+      "resolution": "720x1280",
+      "file_path": "campaign/deliverables/exports/locos_materos_instagram_reels_9x16.mp4",
+      "sha256": "0c3118aa04cd5ad56aa85c10af69ef1b6aa5b90118e38c26075c4e3ab79949b8"
+    },
+    {
+      "platform": "youtube_shorts",
+      "aspect_ratio": "9:16",
+      "resolution": "720x1280",
+      "file_path": "campaign/deliverables/exports/locos_materos_youtube_shorts_9x16.mp4",
+      "sha256": "0c3118aa04cd5ad56aa85c10af69ef1b6aa5b90118e38c26075c4e3ab79949b8"
+    },
+    {
+      "platform": "meta_feed_1x1",
+      "aspect_ratio": "1:1",
+      "resolution": "720x720",
+      "file_path": "campaign/deliverables/exports/locos_materos_feed_square_1x1.mp4",
+      "sha256": "bd7d09f0f0ec76ebeabb9ef08b73ad704a6786f1b193d940ffcbdf9fe7a48355"
+    },
+    {
+      "platform": "youtube_widescreen_16x9",
+      "aspect_ratio": "16:9",
+      "resolution": "1280x720",
+      "file_path": "campaign/deliverables/exports/locos_materos_youtube_widescreen_16x9.mp4",
+      "sha256": "692855b14a4398688e3043029282268e6f42836836d37ae4ca8a4d67cfcd6a39"
+    }
+  ],
+  "technical_specifications": {
+    "color_temperature_target": 5900,
+    "color_space": "Rec.709",
+    "brand_colors": [
+      "#0D5C3A",
+      "#D4AF37",
+      "#1A1A1A"
+    ]
+  },
+  "broadcast_certification": {
+    "status": "APPROVED",
+    "qc_score": 100.0,
+    "claim_verified": "¿Dónde estás tú? Está tu mate"
+  }
+}

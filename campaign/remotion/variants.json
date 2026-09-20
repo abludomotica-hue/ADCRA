@@ -1,0 +1,48 @@
+[
+  {
+    "variant_id": "master_30s_emocional",
+    "name": "Master 30s Emocional",
+    "target_audience": "Público general adulto (20-50 años), amantes de las pausas cotidianas",
+    "props_override": {
+      "tone": "emocional",
+      "emphasis": "calidez y ritual"
+    },
+    "output_file": "campaign/remotion/renders/commercial_30s_emocional.mp4"
+  },
+  {
+    "variant_id": "variant_publicitaria",
+    "name": "Variante Comercial de Conversión",
+    "target_audience": "Compradores en línea y prospectos de e-commerce mate",
+    "props_override": {
+      "tone": "publicitaria",
+      "cta_url": "www.locosmateros.cl/ofertas",
+      "scene_01_text": "Empezá tus mañanas con Locos Materos."
+    },
+    "output_file": "campaign/remotion/renders/commercial_30s_publicitaria.mp4"
+  },
+  {
+    "variant_id": "variant_conversacional",
+    "name": "Variante Cercana / Redes Sociales",
+    "target_audience": "Jóvenes y usuarios activos en TikTok / Reels",
+    "props_override": {
+      "tone": "conversacional",
+      "scene_01_text": "Suena el agua y parte el día."
+    },
+    "output_file": "campaign/remotion/renders/commercial_30s_conversacional.mp4"
+  },
+  {
+    "variant_id": "bumper_15s",
+    "name": "Bumper 15s Pre-roll",
+    "target_audience": "Audiencias móviles con alta rotación en YouTube pre-roll",
+    "props_override": {
+      "duration_in_frames": 360,
+      "scenes_subset": [
+        "scene_01",
+        "scene_05",
+        "scene_08",
+        "scene_09"
+      ]
+    },
+    "output_file": "campaign/remotion/renders/bumper_15s.mp4"
+  }
+]

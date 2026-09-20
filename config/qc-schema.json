@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRAQualityControlSchema",
+  "description": "Esquema formal de evaluación técnica, creativa y de marca para el control de calidad en ADCRA",
+  "type": "object",
+  "required": [
+    "qc_id",
+    "campaign_id",
+    "render_target",
+    "iteration_number",
+    "technical_qc",
+    "creative_qc",
+    "brand_qc",
+    "overall_status",
+    "action_required"
+  ],
+  "properties": {
+    "qc_id": { "type": "string" },
+    "campaign_id": { "type": "string" },
+    "render_target": {
+      "type": "object",
+      "required": ["file_path", "format_aspect_ratio"],
+      "properties": {
+        "file_path": { "type": "string" },
+        "format_aspect_ratio": { "type": "string" },
+        "file_hash_sha256": { "type": "string" }
+      }
+    },
+    "iteration_number": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "technical_qc": {
+      "type": "object",
+      "required": [
+        "measured_duration_seconds",
+        "expected_duration_seconds",
+        "duration_delta_seconds",
+        "resolution_actual",
+        "fps_actual",
+        "video_codec",
+        "audio_codec",
+        "audio_clipping_detected",
+        "accidental_silence_detected",
+        "black_frames_count",
+        "frozen_frames_count",
+        "encoding_errors_detected",
+        "status"
+      ],
+      "properties": {
+        "measured_duration_seconds": { "type": "number" },
+        "expected_duration_seconds": { "type": "number" },
+        "duration_delta_seconds": { "type": "number" },
+        "resolution_actual": {
+          "type": "object",
+          "properties": {
+            "width": { "type": "integer" },
+            "height": { "type": "integer" }
+          }
+        },
+        "fps_actual": { "type": "number" },
+        "video_codec": { "type": "string" },
+        "audio_codec": { "type": "string" },
+        "audio_clipping_detected": { "type": "boolean" },
+        "accidental_silence_detected": { "type": "boolean" },
+        "black_frames_count": { "type": "integer" },
+        "frozen_frames_count": { "type": "integer" },
+        "encoding_errors_detected": { "type": "boolean" },
+        "status": {
+          "type": "string",
+          "enum": ["PASS", "WARN", "FAIL"]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "creative_qc": {
+      "type": "object",
+      "required": [
+        "rhythm_sync_score",
+        "narrative_flow_score",
+        "emotional_continuity_score",
+        "copy_legibility_score",
+        "composition_balance_score",
+        "status"
+      ],
+      "properties": {
+        "rhythm_sync_score": { "type": "number", "minimum": 0, "maximum": 10 },
+        "narrative_flow_score": { "type": "number", "minimum": 0, "maximum": 10 },
+        "emotional_continuity_score": { "type": "number", "minimum": 0, "maximum": 10 },
+        "copy_legibility_score": { "type": "number", "minimum": 0, "maximum": 10 },
+        "composition_balance_score": { "type": "number", "minimum": 0, "maximum": 10 },
+        "status": {
+          "type": "string",
+          "enum": ["PASS", "WARN", "FAIL"]
+        },
+        "observations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "brand_qc": {
+      "type": "object",
+      "required": [
+        "logo_presence_verified",
+        "brand_color_palette_verified",
+        "typography_guidelines_verified",
+        "tone_consistency_verified",
+        "unauthorized_claims_detected",
+        "product_prominence_verified",
+        "status"
+      ],
+      "properties": {
+        "logo_presence_verified": { "type": "boolean" },
+        "brand_color_palette_verified": { "type": "boolean" },
+        "typography_guidelines_verified": { "type": "boolean" },
+        "tone_consistency_verified": { "type": "boolean" },
+        "unauthorized_claims_detected": { "type": "boolean" },
+        "product_prominence_verified": { "type": "boolean" },
+        "status": {
+          "type": "string",
+          "enum": ["PASS", "WARN", "FAIL"]
+        },
+        "brand_compliance_notes": { "type": "string" }
+      }
+    },
+    "overall_status": {
+      "type": "string",
+      "enum": ["APPROVED", "NEEDS_REVISION", "CRITICAL_FAIL"]
+    },
+    "action_required": {
+      "type": "string",
+      "enum": ["PROCEED_TO_DELIVERY", "TRIGGER_ITERATION_ENGINE", "HALT_FOR_USER_REVIEW"]
+    }
+  }
+}

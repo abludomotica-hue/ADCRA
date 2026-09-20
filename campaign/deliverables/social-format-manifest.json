@@ -1,0 +1,274 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "master_format": {
+    "aspect_ratio": "9:16",
+    "width": 720,
+    "height": 1280,
+    "fps": 24.0
+  },
+  "platforms": [
+    {
+      "platform_id": "tiktok_9_16",
+      "name": "TikTok Video",
+      "aspect_ratio": "9:16",
+      "target_resolution": {
+        "width": 720,
+        "height": 1280
+      },
+      "safe_zone": {
+        "top_px": 110,
+        "bottom_px": 220,
+        "left_px": 40,
+        "right_px": 90
+      },
+      "ui_occlusion_zones": [
+        {
+          "zone_name": "Header & Search",
+          "description": "Buscador superior y pestañas Siguiendo / Para Ti",
+          "bounding_box": {
+            "x": 0,
+            "y": 0,
+            "width": 720,
+            "height": 110
+          }
+        },
+        {
+          "zone_name": "Action Rail Lateral",
+          "description": "Botones de Perfil, Like, Comentarios, Favoritos, Compartir y Disco Musical",
+          "bounding_box": {
+            "x": 630,
+            "y": 500,
+            "width": 90,
+            "height": 560
+          }
+        },
+        {
+          "zone_name": "Caption & Audio Info",
+          "description": "Nombre de usuario (@locosmateros), copy publicitario y título de la canción",
+          "bounding_box": {
+            "x": 0,
+            "y": 1060,
+            "width": 630,
+            "height": 220
+          }
+        }
+      ]
+    },
+    {
+      "platform_id": "instagram_reels_9_16",
+      "name": "Instagram Reels",
+      "aspect_ratio": "9:16",
+      "target_resolution": {
+        "width": 720,
+        "height": 1280
+      },
+      "safe_zone": {
+        "top_px": 100,
+        "bottom_px": 200,
+        "left_px": 40,
+        "right_px": 85
+      },
+      "ui_occlusion_zones": [
+        {
+          "zone_name": "Header Reels & Camera",
+          "description": "Título de Reels, ícono de cámara y menú superior",
+          "bounding_box": {
+            "x": 0,
+            "y": 0,
+            "width": 720,
+            "height": 100
+          }
+        },
+        {
+          "zone_name": "Action Icons Rail",
+          "description": "Me gusta, comentarios, enviar por DM, tres puntos y avatar de audio",
+          "bounding_box": {
+            "x": 635,
+            "y": 550,
+            "width": 85,
+            "height": 530
+          }
+        },
+        {
+          "zone_name": "Account & Audio Footer",
+          "description": "Usuario @locosmateros, botón Seguir, pie de foto y nombre de audio",
+          "bounding_box": {
+            "x": 0,
+            "y": 1080,
+            "width": 635,
+            "height": 200
+          }
+        }
+      ]
+    },
+    {
+      "platform_id": "youtube_shorts_9_16",
+      "name": "YouTube Shorts",
+      "aspect_ratio": "9:16",
+      "target_resolution": {
+        "width": 720,
+        "height": 1280
+      },
+      "safe_zone": {
+        "top_px": 90,
+        "bottom_px": 180,
+        "left_px": 40,
+        "right_px": 80
+      },
+      "ui_occlusion_zones": [
+        {
+          "zone_name": "Shorts Header",
+          "description": "Buscador, cámara y opciones",
+          "bounding_box": {
+            "x": 0,
+            "y": 0,
+            "width": 720,
+            "height": 90
+          }
+        },
+        {
+          "zone_name": "Shorts Action Column",
+          "description": "Pulgar arriba, pulgar abajo, comentarios, compartir y remix",
+          "bounding_box": {
+            "x": 640,
+            "y": 600,
+            "width": 80,
+            "height": 500
+          }
+        },
+        {
+          "zone_name": "Channel & Subscribe Bar",
+          "description": "Nombre de canal, botón suscribirse y título del video",
+          "bounding_box": {
+            "x": 0,
+            "y": 1100,
+            "width": 640,
+            "height": 180
+          }
+        }
+      ]
+    },
+    {
+      "platform_id": "meta_feed_1_1",
+      "name": "Meta Feed Square (Instagram & Facebook)",
+      "aspect_ratio": "1:1",
+      "target_resolution": {
+        "width": 1080,
+        "height": 1080
+      },
+      "safe_zone": {
+        "top_px": 50,
+        "bottom_px": 50,
+        "left_px": 50,
+        "right_px": 50
+      },
+      "ui_occlusion_zones": [
+        {
+          "zone_name": "Header Feed Post",
+          "description": "Barra de cuenta y ubicación del post en feed",
+          "bounding_box": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 50
+          }
+        },
+        {
+          "zone_name": "Bottom Interaction Bar",
+          "description": "Barra inferior de acciones y texto colapsable",
+          "bounding_box": {
+            "x": 0,
+            "y": 1030,
+            "width": 1080,
+            "height": 50
+          }
+        }
+      ]
+    },
+    {
+      "platform_id": "youtube_widescreen_16_9",
+      "name": "YouTube Widescreen & TV",
+      "aspect_ratio": "16:9",
+      "target_resolution": {
+        "width": 1920,
+        "height": 1080
+      },
+      "safe_zone": {
+        "top_px": 80,
+        "bottom_px": 80,
+        "left_px": 100,
+        "right_px": 100
+      },
+      "ui_occlusion_zones": [
+        {
+          "zone_name": "Video Player Controls & Scrub Bar",
+          "description": "Línea de tiempo de reproducción, volumen, subtítulos y ajustes",
+          "bounding_box": {
+            "x": 0,
+            "y": 1000,
+            "width": 1920,
+            "height": 80
+          }
+        }
+      ]
+    }
+  ],
+  "adaptation_strategies": {
+    "vertical_9_16": {
+      "method": "direct_passthrough",
+      "description": "Passthrough 1:1 del master vertical 720x1280 @ 24fps respetando safe zones de UI"
+    },
+    "square_1_1": {
+      "method": "pillarbox_brand_fill",
+      "brand_fill_color": "#0D5C3A",
+      "description": "Escalado vertical a 1080px de alto (608x1080) con franjas laterales institucionales #0D5C3A"
+    },
+    "widescreen_16_9": {
+      "method": "blurred_background_pillarbox",
+      "blur_sigma": 25.0,
+      "description": "Escalado central con duplicado de fondo escalado a 1920x3413, recortado y desenfocado con boxblur"
+    }
+  },
+  "deliverables": [
+    {
+      "deliverable_id": "deliv_tiktok_9_16",
+      "platform_id": "tiktok_9_16",
+      "aspect_ratio": "9:16",
+      "resolution": "720x1280",
+      "guide_overlay_path": "campaign/deliverables/guides/tiktok_9_16_safe_zone.png",
+      "ffmpeg_command": "ffmpeg -y -i input_master.mp4 -c:v libx264 -pix_fmt yuv420p -c:a aac -b:a 192k campaign/deliverables/locos_materos_tiktok_9_16.mp4"
+    },
+    {
+      "deliverable_id": "deliv_reels_9_16",
+      "platform_id": "instagram_reels_9_16",
+      "aspect_ratio": "9:16",
+      "resolution": "720x1280",
+      "guide_overlay_path": "campaign/deliverables/guides/instagram_reels_9_16_safe_zone.png",
+      "ffmpeg_command": "ffmpeg -y -i input_master.mp4 -c:v libx264 -pix_fmt yuv420p -c:a aac -b:a 192k campaign/deliverables/locos_materos_reels_9_16.mp4"
+    },
+    {
+      "deliverable_id": "deliv_shorts_9_16",
+      "platform_id": "youtube_shorts_9_16",
+      "aspect_ratio": "9:16",
+      "resolution": "720x1280",
+      "guide_overlay_path": "campaign/deliverables/guides/youtube_shorts_9_16_safe_zone.png",
+      "ffmpeg_command": "ffmpeg -y -i input_master.mp4 -c:v libx264 -pix_fmt yuv420p -c:a aac -b:a 192k campaign/deliverables/locos_materos_shorts_9_16.mp4"
+    },
+    {
+      "deliverable_id": "deliv_feed_1_1",
+      "platform_id": "meta_feed_1_1",
+      "aspect_ratio": "1:1",
+      "resolution": "1080x1080",
+      "guide_overlay_path": "campaign/deliverables/guides/meta_feed_1_1_safe_zone.png",
+      "ffmpeg_command": "ffmpeg -y -i input_master.mp4 -vf 'scale=-1:1080,pad=1080:1080:(ow-iw)/2:(oh-ih)/2:color=0x0D5C3A' -c:v libx264 -pix_fmt yuv420p -c:a aac -b:a 192k campaign/deliverables/locos_materos_feed_1_1.mp4"
+    },
+    {
+      "deliverable_id": "deliv_widescreen_16_9",
+      "platform_id": "youtube_widescreen_16_9",
+      "aspect_ratio": "16:9",
+      "resolution": "1920x1080",
+      "guide_overlay_path": "campaign/deliverables/guides/youtube_widescreen_16_9_safe_zone.png",
+      "ffmpeg_command": "ffmpeg -y -i input_master.mp4 -filter_complex '[0:v]scale=1920:3413,crop=1920:1080,boxblur=25:25[bg];[0:v]scale=-1:1080[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[out]' -map '[out]' -map 0:a -c:v libx264 -pix_fmt yuv420p -c:a aac -b:a 192k campaign/deliverables/locos_materos_widescreen_16_9.mp4"
+    }
+  ]
+}

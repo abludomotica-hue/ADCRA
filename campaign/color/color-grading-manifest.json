@@ -1,0 +1,264 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "color_science": {
+    "color_space": "Rec.709",
+    "gamma": "Gamma 2.4",
+    "target_display": "SDR 100 nits"
+  },
+  "brand_color_harmony": {
+    "primary_green": "#0D5C3A",
+    "golden_highlight": "#D4AF37",
+    "deep_neutral_black": "#1A1A1A",
+    "color_temperature_target_kelvin": 5900
+  },
+  "luts_registered": [
+    {
+      "lut_name": "locos_materos_warm_cinematic",
+      "lut_path": "campaign/color/luts/locos_materos_warm_cinematic.cube",
+      "lut_type": "3D",
+      "grid_size": 33,
+      "description": "Look cinematográfico principal con altas luces doradas y verdes orgánicos profundos"
+    },
+    {
+      "lut_name": "locos_materos_editorial_film",
+      "lut_path": "campaign/color/luts/locos_materos_editorial_film.cube",
+      "lut_type": "3D",
+      "grid_size": 33,
+      "description": "Emulación analógica con sombras suaves y contraste sedoso para momentos cotidianos"
+    },
+    {
+      "lut_name": "locos_materos_master_grade",
+      "lut_path": "campaign/color/luts/locos_materos_master_grade.cube",
+      "lut_type": "3D",
+      "grid_size": 65,
+      "description": "LUT maestra 65x65x65 para masterización final y render de máxima fidelidad"
+    }
+  ],
+  "scene_grades": [
+    {
+      "scene_id": "scene_01",
+      "base_lut": "campaign/color/luts/locos_materos_warm_cinematic.cube",
+      "exposure_offset_ev": 0.15,
+      "contrast": 1.08,
+      "color_temperature_k": 5900,
+      "tint": 1.5,
+      "saturation": 1.05,
+      "lift": [
+        0.0,
+        0.0,
+        -0.01
+      ],
+      "gamma": [
+        0.02,
+        0.01,
+        -0.01
+      ],
+      "gain": [
+        1.03,
+        1.01,
+        0.97
+      ],
+      "intent_rationale": "Acentuar la calidez matinal del vapor y la mesa de madera con luz de ventana envolvente."
+    },
+    {
+      "scene_id": "scene_02",
+      "base_lut": "campaign/color/luts/locos_materos_warm_cinematic.cube",
+      "exposure_offset_ev": 0.0,
+      "contrast": 1.15,
+      "color_temperature_k": 5700,
+      "tint": 2.0,
+      "saturation": 1.12,
+      "lift": [
+        -0.01,
+        0.0,
+        -0.01
+      ],
+      "gamma": [
+        0.01,
+        0.03,
+        -0.01
+      ],
+      "gain": [
+        1.02,
+        1.04,
+        0.96
+      ],
+      "intent_rationale": "Mayor microcontraste para destacar las texturas de la yerba mate y brillo dorado en la virola."
+    },
+    {
+      "scene_id": "scene_03",
+      "base_lut": "campaign/color/luts/locos_materos_warm_cinematic.cube",
+      "exposure_offset_ev": -0.1,
+      "contrast": 1.12,
+      "color_temperature_k": 6100,
+      "tint": 1.0,
+      "saturation": 1.08,
+      "lift": [
+        0.0,
+        0.0,
+        0.01
+      ],
+      "gamma": [
+        0.03,
+        0.02,
+        -0.02
+      ],
+      "gain": [
+        1.05,
+        1.02,
+        0.95
+      ],
+      "intent_rationale": "Proteger el detalle en el cielo cordillerano y bañar la escena con luz solar dorada."
+    },
+    {
+      "scene_id": "scene_04",
+      "base_lut": "campaign/color/luts/locos_materos_editorial_film.cube",
+      "exposure_offset_ev": 0.1,
+      "contrast": 1.06,
+      "color_temperature_k": 5800,
+      "tint": 0.5,
+      "saturation": 1.04,
+      "lift": [
+        0.01,
+        0.0,
+        0.0
+      ],
+      "gamma": [
+        0.02,
+        0.01,
+        0.0
+      ],
+      "gain": [
+        1.02,
+        1.01,
+        0.98
+      ],
+      "intent_rationale": "Tonos de piel naturales y orgánicos en la interacción de cebar el mate."
+    },
+    {
+      "scene_id": "scene_05",
+      "base_lut": "campaign/color/luts/locos_materos_warm_cinematic.cube",
+      "exposure_offset_ev": 0.0,
+      "contrast": 1.1,
+      "color_temperature_k": 5650,
+      "tint": 0.0,
+      "saturation": 1.05,
+      "lift": [
+        -0.01,
+        0.0,
+        0.0
+      ],
+      "gamma": [
+        0.01,
+        0.01,
+        -0.01
+      ],
+      "gain": [
+        1.01,
+        1.01,
+        0.98
+      ],
+      "intent_rationale": "Balance neutro urbano manteniendo coherencia con el termo y mate en mano."
+    },
+    {
+      "scene_id": "scene_06",
+      "base_lut": "campaign/color/luts/locos_materos_editorial_film.cube",
+      "exposure_offset_ev": 0.05,
+      "contrast": 1.05,
+      "color_temperature_k": 5700,
+      "tint": 1.0,
+      "saturation": 1.02,
+      "lift": [
+        0.01,
+        0.01,
+        0.0
+      ],
+      "gamma": [
+        0.02,
+        0.02,
+        0.0
+      ],
+      "gain": [
+        1.02,
+        1.01,
+        0.98
+      ],
+      "intent_rationale": "Contrarrestar luces fluorescentes de oficina con calidez dorada del mate en escritorio."
+    },
+    {
+      "scene_id": "scene_07",
+      "base_lut": "campaign/color/luts/locos_materos_warm_cinematic.cube",
+      "exposure_offset_ev": 0.0,
+      "contrast": 1.08,
+      "color_temperature_k": 5850,
+      "tint": 1.5,
+      "saturation": 1.06,
+      "lift": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gamma": [
+        0.02,
+        0.02,
+        -0.01
+      ],
+      "gain": [
+        1.03,
+        1.02,
+        0.97
+      ],
+      "intent_rationale": "Ambiente juvenil luminoso, verde césped natural y mate compartido."
+    },
+    {
+      "scene_id": "scene_08",
+      "base_lut": "campaign/color/luts/locos_materos_editorial_film.cube",
+      "exposure_offset_ev": 0.1,
+      "contrast": 1.12,
+      "color_temperature_k": 5900,
+      "tint": 1.0,
+      "saturation": 1.08,
+      "lift": [
+        0.0,
+        0.0,
+        -0.01
+      ],
+      "gamma": [
+        0.02,
+        0.01,
+        -0.01
+      ],
+      "gain": [
+        1.03,
+        1.01,
+        0.97
+      ],
+      "intent_rationale": "Enfoque emocional en el disfrute del sorbo, alta fidelidad en tonos faciales."
+    },
+    {
+      "scene_id": "scene_09",
+      "base_lut": "campaign/color/luts/locos_materos_master_grade.cube",
+      "exposure_offset_ev": 0.0,
+      "contrast": 1.2,
+      "color_temperature_k": 6000,
+      "tint": 2.0,
+      "saturation": 1.15,
+      "lift": [
+        -0.02,
+        0.0,
+        -0.02
+      ],
+      "gamma": [
+        0.02,
+        0.03,
+        -0.02
+      ],
+      "gain": [
+        1.05,
+        1.03,
+        0.95
+      ],
+      "intent_rationale": "Máximo impacto publicitario con negros profundos, viñeta verde mate y dorados radiantes."
+    }
+  ]
+}

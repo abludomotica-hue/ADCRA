@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRADaVinciResolveIntegrationSchema",
+  "description": "Esquema formal para el proyecto, media pool, conformación de timeline y render settings en DaVinci Resolve",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "project_name",
+    "timeline_settings",
+    "media_pool_structure",
+    "timelines",
+    "render_settings",
+    "execution_status"
+  ],
+  "properties": {
+    "campaign_id": { "type": "string" },
+    "project_name": { "type": "string" },
+    "timeline_settings": {
+      "type": "object",
+      "required": ["width", "height", "frame_rate", "color_science_mode", "working_color_space"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 360 },
+        "height": { "type": "integer", "minimum": 640 },
+        "frame_rate": { "type": "number", "minimum": 12.0 },
+        "color_science_mode": { "type": "string" },
+        "working_color_space": { "type": "string" }
+      }
+    },
+    "media_pool_structure": {
+      "type": "object",
+      "required": ["bins", "clips_registered"],
+      "properties": {
+        "bins": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "clips_registered": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["clip_name", "bin", "file_path", "media_type"],
+            "properties": {
+              "clip_name": { "type": "string" },
+              "bin": { "type": "string" },
+              "file_path": { "type": "string" },
+              "media_type": { "type": "string", "enum": ["video", "audio", "graphic"] },
+              "scene_id": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "timelines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["timeline_name", "source_xml", "source_edl", "tracks_count"],
+        "properties": {
+          "timeline_name": { "type": "string" },
+          "source_xml": { "type": "string" },
+          "source_edl": { "type": "string" },
+          "tracks_count": {
+            "type": "object",
+            "required": ["video", "audio"],
+            "properties": {
+              "video": { "type": "integer", "minimum": 1 },
+              "audio": { "type": "integer", "minimum": 1 }
+            }
+          }
+        }
+      }
+    },
+    "render_settings": {
+      "type": "object",
+      "required": ["target_format", "video_codec", "audio_codec", "bitrate_kbps", "render_preset"],
+      "properties": {
+        "target_format": { "type": "string" },
+        "video_codec": { "type": "string" },
+        "audio_codec": { "type": "string" },
+        "bitrate_kbps": { "type": "integer", "minimum": 500 },
+        "render_preset": { "type": "string" }
+      }
+    },
+    "execution_status": {
+      "type": "object",
+      "required": ["mode", "resolve_binary", "fusionscript_loaded", "validation_status"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["live_api", "conformed_project_package"] },
+        "resolve_binary": { "type": "string" },
+        "fusionscript_loaded": { "type": "boolean" },
+        "validation_status": { "type": "string", "enum": ["passed", "warning", "failed"] }
+      }
+    }
+  }
+}

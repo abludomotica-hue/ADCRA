@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRAStoryboardSchema",
+  "description": "Esquema formal para la definición estructurada del storyboard publicitario en ADCRA",
+  "type": "object",
+  "required": [
+    "storyboard_id",
+    "campaign_id",
+    "narrative_arc",
+    "total_duration_seconds",
+    "target_fps",
+    "scenes"
+  ],
+  "properties": {
+    "storyboard_id": {
+      "type": "string"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "narrative_arc": {
+      "type": "string",
+      "description": "Estructura narrativa global (ej: Individuo -> Ritual -> Vida cotidiana -> Pausa -> Encuentro -> Comunidad -> Marca)"
+    },
+    "total_duration_seconds": {
+      "type": "number",
+      "minimum": 0.1
+    },
+    "target_fps": {
+      "type": "number",
+      "default": 30.0
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "start",
+          "end",
+          "duration",
+          "audio_segment",
+          "lyric_reference",
+          "visual",
+          "camera",
+          "lighting",
+          "emotion",
+          "copy",
+          "typography",
+          "animation",
+          "transition",
+          "brand_visibility",
+          "asset_ids",
+          "tool",
+          "rationale"
+        ],
+        "properties": {
+          "scene_id": {
+            "type": "string",
+            "pattern": "^scene_\\d{2,}$"
+          },
+          "start": {
+            "type": "number",
+            "minimum": 0.0,
+            "description": "Tiempo de inicio en segundos"
+          },
+          "end": {
+            "type": "number",
+            "minimum": 0.0,
+            "description": "Tiempo de fin en segundos"
+          },
+          "duration": {
+            "type": "number",
+            "minimum": 0.01,
+            "description": "Duración de la escena en segundos"
+          },
+          "audio_segment": {
+            "type": "object",
+            "required": ["beat_start", "beat_end", "energy_level"],
+            "properties": {
+              "beat_start": { "type": "number" },
+              "beat_end": { "type": "number" },
+              "energy_level": {
+                "type": "string",
+                "enum": ["low", "medium", "high", "climax", "drop"]
+              },
+              "musical_cue": { "type": "string" }
+            }
+          },
+          "lyric_reference": {
+            "type": "string",
+            "description": "Texto o letra de la canción que suena en este segmento temporal (o 'instrumental')"
+          },
+          "visual": {
+            "type": "string",
+            "description": "Descripción visual detallada de la acción, sujeto y contexto"
+          },
+          "camera": {
+            "type": "string",
+            "description": "Tipo de plano, movimiento y ángulo de cámara"
+          },
+          "lighting": {
+            "type": "string",
+            "description": "Estilo de iluminación y paleta lumínica"
+          },
+          "emotion": {
+            "type": "string",
+            "description": "Emoción específica que debe transmitir la escena"
+          },
+          "copy": {
+            "type": "string",
+            "description": "Texto publicitario en pantalla o voz en off (no transcripción literal)"
+          },
+          "typography": {
+            "type": "object",
+            "required": ["font_family", "size", "color", "alignment"],
+            "properties": {
+              "font_family": { "type": "string" },
+              "size": { "type": "string" },
+              "color": { "type": "string" },
+              "alignment": {
+                "type": "string",
+                "enum": ["center", "left", "right", "top_center", "bottom_center"]
+              }
+            }
+          },
+          "animation": {
+            "type": "string",
+            "description": "Efecto de animación del texto o motion graphics (ej: kinetic_reveal, fade_up, bounce_in)"
+          },
+          "transition": {
+            "type": "object",
+            "required": ["type", "duration_seconds"],
+            "properties": {
+              "type": { "type": "string" },
+              "duration_seconds": { "type": "number" }
+            }
+          },
+          "brand_visibility": {
+            "type": "string",
+            "enum": ["none", "subtle", "product_in_use", "explicit_logo", "hero_packshot"]
+          },
+          "asset_ids": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Identificadores de archivos de video o imágenes asignados"
+          },
+          "tool": {
+            "type": "string",
+            "enum": ["DaVinci Resolve", "Remotion", "HyperFrames", "FFmpeg"]
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Justificación estratégica de por qué se diseñó la escena de esta forma"
+          }
+        }
+      }
+    }
+  }
+}

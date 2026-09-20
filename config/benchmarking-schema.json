@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ADCRA Benchmarking Report Schema",
+  "description": "Schema de validación para el informe de benchmarking, latencia y rendimiento de motores ADCRA",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "timestamp",
+    "environment_telemetry",
+    "engine_benchmarks",
+    "aggregate_metrics",
+    "performance_rating",
+    "production_readiness"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "environment_telemetry": {
+      "type": "object",
+      "required": ["os", "python_version", "cpu_count", "memory_total_gb", "cuda_opencl_available"],
+      "properties": {
+        "os": { "type": "string" },
+        "platform_release": { "type": "string" },
+        "python_version": { "type": "string" },
+        "cpu_count": { "type": "integer", "minimum": 1 },
+        "memory_total_gb": { "type": "number", "minimum": 0.1 },
+        "cuda_opencl_available": { "type": "boolean" },
+        "gpu_device_name": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "engine_benchmarks": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["engine_id", "category", "iterations", "mean_latency_ms", "max_latency_ms", "throughput_ops_sec", "status"],
+        "properties": {
+          "engine_id": { "type": "string" },
+          "engine_name": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["audio", "storyboard", "color", "fairlight", "remotion", "qc", "delivery", "meta"]
+          },
+          "iterations": { "type": "integer", "minimum": 1 },
+          "mean_latency_ms": { "type": "number", "minimum": 0 },
+          "min_latency_ms": { "type": "number", "minimum": 0 },
+          "max_latency_ms": { "type": "number", "minimum": 0 },
+          "p95_latency_ms": { "type": "number", "minimum": 0 },
+          "throughput_ops_sec": { "type": "number", "minimum": 0 },
+          "memory_delta_mb": { "type": "number" },
+          "status": {
+            "type": "string",
+            "enum": ["OPTIMAL", "ACCEPTABLE", "DEGRADED", "FAILED"]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "aggregate_metrics": {
+      "type": "object",
+      "required": ["total_benchmark_time_ms", "pipeline_estimated_total_latency_sec", "engines_tested", "engines_passed"],
+      "properties": {
+        "total_benchmark_time_ms": { "type": "number", "minimum": 0 },
+        "pipeline_estimated_total_latency_sec": { "type": "number", "minimum": 0 },
+        "engines_tested": { "type": "integer", "minimum": 1 },
+        "engines_passed": { "type": "integer", "minimum": 1 },
+        "fastest_engine": { "type": "string" },
+        "slowest_engine": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "performance_rating": {
+      "type": "string",
+      "enum": ["EXCELLENT", "GOOD", "SATISFACTORY", "NEEDS_OPTIMIZATION", "UNACCEPTABLE"]
+    },
+    "production_readiness": {
+      "type": "object",
+      "required": ["status", "ready_for_release", "certified_by"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["PRODUCTION_READY", "STAGING_READY", "BLOCKED"]
+        },
+        "ready_for_release": { "type": "boolean" },
+        "certified_by": { "type": "string" },
+        "release_candidate": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

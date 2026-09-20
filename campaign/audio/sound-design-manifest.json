@@ -1,0 +1,123 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "audio_format": {
+    "sample_rate_hz": 48000,
+    "bit_depth": 24,
+    "channels": 2,
+    "duration_seconds": 29.167
+  },
+  "loudness_compliance": {
+    "standard": "EBU R128 / ITU-R BS.1770-4",
+    "target_integrated_lufs": -14.0,
+    "measured_integrated_lufs": -12.7,
+    "target_true_peak_dbtp": -1.0,
+    "measured_true_peak_dbtp": -1.0,
+    "loudness_range_lu": 1.7
+  },
+  "tracks": {
+    "bgm_track": {
+      "file_path": "Recursos/Audios/Entre_mates_y_sol.mp3",
+      "base_level_db": -1.5,
+      "ducking_events_count": 9
+    },
+    "sfx_foley_track": {
+      "total_cues": 9,
+      "cues": [
+        {
+          "cue_id": "cue_01_steam",
+          "scene_id": "scene_01",
+          "name": "Kettle Steam & Whistle",
+          "start_seconds": 0.5,
+          "duration_seconds": 2.0,
+          "gain_db": -8.0,
+          "ducking_trigger_db": -3.5,
+          "description": "Vapor y silbido sutil de agua a punto de hervor en pava de cocina"
+        },
+        {
+          "cue_id": "cue_02_yerba_crackle",
+          "scene_id": "scene_02",
+          "name": "Yerba Mate Pour & Rustle",
+          "start_seconds": 3.8,
+          "duration_seconds": 1.4,
+          "gain_db": -7.0,
+          "ducking_trigger_db": -3.0,
+          "description": "Crujido táctil y caída de hojas secas de yerba mate acomodándose en el mate"
+        },
+        {
+          "cue_id": "cue_03_mountain_breeze",
+          "scene_id": "scene_03",
+          "name": "Morning Mountain Breeze",
+          "start_seconds": 7.0,
+          "duration_seconds": 1.8,
+          "gain_db": -12.0,
+          "ducking_trigger_db": -2.0,
+          "description": "Brisa matinal aireada con resonancia abierta de cordillera"
+        },
+        {
+          "cue_id": "cue_04_water_pour",
+          "scene_id": "scene_04",
+          "name": "Water Pour & Infusion Fizz",
+          "start_seconds": 10.5,
+          "duration_seconds": 1.8,
+          "gain_db": -5.0,
+          "ducking_trigger_db": -5.5,
+          "description": "Chorro continuo de agua a 80°C infusionando la yerba y efervescencia de espuma"
+        },
+        {
+          "cue_id": "cue_05_footsteps",
+          "scene_id": "scene_05",
+          "name": "Urban Cobblestone Footsteps",
+          "start_seconds": 14.0,
+          "duration_seconds": 1.6,
+          "gain_db": -9.0,
+          "ducking_trigger_db": -2.5,
+          "description": "Pasos rítmicos firmes sobre adoquines urbanos con termo bajo el brazo"
+        },
+        {
+          "cue_id": "cue_06_desk_clink",
+          "scene_id": "scene_06",
+          "name": "Office Desk Ceramic Clink",
+          "start_seconds": 17.0,
+          "duration_seconds": 1.5,
+          "gain_db": -8.0,
+          "ducking_trigger_db": -3.0,
+          "description": "Posado limpio de base de mate sobre madera de escritorio con murmullo de fondo"
+        },
+        {
+          "cue_id": "cue_07_laughter",
+          "scene_id": "scene_07",
+          "name": "Campus Shared Laughter Ambience",
+          "start_seconds": 20.2,
+          "duration_seconds": 1.6,
+          "gain_db": -10.0,
+          "ducking_trigger_db": -3.0,
+          "description": "Risa espontánea de amigos pasando el mate en césped universitario"
+        },
+        {
+          "cue_id": "cue_08_mate_sip",
+          "scene_id": "scene_08",
+          "name": "Acoustic Mate Sip & Exhale",
+          "start_seconds": 23.5,
+          "duration_seconds": 1.7,
+          "gain_db": -5.0,
+          "ducking_trigger_db": -6.0,
+          "description": "Sonido icónico y satisfactorio de sorbo con bombilla y suave exhalación placentera"
+        },
+        {
+          "cue_id": "cue_09_brand_chime",
+          "scene_id": "scene_09",
+          "name": "Brand Golden Chime & Chord",
+          "start_seconds": 26.2,
+          "duration_seconds": 2.987,
+          "gain_db": -6.0,
+          "ducking_trigger_db": -4.0,
+          "description": "Campana armónica cálida en afinación mayor acompañando el Hero Packshot y claim"
+        }
+      ]
+    }
+  },
+  "master_outputs": {
+    "wav_master_path": "campaign/audio/locos_materos_master_mix.wav",
+    "mp3_delivery_path": "campaign/audio/locos_materos_master_mix.mp3"
+  }
+}

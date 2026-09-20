@@ -1,0 +1,238 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SkillBuilderRegistry",
+  "description": "Contrato formal para el registro histórico, introspección del ecosistema y síntesis dinámica de habilidades en ADCRA.",
+  "type": "object",
+  "required": [
+    "version",
+    "ecosystem_introspection",
+    "synthesized_skills",
+    "meta_learning_policies"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "ecosystem_introspection": {
+      "type": "object",
+      "required": [
+        "total_skills_discovered",
+        "domains_discovered",
+        "discovered_skills",
+        "last_introspection_timestamp"
+      ],
+      "properties": {
+        "total_skills_discovered": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "domains_discovered": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "strategy",
+              "creative",
+              "analysis",
+              "production",
+              "tools",
+              "post-production",
+              "quality-control",
+              "memory",
+              "meta"
+            ]
+          }
+        },
+        "discovered_skills": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "skill_name",
+              "domain",
+              "has_skill_md",
+              "has_script"
+            ],
+            "properties": {
+              "skill_name": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "has_skill_md": {
+                "type": "boolean"
+              },
+              "has_script": {
+                "type": "boolean"
+              },
+              "version": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "schema_reference": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "last_introspection_timestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "synthesized_skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "skill_name",
+          "domain",
+          "version",
+          "status",
+          "purpose",
+          "created_at",
+          "files_generated",
+          "lifecycle_history",
+          "validation_report"
+        ],
+        "properties": {
+          "skill_name": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "domain": {
+            "type": "string",
+            "enum": [
+              "strategy",
+              "creative",
+              "analysis",
+              "production",
+              "tools",
+              "post-production",
+              "quality-control",
+              "memory",
+              "meta"
+            ]
+          },
+          "version": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "SYNTHESIZED",
+              "VALIDATED",
+              "ACTIVE",
+              "DEPRECATED"
+            ]
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "files_generated": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contract_schema": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lifecycle_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "from_status",
+                "to_status",
+                "timestamp",
+                "reason"
+              ],
+              "properties": {
+                "from_status": {
+                  "type": "string"
+                },
+                "to_status": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "validation_report": {
+            "type": "object",
+            "required": [
+              "schema_valid",
+              "syntax_valid",
+              "tests_passed",
+              "details"
+            ],
+            "properties": {
+              "schema_valid": {
+                "type": "boolean"
+              },
+              "syntax_valid": {
+                "type": "boolean"
+              },
+              "tests_passed": {
+                "type": "boolean"
+              },
+              "details": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "meta_learning_policies": {
+      "type": "object",
+      "required": [
+        "max_synthetic_skills_per_domain",
+        "require_automated_tests",
+        "require_formal_schema",
+        "allowed_domains"
+      ],
+      "properties": {
+        "max_synthetic_skills_per_domain": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "require_automated_tests": {
+          "type": "boolean"
+        },
+        "require_formal_schema": {
+          "type": "boolean"
+        },
+        "allowed_domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
