@@ -11,8 +11,8 @@
       "end": 3.5,
       "duration": 3.5,
       "audio_segment": {
-        "beat_start": 0.186,
-        "beat_end": 3.506,
+        "beat_start": 0.1,
+        "beat_end": 3.5,
         "energy_level": "low",
         "musical_cue": "Intro acústica íntima, acordes limpios de guitarra"
       },
@@ -38,7 +38,7 @@
         "vid_escena_01_ya_está_sonando"
       ],
       "tool": "DaVinci Resolve",
-      "rationale": "Engancha al espectador en los primeros 3 segundos apelando al ritual universal de encender el hervidor, construyendo una atmósfera de calma previa al movimiento del día."
+      "rationale": "Hook variante 'Variante A — Intriga Emocional (Control)'. Un hook reflexivo y cálido genera mayor afinidad de marca a largo plazo y retención de visualización completa."
     },
     {
       "scene_id": "scene_02",
@@ -46,8 +46,8 @@
       "end": 6.8,
       "duration": 3.3,
       "audio_segment": {
-        "beat_start": 3.506,
-        "beat_end": 6.803,
+        "beat_start": 3.6,
+        "beat_end": 6.8,
         "energy_level": "low",
         "musical_cue": "Mantiene arpegio acústico con resonancia de caja"
       },
@@ -81,7 +81,7 @@
       "end": 10.2,
       "duration": 3.4,
       "audio_segment": {
-        "beat_start": 6.803,
+        "beat_start": 6.9,
         "beat_end": 10.2,
         "energy_level": "medium",
         "musical_cue": "Entrada de base rítmica suave marcando el pulso"
@@ -116,8 +116,8 @@
       "end": 13.5,
       "duration": 3.3,
       "audio_segment": {
-        "beat_start": 10.2,
-        "beat_end": 13.537,
+        "beat_start": 10.3,
+        "beat_end": 13.5,
         "energy_level": "medium",
         "musical_cue": "Ritmo firme y dinámico en crescendo"
       },
@@ -151,7 +151,7 @@
       "end": 16.8,
       "duration": 3.3,
       "audio_segment": {
-        "beat_start": 13.537,
+        "beat_start": 13.6,
         "beat_end": 16.8,
         "energy_level": "medium",
         "musical_cue": "Línea de bajo melódica y guitarras rítmicas"
@@ -186,8 +186,8 @@
       "end": 20.0,
       "duration": 3.2,
       "audio_segment": {
-        "beat_start": 16.8,
-        "beat_end": 20.24,
+        "beat_start": 16.9,
+        "beat_end": 20.0,
         "energy_level": "medium",
         "musical_cue": "Transición armónica preparatoria hacia el coro"
       },
@@ -221,7 +221,7 @@
       "end": 23.2,
       "duration": 3.2,
       "audio_segment": {
-        "beat_start": 20.24,
+        "beat_start": 20.1,
         "beat_end": 23.2,
         "energy_level": "high",
         "musical_cue": "Entrada con fuerza de la batería anunciando el coro"
@@ -256,7 +256,7 @@
       "end": 26.0,
       "duration": 2.8,
       "audio_segment": {
-        "beat_start": 23.2,
+        "beat_start": 23.3,
         "beat_end": 26.0,
         "energy_level": "climax",
         "musical_cue": "Acorde culminante previo a la resolución"
@@ -291,7 +291,7 @@
       "end": 29.187,
       "duration": 3.187,
       "audio_segment": {
-        "beat_start": 26.0,
+        "beat_start": 26.1,
         "beat_end": 29.187,
         "energy_level": "climax",
         "musical_cue": "Resolución armónica final y decaimiento sonoro perfecto"

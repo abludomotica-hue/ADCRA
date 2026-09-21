@@ -1,0 +1,16 @@
+{
+  "dispatch_id": "disp-77543",
+  "campaign_id": "test-campaign-adcra-001",
+  "mode": "AUTONOMOUS_APPROVALS",
+  "status": "DISPATCHED",
+  "dispatched_at": "2026-09-21T23:16:17Z",
+  "agents_dispatched": [
+    "campaign-director",
+    "copywriting-engine",
+    "beat-synced-editor",
+    "motion-graphics",
+    "color-grading",
+    "sound-designer",
+    "quality-control"
+  ]
+}

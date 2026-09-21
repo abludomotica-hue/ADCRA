@@ -25,7 +25,7 @@
       "start_frame": 0,
       "duration_frames": 84,
       "video_src": "Recursos/videos/scene_01.mp4",
-      "text_overlay": "Cada día comienza con una pausa.",
+      "text_overlay": "Un buen mate no se apura, se disfruta.",
       "style": "slide_up_reveal"
     },
     {
@@ -33,7 +33,7 @@
       "start_frame": 84,
       "duration_frames": 79,
       "video_src": "Recursos/videos/scene_02.mp4",
-      "text_overlay": "El arte de prepararse para lo bueno.",
+      "text_overlay": "El tiempo que le dedicás a lo que querés.",
       "style": "slide_up_reveal"
     },
     {
@@ -41,7 +41,7 @@
       "start_frame": 163,
       "duration_frames": 82,
       "video_src": "Recursos/videos/scene_03.mp4",
-      "text_overlay": "Un país que despierta con la cordillera.",
+      "text_overlay": "Un buen mate no se apura, se disfruta.",
       "style": "slide_up_reveal"
     },
     {

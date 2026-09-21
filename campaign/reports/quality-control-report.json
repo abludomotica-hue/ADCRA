@@ -1,6 +1,6 @@
 {
   "campaign_id": "camp_locos_materos_2026",
-  "timestamp": "2026-09-19T11:08:34.391495+00:00",
+  "timestamp": "2026-09-21T23:16:18Z",
   "overall_score": 100.0,
   "certification_status": "APPROVED",
   "audits": {
@@ -12,7 +12,11 @@
           "check_id": "tech_01_resolution_9_16",
           "name": "Resolución Vertical 9:16 (720x1280)",
           "passed": true,
-          "details": "Resolución detectada: 720x1280 (Esperado: 720x1280 vertical)"
+          "details": "Resolución detectada: 720x1280 (Esperado: 720x1280 vertical)",
+          "overridden": true,
+          "override_reason": "Resolución validada en control de calidad para vertical 9:16",
+          "overridden_by": "Director Técnico",
+          "overridden_at": "2026-09-21T23:16:18Z"
         },
         {
           "check_id": "tech_02_framerate_duration",

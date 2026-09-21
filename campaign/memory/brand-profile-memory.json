@@ -1,7 +1,7 @@
 {
   "brand_id": "locos_materos",
   "brand_name": "Locos Materos",
-  "last_updated": "2026-09-19T11:12:23.944758+00:00",
+  "last_updated": "2026-09-21T23:16:18.163755+00:00",
   "historical_campaigns": [
     {
       "campaign_id": "camp_locos_materos_2026",
@@ -56,5 +56,51 @@
       "No usar CGI artificial, ralentizaciones exageradas ni elementos fantásticos.",
       "Evitar colocar textos, títulos o llamadas a la acción dentro de las zonas de oclusión de interfaz móvil nativa."
     ]
+  },
+  "historical_learnings": [
+    {
+      "timestamp": "2026-09-20T12:42:40.102319+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-20T12:42:54.432669+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-20T12:44:15.856427+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-21T12:23:27.476733+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-21T12:40:44.175625+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-21T23:00:56.440887+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-21T23:02:13.631034+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-21T23:07:54.295304+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-21T23:16:18.163744+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    }
+  ],
+  "active_creative_experiment": {
+    "experiment_id": "exp_hook_matrix_01",
+    "active_variant_id": "var_hook_a_intrigue",
+    "variant_name": "Variante A — Intriga Emocional (Control)",
+    "primary_kpi": "Hold_Rate_100 (Finalización de video)",
+    "projected_lift_pct": 15.0,
+    "selected_at": "2026-09-21T23:15:54.641993+00:00"
   }
 }

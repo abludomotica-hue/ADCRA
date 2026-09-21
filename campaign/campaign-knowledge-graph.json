@@ -1,0 +1,829 @@
+{
+  "campaign_id": "camp_locos_materos_2026",
+  "campaign_name": "Locos Materos — ¿Dónde estás tú? Está tu mate",
+  "version": "1.0.0",
+  "created_at": "2026-09-19T05:22:42.524183+00:00",
+  "updated_at": "2026-09-21T12:36:48.574540+00:00",
+  "client": {
+    "client_id": "locos_materos",
+    "brand_name": "Locos Materos",
+    "brand_dna": {
+      "who_we_are": {
+        "value": "Marca chilena pionera en democratizar el ritual del mate artesanal con diseño premium y pertenencia comunitaria.",
+        "source": "CLIENT_INPUT",
+        "confidence": "HIGH",
+        "status": "CONFIRMED",
+        "requires_confirmation": false,
+        "last_updated": "2026-09-21T12:22:22.817949+00:00",
+        "approved": true
+      },
+      "how_we_speak": {
+        "value": "Tono auténtico rioplatense-chileno, cercano, reflexivo, sin modismos forzados ni tecnicismos.",
+        "source": "CLIENT_INPUT",
+        "confidence": "HIGH",
+        "status": "CONFIRMED",
+        "requires_confirmation": false,
+        "last_updated": "2026-09-21T12:22:22.817982+00:00",
+        "approved": true
+      },
+      "how_we_look": {
+        "value": "Fotografía documental cálida, luz natural de hora dorada, paleta verde bosque (#0D5C3A) y acentos dorados (#D4AF37).",
+        "source": "CONFIRMED_FACT",
+        "confidence": "HIGH",
+        "status": "CONFIRMED",
+        "requires_confirmation": false,
+        "last_updated": "2026-09-21T12:22:22.817985+00:00",
+        "approved": true
+      },
+      "how_we_move": {
+        "value": "Cortes rítmicos exactos en downbeats musicales, paneos suaves de seguimiento humano y transiciones fluidas.",
+        "source": "AI_RECOMMENDATION",
+        "confidence": "HIGH",
+        "status": "CONFIRMED",
+        "requires_confirmation": false,
+        "last_updated": "2026-09-21T12:22:22.817988+00:00",
+        "approved": true
+      },
+      "how_we_sell": {
+        "value": "Venta emocional por afinidad cultural e identidad: 'Donde estás tú, está tu mate'.",
+        "source": "CLIENT_INPUT",
+        "confidence": "HIGH",
+        "status": "CONFIRMED",
+        "requires_confirmation": false,
+        "last_updated": "2026-09-21T12:22:22.817990+00:00",
+        "approved": true
+      },
+      "how_we_should_never_behave": {
+        "value": "Nunca usar CGI exagerado, no alterar el logo real, no invadir safe zones móviles, no usar claims médicos falsos.",
+        "source": "CONFIRMED_FACT",
+        "confidence": "HIGH",
+        "status": "CONFIRMED",
+        "requires_confirmation": false,
+        "last_updated": "2026-09-21T12:22:22.817992+00:00",
+        "approved": true
+      }
+    },
+    "brand_colors": {
+      "value": {
+        "primary": "#0D5C3A",
+        "accent": "#D4AF37",
+        "dark": "#1A1A1A"
+      },
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818001+00:00",
+      "approved": true
+    },
+    "typography": {
+      "value": {
+        "primary": "Montserrat",
+        "display": "Outfit"
+      },
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818004+00:00",
+      "approved": true
+    },
+    "voice_tone": {
+      "value": "Cálido, familiar, auténtico rioplatense",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818006+00:00",
+      "approved": true
+    },
+    "restrictions": {
+      "value": [
+        "No usar CGI",
+        "Respetar safe zones móviles 9:16",
+        "Logo obligatorio en cierre"
+      ],
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818009+00:00",
+      "approved": true
+    },
+    "previous_campaigns": [
+      {
+        "campaign_id": "camp_locos_materos_2026",
+        "name": "Locos Materos — ¿Dónde estás tú? Está tu mate",
+        "concept": "Donde estés, tu mate te acompaña. Y cuando hay mate, hay gente.",
+        "quality_score": 100.0,
+        "certification_status": "APPROVED"
+      }
+    ]
+  },
+  "objective": {
+    "primary_objective": {
+      "value": "awareness",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818016+00:00",
+      "approved": true
+    },
+    "secondary_objectives": [
+      {
+        "value": "Engagement orgánico en TikTok e Instagram Reels",
+        "source": "AI_RECOMMENDATION",
+        "confidence": "HIGH",
+        "status": "CONFIRMED",
+        "requires_confirmation": false,
+        "last_updated": "2026-09-21T12:22:22.818018+00:00",
+        "approved": true
+      }
+    ]
+  },
+  "audience": {
+    "primary_audience": {
+      "value": "Jóvenes y adultos chilenos de 20 a 45 años, estudiantes y profesionales que valoran la pausa y la compañía.",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818021+00:00",
+      "approved": true
+    },
+    "psychographics": {
+      "value": "Amantes del ritual cotidiano, la amistad sincera, la introspección matutina y el calor hogareño.",
+      "source": "AI_INFERENCE",
+      "confidence": "MEDIUM",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818052+00:00",
+      "approved": true
+    },
+    "pain_points": {
+      "value": "La soledad de la rutina urbana acelerada, el frío matutino y la falta de pausas conscientes.",
+      "source": "AI_INFERENCE",
+      "confidence": "MEDIUM",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818070+00:00",
+      "approved": true
+    },
+    "platform_behavior": {
+      "value": "Consumo de video vertical 9:16 en smartphones, alta retención con hooks dinámicos iniciales (<3.5s).",
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818072+00:00",
+      "approved": true
+    }
+  },
+  "product_service": {
+    "product_name": {
+      "value": "Kit Mate Artesanal Locos Materos",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818075+00:00",
+      "approved": true
+    },
+    "category": {
+      "value": "Bazar Matero Tradicional & Gourmet",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818078+00:00",
+      "approved": true
+    },
+    "key_benefits": {
+      "value": [
+        "Calabaza seleccionada",
+        "Bombilla de acero quirúrgico",
+        "Mantención térmica prolongada"
+      ],
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818080+00:00",
+      "approved": true
+    },
+    "differentiators": {
+      "value": "Hecho a mano con identidad auténtica y curado natural",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818082+00:00",
+      "approved": true
+    }
+  },
+  "offer": {
+    "offer_type": {
+      "value": "Branding Emocional Institucional",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818086+00:00",
+      "approved": true
+    },
+    "cta_message": {
+      "value": "¿Dónde estás tú? Está tu mate. locosmateros.cl",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818088+00:00",
+      "approved": true
+    }
+  },
+  "insights": {
+    "cultural_context": {
+      "value": "El mate en Chile ha dejado de ser solo rural o extranjero para convertirse en el símbolo de encuentro urbano de las nuevas generaciones.",
+      "source": "AI_INFERENCE",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818090+00:00",
+      "approved": true
+    },
+    "consumption_ritual": {
+      "value": "El sonido del agua hirviendo, el vapor ascendente y el cebado compartido crean un anclaje sensorial inmediato.",
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818097+00:00",
+      "approved": true
+    }
+  },
+  "creative_strategy": {
+    "strategic_intent": {
+      "value": "Posicionar a Locos Materos como el compañero inseparable del día a día, transformando cualquier lugar en hogar.",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818100+00:00",
+      "approved": true
+    },
+    "narrative_arc": {
+      "value": "Apertura íntima (amanecer y hervidor) → Progresión dinámica (barrio, trabajo, universidad) → Clímax comunitario y cierre.",
+      "source": "AI_RECOMMENDATION",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818102+00:00",
+      "approved": true
+    }
+  },
+  "creative_concept": {
+    "big_idea": {
+      "value": "Donde estés, tu mate te acompaña. Y cuando hay mate, hay gente.",
+      "source": "CLIENT_INPUT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818105+00:00",
+      "approved": true
+    },
+    "concept_alternatives": [
+      {
+        "id": "c1",
+        "name": "Emocional Introspectivo",
+        "fit": 0.98
+      },
+      {
+        "id": "c2",
+        "name": "Comunitario Urbano",
+        "fit": 0.95
+      },
+      {
+        "id": "c3",
+        "name": "Cinematográfico Minimal",
+        "fit": 0.92
+      }
+    ]
+  },
+  "copy": {
+    "scene_copies": [],
+    "verbal_economy_rationale": {
+      "value": "Regla estricta de economía verbal aplicada: texto conciso (<10 palabras por escena), complementario al beat y no redundante.",
+      "source": "AI_RECOMMENDATION",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818110+00:00",
+      "approved": true
+    }
+  },
+  "audio": {
+    "tempo_bpm": {
+      "value": 107.7,
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818120+00:00",
+      "approved": true
+    },
+    "musical_sections": [
+      {
+        "section": "INTRO",
+        "start_s": 0.0,
+        "end_s": 3.42,
+        "energy": "Low"
+      },
+      {
+        "section": "VERSE",
+        "start_s": 3.42,
+        "end_s": 13.0,
+        "energy": "Medium"
+      },
+      {
+        "section": "BUILD",
+        "start_s": 13.0,
+        "end_s": 22.5,
+        "energy": "High"
+      },
+      {
+        "section": "CLIMAX",
+        "start_s": 22.5,
+        "end_s": 26.5,
+        "energy": "Climax"
+      },
+      {
+        "section": "OUTRO",
+        "start_s": 26.5,
+        "end_s": 29.187,
+        "energy": "Low"
+      }
+    ],
+    "loudness_target": {
+      "value": "-14.0 LUFS EBU R128 (-12.7 LUFS medido)",
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818124+00:00",
+      "approved": true
+    }
+  },
+  "video_assets": {
+    "assets_count": 9,
+    "inventory_ref": "campaign/assets/asset-inventory.json"
+  },
+  "storyboard": {
+    "scene_count": 9,
+    "scenes": [
+      {
+        "scene_id": "scene_01",
+        "start": 0.0,
+        "end": 3.5,
+        "duration": 3.5,
+        "audio_segment": {
+          "beat_start": 0.1,
+          "beat_end": 3.5,
+          "energy_level": "low",
+          "musical_cue": "Intro acústica íntima, acordes limpios de guitarra"
+        },
+        "lyric_reference": "Ya está sonando el hervidor",
+        "visual": "Cocina chilena al amanecer, plano medio del hervidor humeando bajo la luz dorada entrando por la ventana",
+        "camera": "Plano medio con movimiento orgánico en mano (handheld 35mm)",
+        "lighting": "Luz natural suave de ventana matutina (warm natural window)",
+        "emotion": "Intimidad, despertar y calidez de hogar",
+        "copy": "Cada día comienza con una pausa.",
+        "typography": {
+          "font_family": "Montserrat SemiBold",
+          "size": "42px",
+          "color": "#F5EFEB",
+          "alignment": "bottom_center"
+        },
+        "animation": "fade_up_subtle",
+        "transition": {
+          "type": "cross_dissolve",
+          "duration_seconds": 0.3
+        },
+        "brand_visibility": "subtle",
+        "asset_ids": [
+          "vid_escena_01_ya_está_sonando"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Engancha al espectador en los primeros 3 segundos apelando al ritual universal de encender el hervidor, construyendo una atmósfera de calma previa al movimiento del día."
+      },
+      {
+        "scene_id": "scene_02",
+        "start": 3.5,
+        "end": 6.8,
+        "duration": 3.3,
+        "audio_segment": {
+          "beat_start": 3.6,
+          "beat_end": 6.8,
+          "energy_level": "low",
+          "musical_cue": "Mantiene arpegio acústico con resonancia de caja"
+        },
+        "lyric_reference": "Macro de yerba y bombilla",
+        "visual": "Primerísimo plano macro de la yerba mate verde natural, la bombilla de acero inoxidable y la calabaza tradicional con vapor ascendente",
+        "camera": "Macro 85mm estático con foco crítico y profundidad de campo reducida",
+        "lighting": "Luz cálida rasante que resalta las texturas y hojas de yerba",
+        "emotion": "Precisión artesanal, textura y calma sensorial",
+        "copy": "El arte de prepararse para lo bueno.",
+        "typography": {
+          "font_family": "Montserrat Regular",
+          "size": "38px",
+          "color": "#E8DFD5",
+          "alignment": "bottom_center"
+        },
+        "animation": "soft_focus_reveal",
+        "transition": {
+          "type": "cut",
+          "duration_seconds": 0.0
+        },
+        "brand_visibility": "product_in_use",
+        "asset_ids": [
+          "vid_escena_02_macro_de_yerba_"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Cumple con el mandato estricto de marca de mostrar el mate físicamente auténtico y realista (calabaza, yerba y bombilla) antes de que la historia salga al exterior."
+      },
+      {
+        "scene_id": "scene_03",
+        "start": 6.8,
+        "end": 10.2,
+        "duration": 3.4,
+        "audio_segment": {
+          "beat_start": 6.9,
+          "beat_end": 10.2,
+          "energy_level": "medium",
+          "musical_cue": "Entrada de base rítmica suave marcando el pulso"
+        },
+        "lyric_reference": "El sol asoma en la cordillera",
+        "visual": "Plano general de la imponente Cordillera de los Andes bañada por el sol naciente dorado sobre el valle de Santiago",
+        "camera": "Plano general 24mm con paneo horizontal lento y majestuoso",
+        "lighting": "Luz dorada de amanecer (golden hour morning) con alto rango dinámico",
+        "emotion": "Grandeza andina, horizonte y orgullo territorial",
+        "copy": "Un país que despierta con la cordillera.",
+        "typography": {
+          "font_family": "Montserrat Bold",
+          "size": "46px",
+          "color": "#FFFFFF",
+          "alignment": "center"
+        },
+        "animation": "kinetic_fade",
+        "transition": {
+          "type": "cut",
+          "duration_seconds": 0.0
+        },
+        "brand_visibility": "none",
+        "asset_ids": [
+          "vid_escena_03_el_sol_asoma_e"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Ancla la narrativa al contexto geográfico indiscutible de Chile, expandiendo la escala de lo íntimo hacia lo territorial con la entrada de la percusión."
+      },
+      {
+        "scene_id": "scene_04",
+        "start": 10.2,
+        "end": 13.5,
+        "duration": 3.3,
+        "audio_segment": {
+          "beat_start": 10.3,
+          "beat_end": 13.5,
+          "energy_level": "medium",
+          "musical_cue": "Ritmo firme y dinámico en crescendo"
+        },
+        "lyric_reference": "Cebando arranca todo Chile",
+        "visual": "Manos cebando con precisión un mate humeante desde un termo, con luz matutina que ilumina el chorro de agua caliente",
+        "camera": "Plano medio cerrado en mano orgánico con suave inclinación",
+        "lighting": "Luz de sol matutino dorada destacando el vapor",
+        "emotion": "Impulso, energía compartida y sincronía de país",
+        "copy": "La energía de arrancar juntos.",
+        "typography": {
+          "font_family": "Montserrat SemiBold",
+          "size": "40px",
+          "color": "#F5EFEB",
+          "alignment": "bottom_center"
+        },
+        "animation": "slide_up",
+        "transition": {
+          "type": "cut",
+          "duration_seconds": 0.0
+        },
+        "brand_visibility": "product_in_use",
+        "asset_ids": [
+          "vid_escena_04_cebando_arranc"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Conecta el acto de cebar con el despertar simultáneo de miles de personas, convirtiendo el mate en motor de la jornada."
+      },
+      {
+        "scene_id": "scene_05",
+        "start": 13.5,
+        "end": 16.8,
+        "duration": 3.3,
+        "audio_segment": {
+          "beat_start": 13.6,
+          "beat_end": 16.8,
+          "energy_level": "medium",
+          "musical_cue": "Línea de bajo melódica y guitarras rítmicas"
+        },
+        "lyric_reference": "Caminando por el barrio",
+        "visual": "Persona caminando distendida por una vereda arbolada de barrio residencial chileno llevando termo bajo el brazo y mate en mano",
+        "camera": "Travelling lateral lento (dolly tracking) acompañando el paso",
+        "lighting": "Luz de día natural y difusa bajo la copa de los árboles",
+        "emotion": "Pertenencia, cercanía vecinal y tranquilidad cotidiana",
+        "copy": "En cada esquina, en cada paso.",
+        "typography": {
+          "font_family": "Montserrat Regular",
+          "size": "40px",
+          "color": "#FFFFFF",
+          "alignment": "bottom_center"
+        },
+        "animation": "fade_subtle",
+        "transition": {
+          "type": "cut",
+          "duration_seconds": 0.0
+        },
+        "brand_visibility": "product_in_use",
+        "asset_ids": [
+          "vid_escena_05_caminando_por_"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Muestra el mate en movimiento por la ciudad real, reforzando la portabilidad y la naturalidad del consumo en la vida barrial chilena."
+      },
+      {
+        "scene_id": "scene_06",
+        "start": 16.8,
+        "end": 20.0,
+        "duration": 3.2,
+        "audio_segment": {
+          "beat_start": 16.9,
+          "beat_end": 20.0,
+          "energy_level": "medium",
+          "musical_cue": "Transición armónica preparatoria hacia el coro"
+        },
+        "lyric_reference": "Transición trabajo hogar",
+        "visual": "Espacio laboral contemporáneo donde una persona hace una pausa en su tarea para tomar un mate",
+        "camera": "Plano medio estático con composición cuidada y equilibrio visual",
+        "lighting": "Iluminación interior ambiental realista y cálida",
+        "emotion": "Pausa reflexiva, concentración y perseverancia",
+        "copy": "El mate que acompaña tu esfuerzo.",
+        "typography": {
+          "font_family": "Montserrat Medium",
+          "size": "38px",
+          "color": "#E8DFD5",
+          "alignment": "bottom_center"
+        },
+        "animation": "fade_up",
+        "transition": {
+          "type": "cut",
+          "duration_seconds": 0.0
+        },
+        "brand_visibility": "product_in_use",
+        "asset_ids": [
+          "vid_escena_06_transición_tra"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Representa el segmento de trabajadores y profesionales que encuentran en el mate un aliado contra el cansancio y una compañía fiel durante el trabajo."
+      },
+      {
+        "scene_id": "scene_07",
+        "start": 20.0,
+        "end": 23.2,
+        "duration": 3.2,
+        "audio_segment": {
+          "beat_start": 20.1,
+          "beat_end": 23.2,
+          "energy_level": "high",
+          "musical_cue": "Entrada con fuerza de la batería anunciando el coro"
+        },
+        "lyric_reference": "Estudiantes en la universidad",
+        "visual": "Grupo diverso de estudiantes sentados en un patio universitario compartiendo mate entre apuntes, cuadernos y risas",
+        "camera": "Plano de grupo con movimiento fluido y humano en 50mm",
+        "lighting": "Luz solar abierta de mediodía suave",
+        "emotion": "Complicidad juvenil, compañerismo y estudio colaborativo",
+        "copy": "Ideas que se comparten mejor.",
+        "typography": {
+          "font_family": "Montserrat Bold",
+          "size": "42px",
+          "color": "#FFFFFF",
+          "alignment": "bottom_center"
+        },
+        "animation": "pop_scale",
+        "transition": {
+          "type": "cut",
+          "duration_seconds": 0.0
+        },
+        "brand_visibility": "product_in_use",
+        "asset_ids": [
+          "vid_escena_07_estudiantes_en"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Conecta con el público joven (20-30 años), posicionando el mate como catalizador de amistad, estudio y vida universitaria."
+      },
+      {
+        "scene_id": "scene_08",
+        "start": 23.2,
+        "end": 26.0,
+        "duration": 2.8,
+        "audio_segment": {
+          "beat_start": 23.3,
+          "beat_end": 26.0,
+          "energy_level": "climax",
+          "musical_cue": "Acorde culminante previo a la resolución"
+        },
+        "lyric_reference": "Primer plano de mate y sorbo",
+        "visual": "Primer plano íntimo del mate sostenido con ambas manos seguido del gesto de un sorbo auténtico y una mirada de serenidad",
+        "camera": "Primer plano 50mm cerrado con bokeh cálido de fondo",
+        "lighting": "Luz dorada envolvente",
+        "emotion": "Satisfacción profunda, calidez sensorial y alivio",
+        "copy": "Un sabor que nos vuelve a reunir.",
+        "typography": {
+          "font_family": "Montserrat SemiBold",
+          "size": "44px",
+          "color": "#F5EFEB",
+          "alignment": "center"
+        },
+        "animation": "fade_in_scale",
+        "transition": {
+          "type": "cross_dissolve",
+          "duration_seconds": 0.4
+        },
+        "brand_visibility": "product_in_use",
+        "asset_ids": [
+          "vid_escena_08_primer_plano_d"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Sintetiza la experiencia táctil y gustativa en un momento de gratificación máxima antes del clímax colectivo final."
+      },
+      {
+        "scene_id": "scene_09",
+        "start": 26.0,
+        "end": 29.187,
+        "duration": 3.187,
+        "audio_segment": {
+          "beat_start": 26.1,
+          "beat_end": 29.187,
+          "energy_level": "climax",
+          "musical_cue": "Resolución armónica final y decaimiento sonoro perfecto"
+        },
+        "lyric_reference": "¿Dónde estás tú? Está tu mate",
+        "visual": "Rueda de amigos compartiendo mate al atardecer en ambiente acogedor, con sonrisas genuinas y espacio inferior para packshot final de Locos Materos",
+        "camera": "Travelling lento retrocediendo suavemente para dar protagonismo a la marca",
+        "lighting": "Golden hour cálida combinada con luces prácticas acogedoras",
+        "emotion": "Pertenencia absoluta, alegría compartida y fidelidad de marca",
+        "copy": "¿Dónde estás tú? Está tu mate.",
+        "typography": {
+          "font_family": "Montserrat Bold",
+          "size": "48px",
+          "color": "#FFFFFF",
+          "alignment": "center"
+        },
+        "animation": "hero_reveal",
+        "transition": {
+          "type": "fade_to_black",
+          "duration_seconds": 0.5
+        },
+        "brand_visibility": "hero_packshot",
+        "asset_ids": [
+          "vid_escena_09_dónde_estás_tú"
+        ],
+        "tool": "DaVinci Resolve",
+        "rationale": "Cierra el arco dramático llevando al espectador desde la soledad matutina hasta la celebración en comunidad, estampando el claim oficial y habilitando la inserción del logo oficial en post-producción."
+      }
+    ]
+  },
+  "visual_system": {
+    "color_lut": {
+      "value": "locos_materos_warm_cinematic.cube",
+      "source": "AI_RECOMMENDATION",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818136+00:00",
+      "approved": true
+    },
+    "aspect_ratio": {
+      "value": "9:16 vertical (720x1280)",
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818145+00:00",
+      "approved": true
+    }
+  },
+  "motion_system": {
+    "motion_tool": {
+      "value": "HyperFrames HTML/CSS + Remotion",
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818148+00:00",
+      "approved": true
+    },
+    "safe_zones": {
+      "value": "Margen de seguridad: 15% top, 20% bottom, 8% lateral",
+      "source": "CONFIRMED_FACT",
+      "confidence": "HIGH",
+      "status": "CONFIRMED",
+      "requires_confirmation": false,
+      "last_updated": "2026-09-21T12:22:22.818150+00:00",
+      "approved": true
+    }
+  },
+  "production": {
+    "status": "COMPLETED",
+    "master_output": "campaign/deliverables/masters/locos_materos_master_9x16.mp4"
+  },
+  "qc": {
+    "certification_status": "APPROVED",
+    "score": 100.0,
+    "audit_cameras": {
+      "technical": "PASS",
+      "creative": "PASS",
+      "brand": "PASS",
+      "legal": "PASS"
+    }
+  },
+  "delivery": {
+    "delivery_package_ref": "campaign/deliverables/masters/commercial-delivery-package.json",
+    "sha256_verified": true,
+    "variants_count": 5
+  },
+  "s": {
+    "t": {
+      "r": {
+        "a": {
+          "t": {
+            "e": {
+              "g": {
+                "i": {
+                  "c": {
+                    "_": {
+                      "b": {
+                        "r": {
+                          "i": {
+                            "e": {
+                              "f": {
+                                ".": {
+                                  "t": {
+                                    "a": {
+                                      "r": {
+                                        "g": {
+                                          "e": {
+                                            "t": {
+                                              "_": {
+                                                "a": {
+                                                  "u": {
+                                                    "d": {
+                                                      "i": {
+                                                        "e": {
+                                                          "n": {
+                                                            "c": {
+                                                              "e": {
+                                                                "value": "Jóvenes universitarios y profesionales de 20 a 35 años que estudian o trabajan con mate",
+                                                                "source": "CONFIRMED_FACT",
+                                                                "confidence": 0.99,
+                                                                "status": "CONFIRMED",
+                                                                "requires_confirmation": false,
+                                                                "last_updated": "2026-09-21T12:36:48.574524+00:00",
+                                                                "approved": true
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

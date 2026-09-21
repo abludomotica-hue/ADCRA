@@ -43,6 +43,21 @@
     </div>
 
     <div class="header-right">
+      <button class="btn btn-presentation-view" id="btnPresentationView" title="Abrir Modo Presentación de Campaña">
+        <span class="btn-icon">🎬</span> Presentación
+      </button>
+      <button class="btn-cmd-palette" id="btnCmdPalette" title="Abrir Command Palette (Ctrl+K)">
+        <span class="cmd-shortcut-key">⌘K</span> Acciones Rápidas
+      </button>
+      <div class="ai-brain-pill" id="aiBrainPill" title="Abrir AI Brain Control Center">
+        <span class="brain-dot"></span>
+        <span class="brain-label">AI BRAIN</span>
+        <span class="brain-badge-mode" id="aiBrainModeBadge">AUTOPILOT</span>
+      </div>
+      <div class="hardware-pill" id="btnHardwareStatus" title="Aceleración de Hardware y Motor de Video">
+        <span class="status-dot"></span>
+        <span id="hardwareStatusText">GPU PROBE</span>
+      </div>
       <div class="autosave-status autosave-badge" id="autosaveBadge">
         <span class="autosave-dot"></span>
         <span class="autosave-text" id="autosaveText">Guardado automático</span>
@@ -55,6 +70,45 @@
       </button>
     </div>
   </header>
+
+  <!-- Studio Modules Subnavigation Ribbon -->
+  <nav class="studio-subnav" id="studioSubnav">
+    <div class="subnav-container">
+      <button class="subnav-tab active" id="tabWizard" data-view="wizard">
+        <span class="tab-icon">📋</span> Briefing Wizard
+      </button>
+      <button class="subnav-tab" id="tabCopyLab" data-view="copylab">
+        <span class="tab-icon">✍️</span> Copy Lab
+      </button>
+      <button class="subnav-tab" id="tabExperiments" data-view="experiments">
+        <span class="tab-icon">🧪</span> Experiment Lab
+      </button>
+      <button class="subnav-tab" id="tabStoryboard" data-view="storyboard">
+        <span class="tab-icon">🎬</span> Storyboard Lab
+      </button>
+      <button class="subnav-tab" id="tabAesthetics" data-view="aesthetics">
+        <span class="tab-icon">🎨</span> Color · Sound · Motion
+      </button>
+      <button class="subnav-tab" id="tabQCDashboard" data-view="qcdashboard">
+        <span class="tab-icon">🛡️</span> QC Dashboard
+      </button>
+      <button class="subnav-tab" id="tabDelivery" data-view="delivery">
+        <span class="tab-icon">🚀</span> Delivery Center
+      </button>
+      <button class="subnav-tab" id="tabHistory" data-view="history">
+        <span class="tab-icon">📜</span> History
+      </button>
+      <button class="subnav-tab" id="tabMemory" data-view="memory">
+        <span class="tab-icon">🧠</span> Client Memory
+      </button>
+      <button class="subnav-tab" id="tabContracts" data-view="contracts">
+        <span class="tab-icon">🔒</span> Data Contracts
+      </button>
+      <button class="subnav-tab" id="tabPipeline" data-view="pipeline">
+        <span class="tab-icon">⚡</span> Pipeline Release
+      </button>
+    </div>
+  </nav>
 
   <!-- Main Three-Zone Spatial Layout -->
   <div class="intake-app-container">
@@ -252,6 +306,12 @@
         </button>
         <div class="footer-center-info">
           <span class="info-tag" id="footerStepIndicator">Paso 1: Cliente</span>
+          <button class="btn btn-secondary btn-sm" id="btnQuickSaveDraft" title="Guardar borrador ahora (Ctrl+S)">
+            <span class="btn-icon">💾</span> Guardar
+          </button>
+          <span class="keyboard-hint-pill" title="Atajos: Alt+→ (Siguiente), Alt+← (Anterior), Ctrl+S (Guardar), Alt+D (Diagnóstico)">
+            ⌨️ Alt + ← / →
+          </span>
         </div>
         <button class="btn btn-primary" id="btnStepNext">
           Siguiente <span class="btn-icon">→</span>
@@ -321,5 +381,153 @@
 
   <!-- Main JavaScript App -->
   <script src="intake.js"></script>
+
+  <!-- ==========================================================================
+       MODAL: COMMAND PALETTE (CTRL+K / CMD+K)
+       ========================================================================== -->
+  <div class="cmd-palette-backdrop" id="cmdPaletteModal" style="display: none;">
+    <div class="cmd-palette-box">
+      <div class="cmd-palette-search">
+        <span class="cmd-search-icon">⚡</span>
+        <input type="text" id="cmdPaletteInput" placeholder="Escribe una orden creativa o busca una acción... (ej. Crear concepto, Generar copy)" autocomplete="off" />
+        <span class="cmd-shortcut-hint">ESC para cerrar</span>
+      </div>
+      <div class="cmd-palette-results" id="cmdPaletteResults">
+        <!-- Llenado dinámicamente -->
+      </div>
+      <div class="cmd-palette-footer">
+        <span>Navega con <b>↑</b> <b>↓</b> y ejecuta con <b>ENTER</b></span>
+        <span id="cmdPaletteBrainStatus">● AI Brain: Conectado (Auto)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: AI BRAIN CONTROL CENTER
+       ========================================================================== -->
+  <div class="ai-brain-modal-backdrop" id="aiBrainControlModal" style="display: none;">
+    <div class="ai-brain-modal">
+      <div class="ai-modal-header">
+        <div class="ai-modal-title">
+          <span class="brain-large-icon">🧠</span>
+          <div>
+            <h3>ADCRA AI Brain Control Center</h3>
+            <p class="ai-modal-subtitle">Gobernanza de Modelos, Adaptadores Agénticos y Costos</p>
+          </div>
+        </div>
+        <button class="ai-modal-close" id="btnCloseAiBrainModal">✕</button>
+      </div>
+      <div class="ai-modal-body">
+        <div class="ai-brain-grid">
+          <!-- Card 1: Proveedores -->
+          <div class="ai-control-card">
+            <div class="card-title-row">
+              <h4>Proveedores de IA</h4>
+              <span class="badge badge-emerald" id="aiProvidersActiveCount">Activo</span>
+            </div>
+            <div class="providers-compact-list" id="aiProvidersList">
+              <div class="provider-item">
+                <span class="prov-name">ADCRA Mock Engine</span>
+                <span class="badge badge-emerald">CONECTADO</span>
+              </div>
+              <div class="provider-item">
+                <span class="prov-name">Google Gemini (2.5 Pro/Flash)</span>
+                <span class="badge badge-gold" id="badgeGemini">STANDBY</span>
+              </div>
+              <div class="provider-item">
+                <span class="prov-name">Anthropic Claude (3.5 Sonnet)</span>
+                <span class="badge badge-gold" id="badgeAnthropic">STANDBY</span>
+              </div>
+              <div class="provider-item">
+                <span class="prov-name">OpenAI (GPT-4o / o1)</span>
+                <span class="badge badge-gold" id="badgeOpenAI">STANDBY</span>
+              </div>
+              <div class="provider-item">
+                <span class="prov-name">OpenRouter Multi-Model</span>
+                <span class="badge badge-gold" id="badgeOpenRouter">STANDBY</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Perfil y Autonomía -->
+          <div class="ai-control-card">
+            <div class="card-title-row">
+              <h4>Perfil & Autonomía</h4>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.25rem;">Perfil de Director Activo:</label>
+              <select id="aiProfileSelect" class="form-input" style="width: 100%;">
+                <option value="creative_director">Creative Director (Narrativa & Estética)</option>
+                <option value="strategist">Brand Strategist (Objetivos & Audiencia)</option>
+                <option value="copywriter">Creative Copywriter (Titulares & Guiones)</option>
+                <option value="storyboard_director">Storyboard Director (Cinematografía)</option>
+                <option value="qc_director">QC & Compliance Director (Auditoría Técnica)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.25rem;">Nivel de Autonomía:</label>
+              <div class="autonomy-btn-group">
+                <button class="btn-autonomy" data-mode="assist">Assist</button>
+                <button class="btn-autonomy active" data-mode="autopilot">Autopilot</button>
+                <button class="btn-autonomy" data-mode="autonomous">Autonomous</button>
+              </div>
+              <p class="autonomy-explainer" id="autonomyExplainer">
+                Autopilot: Resuelve tareas creativas y técnicas de forma autónoma. Se detiene ante acciones críticas de publicación o gasto financiero.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Cost Ledger -->
+          <div class="ai-control-card">
+            <div class="card-title-row">
+              <h4>AI Cost Ledger (Uso Real)</h4>
+              <span class="badge badge-blue font-mono" id="aiLedgerPeriod">30 Días</span>
+            </div>
+            <div class="cost-stats-container">
+              <div class="cost-stat-box">
+                <span class="cost-stat-label">Gasto Total</span>
+                <span class="cost-stat-val font-mono" id="aiCostLedgerTotal">bash.0004</span>
+              </div>
+              <div class="cost-stat-box">
+                <span class="cost-stat-label">Tokens Procesados</span>
+                <span class="cost-stat-val font-mono" id="aiCostLedgerTokens">1,159</span>
+              </div>
+              <div class="cost-stat-box">
+                <span class="cost-stat-label">Llamadas Agénticas</span>
+                <span class="cost-stat-val font-mono" id="aiCostLedgerCalls">2</span>
+              </div>
+            </div>
+            <div class="pending-approvals-box" id="pendingApprovalsContainer">
+              <span style="font-size: 0.75rem; color: var(--color-emerald);">✓ Sin acciones pendientes de aprobación humana</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       MODAL: CREATIVE DIRECTOR PRESENTATION VIEW (CLIENT PRESENTATION DECK)
+       ========================================================================== -->
+  <div class="presentation-modal-backdrop" id="presentationViewModal" style="display: none;">
+    <div class="presentation-modal">
+      <div class="presentation-header">
+        <div class="presentation-title-area">
+          <span class="pres-badge">⚡ ADCRA CREATIVE DIRECTOR DECK</span>
+          <h2 id="presCampaignTitle">Locos Materos — ¿Dónde estás tú? Está tu mate</h2>
+          <p class="pres-concept-sub" id="presCampaignConcept">Donde estés, tu mate te acompaña. Y cuando hay mate, hay gente.</p>
+        </div>
+        <div class="presentation-actions">
+          <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Imprimir / PDF</button>
+          <button class="presentation-close" id="btnClosePresentationModal">✕</button>
+        </div>
+      </div>
+      <div class="presentation-body" id="presentationContent">
+        <!-- Renderizado dinámicamente con las 6 secciones ejecutivas -->
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

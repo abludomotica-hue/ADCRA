@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "total_pending": 2,
+  "last_updated": "2026-09-21T23:06:35.611463+00:00",
+  "approvals": [
+    {
+      "approval_id": "appr_2c3beff0",
+      "run_id": "test_run",
+      "campaign_id": "unassigned",
+      "action": "davinci_orchestrator",
+      "why": "Conform video test",
+      "impact": "Renders test",
+      "cost_usd": 0.0,
+      "destination": "internal",
+      "risk_level": "MEDIUM",
+      "status": "PENDING",
+      "created_at": "2026-09-21T23:06:16.360553+00:00",
+      "decided_at": null,
+      "decided_by": null
+    },
+    {
+      "approval_id": "appr_516af74b",
+      "run_id": "test_run",
+      "campaign_id": "unassigned",
+      "action": "davinci_orchestrator",
+      "why": "Conform video test",
+      "impact": "Renders test",
+      "cost_usd": 0.0,
+      "destination": "internal",
+      "risk_level": "MEDIUM",
+      "status": "PENDING",
+      "created_at": "2026-09-21T23:06:25.894298+00:00",
+      "decided_at": null,
+      "decided_by": null
+    },
+    {
+      "approval_id": "appr_fdb17471",
+      "run_id": "test_run",
+      "campaign_id": "unassigned",
+      "action": "davinci_orchestrator",
+      "why": "Conform video test",
+      "impact": "Renders test",
+      "cost_usd": 0.0,
+      "destination": "internal",
+      "risk_level": "MEDIUM",
+      "status": "APPROVED",
+      "created_at": "2026-09-21T23:06:35.610636+00:00",
+      "decided_at": "2026-09-21T23:06:35.611088+00:00",
+      "decided_by": "human_test"
+    }
+  ]
+}

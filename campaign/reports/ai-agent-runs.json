@@ -1,0 +1,605 @@
+{
+  "schema_version": "1.0.0",
+  "total_runs": 10,
+  "last_updated": "2026-09-21T23:15:54.612332+00:00",
+  "runs": [
+    {
+      "run_id": "run_9b69ec4b",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CREATIVE_CONCEPT",
+      "status": "FAILED",
+      "started_at": "2026-09-21T12:34:55.452370+00:00",
+      "completed_at": "2026-09-21T12:34:55.458974+00:00",
+      "model_id": "gemini-2.5-flash",
+      "provider_id": "gemini",
+      "tools_used": [
+        "audio_analysis"
+      ],
+      "total_tokens": 165,
+      "total_cost": 3.1e-05,
+      "outputs": {
+        "brand_dna": "Mock response for task: campaign.strategy"
+      },
+      "errors": [
+        "Step step_audio_rhythm tool error: Role 'Audio Analyst' does not have required permissions for tool 'audio_analysis'"
+      ],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_16d59715",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CREATIVE_CONCEPT",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T12:35:17.336991+00:00",
+      "completed_at": "2026-09-21T12:35:17.346956+00:00",
+      "model_id": "mock-reasoning-pro",
+      "provider_id": "mock",
+      "tools_used": [
+        "audio_analysis"
+      ],
+      "total_tokens": 994,
+      "total_cost": 0.000392,
+      "outputs": {
+        "brand_dna": "Mock response for task: campaign.strategy",
+        "audio_profile": {
+          "bpm": 107.7,
+          "genre": "Indie Folk / Ac\u00fastico",
+          "sample_rate": 48000,
+          "beats_count": 82
+        },
+        "territories": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        },
+        "evaluation": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        }
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_4fafaade",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CUSTOM",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T12:36:42.851687+00:00",
+      "completed_at": "2026-09-21T12:36:42.856555+00:00",
+      "model_id": "mock-creative-flash",
+      "provider_id": "mock",
+      "tools_used": [],
+      "total_tokens": 155,
+      "total_cost": 3e-05,
+      "outputs": {
+        "result": "Mock response for task: custom"
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_7a41463d",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "COPY_GENERATE",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T12:40:11.096526+00:00",
+      "completed_at": "2026-09-21T12:40:11.100581+00:00",
+      "model_id": "mock-creative-flash",
+      "provider_id": "mock",
+      "tools_used": [],
+      "total_tokens": 152,
+      "total_cost": 3e-05,
+      "outputs": {
+        "result": "Mock response for task: custom"
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_5738ca63",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CREATIVE_CONCEPT",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T12:40:19.501917+00:00",
+      "completed_at": "2026-09-21T12:40:19.509731+00:00",
+      "model_id": "mock-reasoning-pro",
+      "provider_id": "mock",
+      "tools_used": [
+        "audio_analysis"
+      ],
+      "total_tokens": 994,
+      "total_cost": 0.000392,
+      "outputs": {
+        "brand_dna": "Mock response for task: campaign.strategy",
+        "audio_profile": {
+          "bpm": 107.7,
+          "genre": "Indie Folk / Ac\u00fastico",
+          "sample_rate": 48000,
+          "beats_count": 82
+        },
+        "territories": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        },
+        "evaluation": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        }
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_04b578f1",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CREATIVE_CONCEPT",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T23:00:31.158709+00:00",
+      "completed_at": "2026-09-21T23:00:31.167886+00:00",
+      "model_id": "mock-reasoning-pro",
+      "provider_id": "mock",
+      "tools_used": [
+        "audio_analysis"
+      ],
+      "total_tokens": 994,
+      "total_cost": 0.000392,
+      "outputs": {
+        "brand_dna": "Mock response for task: campaign.strategy",
+        "audio_profile": {
+          "bpm": 107.7,
+          "genre": "Indie Folk / Ac\u00fastico",
+          "sample_rate": 48000,
+          "beats_count": 82
+        },
+        "territories": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        },
+        "evaluation": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        }
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_35de0d15",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CREATIVE_CONCEPT",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T23:01:48.373674+00:00",
+      "completed_at": "2026-09-21T23:01:48.384075+00:00",
+      "model_id": "mock-reasoning-pro",
+      "provider_id": "mock",
+      "tools_used": [
+        "audio_analysis"
+      ],
+      "total_tokens": 994,
+      "total_cost": 0.000392,
+      "outputs": {
+        "brand_dna": "Mock response for task: campaign.strategy",
+        "audio_profile": {
+          "bpm": 107.7,
+          "genre": "Indie Folk / Ac\u00fastico",
+          "sample_rate": 48000,
+          "beats_count": 82
+        },
+        "territories": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        },
+        "evaluation": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        }
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_d7fd0c17",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CREATIVE_CONCEPT",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T23:07:29.559104+00:00",
+      "completed_at": "2026-09-21T23:07:29.571130+00:00",
+      "model_id": "mock-reasoning-pro",
+      "provider_id": "mock",
+      "tools_used": [
+        "audio_analysis"
+      ],
+      "total_tokens": 994,
+      "total_cost": 0.000392,
+      "outputs": {
+        "brand_dna": "Mock response for task: campaign.strategy",
+        "audio_profile": {
+          "bpm": 107.7,
+          "genre": "Indie Folk / Ac\u00fastico",
+          "sample_rate": 48000,
+          "beats_count": 82
+        },
+        "territories": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        },
+        "evaluation": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        }
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_826a4150",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "COPY_GENERATE",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T23:10:11.171973+00:00",
+      "completed_at": "2026-09-21T23:10:11.179664+00:00",
+      "model_id": "mock-creative-flash",
+      "provider_id": "mock",
+      "tools_used": [],
+      "total_tokens": 152,
+      "total_cost": 3e-05,
+      "outputs": {
+        "result": "Mock response for task: custom"
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    },
+    {
+      "run_id": "run_a7d748b1",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "agent_id": "Creative Director",
+      "task": "CREATIVE_CONCEPT",
+      "status": "COMPLETED",
+      "started_at": "2026-09-21T23:15:54.596590+00:00",
+      "completed_at": "2026-09-21T23:15:54.611593+00:00",
+      "model_id": "mock-reasoning-pro",
+      "provider_id": "mock",
+      "tools_used": [
+        "audio_analysis"
+      ],
+      "total_tokens": 994,
+      "total_cost": 0.000392,
+      "outputs": {
+        "brand_dna": "Mock response for task: campaign.strategy",
+        "audio_profile": {
+          "bpm": 107.7,
+          "genre": "Indie Folk / Ac\u00fastico",
+          "sample_rate": 48000,
+          "beats_count": 82
+        },
+        "territories": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        },
+        "evaluation": {
+          "campaign_id": "camp_locos_materos_2026",
+          "concept": "Donde est\u00e9s, tu mate te acompa\u00f1a",
+          "territories": [
+            {
+              "id": "territory_1",
+              "name": "Ritual y Pertenencia",
+              "description": "El mate como conector social y s\u00edmbolo de identidad compartida",
+              "tone": "C\u00e1lido, inclusivo, aut\u00e9ntico",
+              "hook": "\u00bfAlguna vez viste a alguien tomar mate solo sin mirar a su alrededor?"
+            },
+            {
+              "id": "territory_2",
+              "name": "Energ\u00eda Natural & Foco",
+              "description": "La vitalidad que despierta la ma\u00f1ana y activa proyectos",
+              "tone": "Din\u00e1mico, vibrante, juvenil",
+              "hook": "El primer sorbo que arranca tu d\u00eda de verdad."
+            },
+            {
+              "id": "territory_3",
+              "name": "Momentos Compartidos",
+              "description": "De la charla casual al mateada infinita con amigos",
+              "tone": "Emocional, nost\u00e1lgico, cercano",
+              "hook": "Hay silencios que solo se llenan pasando el mate."
+            }
+          ],
+          "selected_territory": "Ritual y Pertenencia"
+        }
+      },
+      "errors": [],
+      "iterations": 1,
+      "approvals": []
+    }
+  ]
+}

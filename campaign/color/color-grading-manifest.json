@@ -260,5 +260,8 @@
       ],
       "intent_rationale": "Máximo impacto publicitario con negros profundos, viñeta verde mate y dorados radiantes."
     }
-  ]
+  ],
+  "selected_lut": "locos_materos_warm_cinematic",
+  "approval_status": "APPROVED",
+  "approved_at": "2026-09-21T23:16:18Z"
 }

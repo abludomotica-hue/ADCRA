@@ -17,29 +17,29 @@
       },
       "alternatives": {
         "emocional": {
-          "text": "Cada día comienza con una pausa.",
-          "emotional_impact_score": 9.2
+          "text": "El latido que despierta tu mañana con cálido, familiar y nostálgico.",
+          "emotional_impact_score": 9.4
         },
         "publicitaria": {
-          "text": "Empezá tus mañanas con Locos Materos.",
-          "call_to_action_score": 7.0
+          "text": "Tu ritual diario, ahora con la mejor calidad en cada cebada.",
+          "call_to_action_score": 8.8
         },
         "conversacional": {
-          "text": "Suena el agua y parte el día.",
-          "naturalness_score": 8.8
+          "text": "Un buen mate no se apura, se disfruta.",
+          "naturalness_score": 9.5
         },
         "minimalista": {
-          "text": "Despertar.",
-          "word_count": 1
+          "text": "Sentí el origen.",
+          "word_count": 3
         },
         "identidad_de_marca": {
-          "text": "El primer mate del día es con nosotros.",
-          "brand_alignment_score": 8.0
+          "text": "Locos Materos: Compañía auténtica en cada momento.",
+          "brand_alignment_score": 9.7
         }
       },
-      "selected_variant": "emocional",
-      "selected_text": "Cada día comienza con una pausa.",
-      "selection_rationale": "En la apertura de 3 segundos, construir conexión afectiva y serenidad es prioritario antes de introducir mensajes comerciales directos."
+      "selected_variant": "conversacional",
+      "selected_text": "Un buen mate no se apura, se disfruta.",
+      "selection_rationale": "Generado contextualmente para tono 'Cálido, familiar y nostálgico', maximizando resonancia natural y legibilidad en pantalla 9:16."
     },
     {
       "scene_id": "scene_02",
@@ -76,9 +76,9 @@
           "brand_alignment_score": 9.4
         }
       },
-      "selected_variant": "identidad_de_marca",
-      "selected_text": "El arte de prepararse para lo bueno.",
-      "selection_rationale": "Eleva el producto a un estándar artesanal y aspiracional, vinculando la calidad de los accesorios con los valores de la marca."
+      "selected_variant": "emocional",
+      "selected_text": "El tiempo que le dedicás a lo que querés.",
+      "selection_rationale": "Prueba unitaria de selección de variante emocional para escena 02"
     },
     {
       "scene_id": "scene_03",
@@ -95,29 +95,29 @@
       },
       "alternatives": {
         "emocional": {
-          "text": "Un país que despierta con la cordillera.",
-          "emotional_impact_score": 9.5
+          "text": "El latido que despierta tu mañana con auténtico y cercano.",
+          "emotional_impact_score": 9.4
         },
         "publicitaria": {
-          "text": "De Arica a Magallanes, mate chileno.",
-          "call_to_action_score": 7.5
+          "text": "Tu ritual diario, ahora con la mejor calidad en cada cebada.",
+          "call_to_action_score": 8.8
         },
         "conversacional": {
-          "text": "Sale el sol y la cordillera se ilumina.",
-          "naturalness_score": 8.9
+          "text": "Un buen mate no se apura, se disfruta.",
+          "naturalness_score": 9.5
         },
         "minimalista": {
-          "text": "Chile amanece.",
-          "word_count": 2
+          "text": "Sentí el origen.",
+          "word_count": 3
         },
         "identidad_de_marca": {
-          "text": "Locos Materos bajo el cielo andino.",
-          "brand_alignment_score": 8.1
+          "text": "Locos Materos: Compañía auténtica en cada momento.",
+          "brand_alignment_score": 9.7
         }
       },
-      "selected_variant": "emocional",
-      "selected_text": "Un país que despierta con la cordillera.",
-      "selection_rationale": "Amplifica la escala territorial y evoca orgullo identitario chileno en sincronía con la entrada de la percusión."
+      "selected_variant": "conversacional",
+      "selected_text": "Un buen mate no se apura, se disfruta.",
+      "selection_rationale": "Generado contextualmente para tono 'Auténtico y cercano', maximizando resonancia natural y legibilidad en pantalla 9:16."
     },
     {
       "scene_id": "scene_04",

@@ -1,0 +1,412 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CampaignKnowledgeGraphSchema",
+  "description": "Esquema formal para el Campaign Knowledge Graph de ADCRA con clasificación epistemológica de fuentes.",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "campaign_name",
+    "version",
+    "created_at",
+    "updated_at",
+    "client",
+    "objective",
+    "audience",
+    "product_service",
+    "offer",
+    "insights",
+    "creative_strategy",
+    "creative_concept",
+    "copy",
+    "audio",
+    "video_assets",
+    "storyboard",
+    "visual_system",
+    "motion_system",
+    "production",
+    "qc",
+    "delivery"
+  ],
+  "definitions": {
+    "epistemic_node": {
+      "type": "object",
+      "required": [
+        "value",
+        "source",
+        "confidence"
+      ],
+      "properties": {
+        "value": {},
+        "source": {
+          "type": "string",
+          "enum": [
+            "CLIENT_INPUT",
+            "CONFIRMED_FACT",
+            "AI_INFERENCE",
+            "AI_RECOMMENDATION",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "PENDING_CONFIRMATION",
+            "CONFIRMED",
+            "REJECTED",
+            "DEPRECATED"
+          ]
+        },
+        "requires_confirmation": {
+          "type": "boolean"
+        },
+        "last_updated": {
+          "type": "string"
+        },
+        "approved": {
+          "type": "boolean"
+        }
+      }
+    },
+    "brand_dna": {
+      "type": "object",
+      "required": [
+        "who_we_are",
+        "how_we_speak",
+        "how_we_look",
+        "how_we_move",
+        "how_we_sell",
+        "how_we_should_never_behave"
+      ],
+      "properties": {
+        "who_we_are": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "how_we_speak": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "how_we_look": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "how_we_move": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "how_we_sell": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "how_we_should_never_behave": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    }
+  },
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "campaign_name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v?\\d+\\.\\d+\\.\\d+"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "client": {
+      "type": "object",
+      "required": [
+        "client_id",
+        "brand_name",
+        "brand_dna"
+      ],
+      "properties": {
+        "client_id": {
+          "type": "string"
+        },
+        "brand_name": {
+          "type": "string"
+        },
+        "brand_dna": {
+          "$ref": "#/definitions/brand_dna"
+        },
+        "brand_colors": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "typography": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "voice_tone": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "restrictions": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "previous_campaigns": {
+          "type": "array"
+        }
+      }
+    },
+    "objective": {
+      "type": "object",
+      "required": [
+        "primary_objective"
+      ],
+      "properties": {
+        "primary_objective": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "secondary_objectives": {
+          "type": "array"
+        }
+      }
+    },
+    "audience": {
+      "type": "object",
+      "required": [
+        "primary_audience"
+      ],
+      "properties": {
+        "primary_audience": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "psychographics": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "pain_points": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "platform_behavior": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "product_service": {
+      "type": "object",
+      "required": [
+        "product_name"
+      ],
+      "properties": {
+        "product_name": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "category": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "key_benefits": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "differentiators": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "offer": {
+      "type": "object",
+      "required": [
+        "offer_type"
+      ],
+      "properties": {
+        "offer_type": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "cta_message": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "insights": {
+      "type": "object",
+      "properties": {
+        "cultural_context": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "consumption_ritual": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "creative_strategy": {
+      "type": "object",
+      "required": [
+        "strategic_intent"
+      ],
+      "properties": {
+        "strategic_intent": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "narrative_arc": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "creative_concept": {
+      "type": "object",
+      "required": [
+        "big_idea"
+      ],
+      "properties": {
+        "big_idea": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "concept_alternatives": {
+          "type": "array"
+        }
+      }
+    },
+    "copy": {
+      "type": "object",
+      "required": [
+        "scene_copies"
+      ],
+      "properties": {
+        "scene_copies": {
+          "type": "array"
+        },
+        "verbal_economy_rationale": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "required": [
+        "tempo_bpm",
+        "musical_sections"
+      ],
+      "properties": {
+        "tempo_bpm": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "musical_sections": {
+          "type": "array"
+        },
+        "loudness_target": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "video_assets": {
+      "type": "object",
+      "required": [
+        "assets_count",
+        "inventory_ref"
+      ],
+      "properties": {
+        "assets_count": {
+          "type": "integer"
+        },
+        "inventory_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "storyboard": {
+      "type": "object",
+      "required": [
+        "scene_count",
+        "scenes"
+      ],
+      "properties": {
+        "scene_count": {
+          "type": "integer"
+        },
+        "scenes": {
+          "type": "array"
+        }
+      }
+    },
+    "visual_system": {
+      "type": "object",
+      "required": [
+        "color_lut"
+      ],
+      "properties": {
+        "color_lut": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "aspect_ratio": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "motion_system": {
+      "type": "object",
+      "required": [
+        "motion_tool",
+        "safe_zones"
+      ],
+      "properties": {
+        "motion_tool": {
+          "$ref": "#/definitions/epistemic_node"
+        },
+        "safe_zones": {
+          "$ref": "#/definitions/epistemic_node"
+        }
+      }
+    },
+    "production": {
+      "type": "object",
+      "required": [
+        "status",
+        "master_output"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "master_output": {
+          "type": "string"
+        }
+      }
+    },
+    "qc": {
+      "type": "object",
+      "required": [
+        "certification_status",
+        "score"
+      ],
+      "properties": {
+        "certification_status": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "audit_cameras": {
+          "type": "object"
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "required": [
+        "delivery_package_ref",
+        "sha256_verified"
+      ],
+      "properties": {
+        "delivery_package_ref": {
+          "type": "string"
+        },
+        "sha256_verified": {
+          "type": "boolean"
+        },
+        "variants_count": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "adcra-1790032577",
+  "status": "APPROVED",
+  "generated_at": "2026-09-21T23:16:17Z",
+  "executive_summary": {
+    "brand_name": "Locos Materos",
+    "primary_objective": "CONVERSION",
+    "secondary_objectives": [
+      "RETENCION"
+    ],
+    "target_audience": "Chile",
+    "key_takeaway": "El ritual matero que nos une con calidez",
+    "emotions": [
+      "NOSTALGIA",
+      "CONFIANZA"
+    ]
+  },
+  "cinematography_and_color": {
+    "director_treatment": "WARM_LIFESTYLE",
+    "color_temperature_target_kelvin": 5200,
+    "primary_color": "#2C1B14",
+    "accent_color": "#D4AF37"
+  },
+  "audio_intelligence": {
+    "filename": "locos_materos_track.mp3",
+    "bpm": 107.7,
+    "musical_key": "Am (La menor)",
+    "cut_interval_seconds": 2.22,
+    "duration_seconds": 30
+  },
+  "deliverables_matrix": {
+    "resolution": "1080x1920",
+    "aspect_ratio": "9:16",
+    "fps": 29.97,
+    "target_seconds": 30,
+    "channels": [
+      "INSTAGRAM_REELS",
+      "TIKTOK"
+    ],
+    "is_branding_only": false,
+    "offer_title": "30% OFF en Termos"
+  }
+}

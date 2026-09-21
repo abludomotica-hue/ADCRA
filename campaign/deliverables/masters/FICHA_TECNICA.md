@@ -6,7 +6,7 @@
 ### 1. Metadatos Generales
 - **Campaña:** `camp_locos_materos_2026`
 - **ID de Entrega:** `deliv_locos_materos_broadcast_2026`
-- **Fecha de Emisión:** `2026-09-20T02:43:46.676472+00:00`
+- **Fecha de Emisión:** `2026-09-21T23:16:00.282800+00:00`
 - **Cliente:** Locos Materos (Yerba Mate / Chile)
 - **Claim Rector:** *"¿Dónde estás tú? Está tu mate"*
 - **Estado de Calidad:** `APPROVED` (Quality Score: **100.0/100.0**)

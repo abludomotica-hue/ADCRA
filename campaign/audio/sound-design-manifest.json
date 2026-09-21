@@ -12,7 +12,9 @@
     "measured_integrated_lufs": -12.7,
     "target_true_peak_dbtp": -1.0,
     "measured_true_peak_dbtp": -1.0,
-    "loudness_range_lu": 1.7
+    "loudness_range_lu": 1.7,
+    "mastering_approved": true,
+    "approved_at": "2026-09-21T23:16:18Z"
   },
   "tracks": {
     "bgm_track": {
