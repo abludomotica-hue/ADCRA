@@ -6425,10 +6425,11 @@ const IntakeApp = {
     alert(msg.replace(/^ +/gm, ''));
   },
 
-  async openAiBrainModal() {
+  async openAiBrainModal(initialMode = 'simple') {
     const modal = document.getElementById('aiBrainControlModal');
     if (!modal) return;
     modal.style.display = 'flex';
+    this.switchAiBrainMode(initialMode);
     try {
       const [resHealth, resUsage] = await Promise.all([
         fetch('/api/ai/health').then(r => r.json()),
@@ -6437,9 +6438,9 @@ const IntakeApp = {
       const costEl = document.getElementById('aiCostLedgerTotal');
       const tokEl = document.getElementById('aiCostLedgerTokens');
       const callsEl = document.getElementById('aiCostLedgerCalls');
-      if (costEl) costEl.textContent = `$${resUsage.total_cost_usd.toFixed(4)}`;
-      if (tokEl) tokEl.textContent = resUsage.total_tokens.toLocaleString();
-      if (callsEl) callsEl.textContent = resUsage.total_requests.toString();
+      if (costEl && resUsage.total_cost_usd !== undefined) costEl.textContent = `$${resUsage.total_cost_usd.toFixed(4)}`;
+      if (tokEl && resUsage.total_tokens !== undefined) tokEl.textContent = resUsage.total_tokens.toLocaleString();
+      if (callsEl && resUsage.total_requests !== undefined) callsEl.textContent = resUsage.total_requests.toString();
     } catch (e) {
       console.warn('Error loading AI Brain modal stats:', e);
     }
@@ -6463,7 +6464,10 @@ const IntakeApp = {
       { icon: '🎨', label: 'Color · Sound · Motion Lab', desc: 'Nodos de color grading, mezcla Fairlight y kinetic templates', act: () => { modal.style.display = 'none'; this.switchStudioView('aesthetics'); } },
       { icon: '🛡️', label: 'Quality Control Dashboard', desc: 'Loudness EBU R128 (-24 LUFS), gamut Rec.709 y safe zones', act: () => { modal.style.display = 'none'; this.switchStudioView('qcdashboard'); } },
       { icon: '🚀', label: 'Delivery Center & Package', desc: 'Ficha técnica, paquete comercial y hashes SHA-256', act: () => { modal.style.display = 'none'; this.switchStudioView('delivery'); } },
-      { icon: '🧠', label: 'AI Brain Control Center', desc: 'Gobernanza de modelos, costos en tiempo real y aprobaciones', act: () => { modal.style.display = 'none'; this.openAiBrainModal(); } },
+      { icon: '🧠', label: 'AI Brain Control Center', desc: 'Gobernanza de modelos, costos en tiempo real y aprobaciones', act: () => { modal.style.display = 'none'; this.openAiBrainModal('simple'); } },
+      { icon: '⚙️', label: 'AI Control Plane: Modo Experto', desc: 'Matriz de capacidades, circuit breakers P50/P95 y telemetría', act: () => { modal.style.display = 'none'; this.openAiBrainModal('expert'); } },
+      { icon: '⚡', label: 'AI Control Plane: Sondear Capacidades', desc: 'Ejecutar sondeo en vivo de inferencia, JSON schemas y tools', act: () => { modal.style.display = 'none'; this.openAiBrainModal('expert'); setTimeout(() => this.probeAiCapabilities(), 300); } },
+      { icon: '🔍', label: 'AI Control Plane: Simulador de Enrutamiento', desc: 'Desglose paso a paso de Model Policy Engine y alias', act: () => { modal.style.display = 'none'; this.openAiBrainModal('expert'); } },
       { icon: '🖥️', label: 'Diagnóstico de Hardware & GPU', desc: 'Ver estado de VRAM, aceleración NVIDIA y motor de render', act: () => { modal.style.display = 'none'; this.showHardwareModal(); } },
       { icon: '⚡', label: 'Ejecutar Pipeline Integral (22 Fases)', desc: 'Orquestación secuencial certificada de punta a punta', act: () => { modal.style.display = 'none'; this.switchStudioView('pipeline'); } },
       { icon: '💾', label: 'Guardar Borrador de Campaña', desc: 'Persistir estado actual en memoria local y servidor', act: () => { modal.style.display = 'none'; this.saveDraft(false); } }
@@ -6687,6 +6691,173 @@ const IntakeApp = {
         }
       });
     }
+  },
+
+
+  // ==========================================================================
+  // AI INTELLIGENCE CONTROL PLANE v2.0 — CLIENT INTERACTION METHODS
+  // ==========================================================================
+
+  switchAiBrainMode(mode) {
+    const simpleView = document.getElementById('aiBrainSimpleView');
+    const expertView = document.getElementById('aiBrainExpertView');
+    const tabSimple = document.getElementById('tabModeSimple');
+    const tabExpert = document.getElementById('tabModeExpert');
+
+    if (mode === 'expert') {
+      if (simpleView) simpleView.style.display = 'none';
+      if (expertView) expertView.style.display = 'block';
+      if (tabSimple) tabSimple.classList.remove('active');
+      if (tabExpert) tabExpert.classList.add('active');
+      this.loadCapabilitiesMatrix();
+      this.loadCircuitBreakers();
+    } else {
+      if (simpleView) simpleView.style.display = 'block';
+      if (expertView) expertView.style.display = 'none';
+      if (tabSimple) tabSimple.classList.add('active');
+      if (tabExpert) tabExpert.classList.remove('active');
+    }
+  },
+
+  async loadCapabilitiesMatrix() {
+    const container = document.getElementById('capabilitiesMatrixList');
+    if (!container) return;
+    try {
+      const res = await fetch('/api/ai/capabilities');
+      const data = await res.json();
+      const caps = data.capabilities || [];
+
+      if (caps.length === 0) {
+        container.innerHTML = '<div style="padding: 1rem; color: var(--text-dim);">No hay capacidades registradas.</div>';
+        return;
+      }
+
+      container.innerHTML = caps.map(c => `
+        <div class="cap-matrix-item ${c.status === 'ACTIVE' ? 'active' : 'standby'}">
+          <div class="cap-info">
+            <span class="cap-title">${c.name || c.id}</span>
+            <span class="cap-cat">${c.category} · ${c.id}</span>
+          </div>
+          <span class="badge ${c.status === 'ACTIVE' ? 'badge-emerald' : 'badge-gold'} font-mono" style="font-size: 0.68rem;">
+            ${c.status}
+          </span>
+        </div>
+      `).join('');
+    } catch (e) {
+      console.error('Error loading capabilities:', e);
+      container.innerHTML = '<div style="padding: 1rem; color: var(--color-error);">Error al cargar matriz de capacidades</div>';
+    }
+  },
+
+  async probeAiCapabilities() {
+    const btn = document.getElementById('btnProbeCapabilities');
+    const spinner = document.getElementById('probeSpinner');
+    if (btn) btn.disabled = true;
+    if (spinner) spinner.style.display = 'inline';
+
+    try {
+      const res = await fetch('/api/ai/capabilities/probe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ timeout_seconds: 3.0 })
+      });
+      const data = await res.json();
+      this.showToast(`Sondeo completado: ${data.passed_count || 0}/${data.total_tested || 0} pruebas exitosas`);
+      await this.loadCapabilitiesMatrix();
+      await this.loadCircuitBreakers();
+    } catch (e) {
+      this.showToast('Error ejecutando sondeo de capacidades');
+    } finally {
+      if (btn) btn.disabled = false;
+      if (spinner) spinner.style.display = 'none';
+    }
+  },
+
+  async loadCircuitBreakers() {
+    const container = document.getElementById('circuitBreakersList');
+    if (!container) return;
+
+    try {
+      const res = await fetch('/api/ai/control-plane/status');
+      const data = await res.json();
+      const providers = data.providers || {};
+
+      const items = Object.entries(providers).map(([id, p]) => {
+        const state = p.circuit_breaker ? p.circuit_breaker.state : 'CLOSED';
+        const badgeClass = state === 'CLOSED' ? 'closed' : (state === 'OPEN' ? 'open' : 'half-open');
+        const p50 = p.metrics ? (p.metrics.p50_latency_ms || 0).toFixed(0) : '0';
+        const p95 = p.metrics ? (p.metrics.p95_latency_ms || 0).toFixed(0) : '0';
+        const fails = p.circuit_breaker ? p.circuit_breaker.consecutive_failures : 0;
+
+        return `
+          <div class="circuit-card-item">
+            <div class="circuit-card-header">
+              <span class="circuit-prov-name">${p.name || id}</span>
+              <span class="circuit-badge ${badgeClass}">${state}</span>
+            </div>
+            <div class="circuit-metrics-row">
+              <span>Estado: <strong>${p.status || 'HEALTHY'}</strong></span>
+              <span>Fallas: <strong>${fails}</strong></span>
+            </div>
+            <div class="circuit-metrics-row">
+              <span>P50: <strong>${p50}ms</strong></span>
+              <span>P95: <strong>${p95}ms</strong></span>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = items.join('');
+    } catch (e) {
+      container.innerHTML = '<div style="padding: 1rem; color: var(--text-dim);">Telemetría no disponible temporalmente.</div>';
+    }
+  },
+
+  async explainRoutingSimulation() {
+    const task = document.getElementById('simTaskSelect')?.value || 'creative_ideation';
+    const alias = document.getElementById('simAliasSelect')?.value || null;
+    const policy = document.getElementById('simPolicySelect')?.value || 'BALANCED';
+
+    const box = document.getElementById('routingExplanationBox');
+    const decModel = document.getElementById('decModelName');
+    const decPolicy = document.getElementById('decPolicyTag');
+    const decScore = document.getElementById('decScore');
+    const decLatency = document.getElementById('decLatency');
+    const decCost = document.getElementById('decCost');
+    const decRationale = document.getElementById('decRationale');
+    const decChips = document.getElementById('decFallbackChips');
+
+    try {
+      const res = await fetch('/api/ai/routing/explain', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ task, alias, policy })
+      });
+      const data = await res.json();
+      const dec = data.decision || {};
+
+      if (box) box.style.display = 'block';
+      if (decModel) decModel.textContent = `${dec.provider_id || 'unknown'} / ${dec.model_id || 'unknown'}`;
+      if (decPolicy) decPolicy.textContent = dec.policy || policy;
+      if (decScore) decScore.textContent = `${((dec.score || 0.9) * 100).toFixed(0)}%`;
+      if (decLatency) decLatency.textContent = `${(dec.estimated_latency_ms || 250).toFixed(0)}ms`;
+      if (decCost) decCost.textContent = `$${(dec.estimated_cost_usd || 0.0001).toFixed(4)}`;
+      if (decRationale) decRationale.textContent = dec.rationale || 'Selección validada por capacidades y política de enrutamiento.';
+
+      if (decChips) {
+        const fallbacks = dec.fallback_chain || [];
+        if (fallbacks.length > 0) {
+          decChips.innerHTML = fallbacks.map(f => `<span class="fallback-chip">${f}</span>`).join('');
+        } else {
+          decChips.innerHTML = '<span style="color: var(--text-dim); font-size: 0.72rem;">Sin fallbacks configurados</span>';
+        }
+      }
+    } catch (e) {
+      this.showToast('Error al simular enrutamiento');
+    }
   }
 
 };
+
+window.IntakeApp = IntakeApp;
+window.app = IntakeApp;

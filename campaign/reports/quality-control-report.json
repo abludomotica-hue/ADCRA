@@ -1,6 +1,6 @@
 {
   "campaign_id": "camp_locos_materos_2026",
-  "timestamp": "2026-09-22T00:00:35Z",
+  "timestamp": "2026-09-22T01:08:54Z",
   "overall_score": 100.0,
   "certification_status": "APPROVED",
   "audits": {
@@ -16,7 +16,7 @@
           "overridden": true,
           "override_reason": "Resolución validada en control de calidad para vertical 9:16",
           "overridden_by": "Director Técnico",
-          "overridden_at": "2026-09-22T00:00:35Z"
+          "overridden_at": "2026-09-22T01:08:54Z"
         },
         {
           "check_id": "tech_02_framerate_duration",

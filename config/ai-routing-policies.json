@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "schema_version": "2.0.0",
+  "description": "ADCRA AI Intelligence Control Plane — Model Routing Policies & Logical Aliases",
+  "default_policy": "BALANCED",
+  "circuit_breaker": {
+    "failure_threshold": 3,
+    "cooldown_seconds": 30,
+    "half_open_probes": 1
+  },
+  "aliases": {
+    "creative.high": {
+      "target_capability": "creative_writing",
+      "preferred_provider": "openai",
+      "preferred_model": "gpt-4o",
+      "fallbacks": [["anthropic", "claude-3-5-sonnet-20241022"], ["gemini", "gemini-2.5-pro"], ["mock", "mock-creative-flash"]],
+      "policy": "QUALITY_FIRST"
+    },
+    "creative.fast": {
+      "target_capability": "creative_writing",
+      "preferred_provider": "gemini",
+      "preferred_model": "gemini-2.5-flash",
+      "fallbacks": [["openai", "gpt-4o-mini"], ["anthropic", "claude-3-5-haiku-20241022"], ["mock", "mock-creative-flash"]],
+      "policy": "LOW_LATENCY"
+    },
+    "strategy.deep": {
+      "target_capability": "strategic_reasoning",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-3-5-sonnet-20241022",
+      "fallbacks": [["openai", "gpt-4o"], ["gemini", "gemini-2.5-pro"], ["mock", "mock-reasoning-pro"]],
+      "policy": "HIGH_REASONING"
+    },
+    "strategy.fast": {
+      "target_capability": "strategic_reasoning",
+      "preferred_provider": "openai",
+      "preferred_model": "gpt-4o-mini",
+      "fallbacks": [["gemini", "gemini-2.5-flash"], ["mock", "mock-creative-flash"]],
+      "policy": "BALANCED"
+    },
+    "vision.high": {
+      "target_capability": "multimodal_vision",
+      "preferred_provider": "gemini",
+      "preferred_model": "gemini-2.5-pro",
+      "fallbacks": [["openai", "gpt-4o"], ["anthropic", "claude-3-5-sonnet-20241022"], ["mock", "mock-reasoning-pro"]],
+      "policy": "MULTIMODAL_FIRST"
+    },
+    "vision.fast": {
+      "target_capability": "multimodal_vision",
+      "preferred_provider": "gemini",
+      "preferred_model": "gemini-2.5-flash",
+      "fallbacks": [["openai", "gpt-4o-mini"], ["mock", "mock-creative-flash"]],
+      "policy": "LOW_LATENCY"
+    },
+    "copy.high": {
+      "target_capability": "copy_generation",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-3-5-sonnet-20241022",
+      "fallbacks": [["openai", "gpt-4o"], ["gemini", "gemini-2.5-flash"], ["mock", "mock-creative-flash"]],
+      "policy": "QUALITY_FIRST"
+    },
+    "copy.fast": {
+      "target_capability": "copy_generation",
+      "preferred_provider": "openai",
+      "preferred_model": "gpt-4o-mini",
+      "fallbacks": [["gemini", "gemini-2.5-flash"], ["mock", "mock-creative-flash"]],
+      "policy": "COST_OPTIMIZED"
+    },
+    "qc.deep": {
+      "target_capability": "brand_analysis",
+      "preferred_provider": "openai",
+      "preferred_model": "gpt-4o",
+      "fallbacks": [["anthropic", "claude-3-5-sonnet-20241022"], ["mock", "mock-reasoning-pro"]],
+      "policy": "QUALITY_FIRST"
+    },
+    "qc.fast": {
+      "target_capability": "classification",
+      "preferred_provider": "gemini",
+      "preferred_model": "gemini-2.5-flash",
+      "fallbacks": [["openai", "gpt-4o-mini"], ["mock", "mock-creative-flash"]],
+      "policy": "LOW_LATENCY"
+    }
+  }
+}

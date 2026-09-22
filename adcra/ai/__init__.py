@@ -32,6 +32,26 @@ from adcra.ai.verbal_economy import get_verbal_economy_engine, VerbalEconomyEngi
 from adcra.ai.hardware import get_hardware_probe, HardwareEnvironmentProbe
 from adcra.ai.experiments import get_creative_experiment_engine, CreativeExperimentEngine
 
+from adcra.ai.capabilities import (
+    get_capability_registry, get_discovery_engine,
+    CapabilityRegistry, CapabilityDiscoveryEngine,
+    Capability, CapabilityRequirement, CapabilityReport, CapabilityCategory
+)
+from adcra.ai.brains import (
+    get_brain_registry, get_federation_engine,
+    BrainRegistry, BrainFederationEngine, BrainProfile, BrainHandoff
+)
+from adcra.ai.policies import (
+    get_policy_engine, ModelPolicyEngine, ModelPolicy
+)
+from adcra.ai.health import (
+    get_health_monitor, ProviderHealthMonitor, HealthStatus, CircuitState
+)
+from adcra.ai.runtime import (
+    get_agent_runtime, AgentRuntime, AIRun, AIRunStatus,
+    SecretRedaction, SecretProvider, FallbackEngine
+)
+
 # Auto-registrar proveedores en el gateway global
 _gw = get_ai_gateway()
 if not _gw.has_adapter("mock"):
@@ -60,4 +80,11 @@ __all__ = [
     "get_verbal_economy_engine", "VerbalEconomyEngine",
     "get_hardware_probe", "HardwareEnvironmentProbe",
     "get_creative_experiment_engine", "CreativeExperimentEngine"
+,
+    "get_capability_registry", "get_discovery_engine", "CapabilityRegistry", "CapabilityDiscoveryEngine",
+    "Capability", "CapabilityRequirement", "CapabilityReport", "CapabilityCategory",
+    "get_brain_registry", "get_federation_engine", "BrainRegistry", "BrainFederationEngine",
+    "BrainProfile", "BrainHandoff", "get_policy_engine", "ModelPolicyEngine", "ModelPolicy",
+    "get_health_monitor", "ProviderHealthMonitor", "HealthStatus", "CircuitState",
+    "get_agent_runtime", "AgentRuntime", "AIRun", "AIRunStatus", "SecretRedaction", "SecretProvider"
 ]

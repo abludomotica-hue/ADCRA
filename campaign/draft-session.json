@@ -32,12 +32,12 @@
   },
   "updated_at": "2026-09-20T14:15:00Z",
   "restored_from_snapshot": "snap_v1_0_0_brief",
-  "last_restored_at": "2026-09-22T00:00:35.987850+00:00",
+  "last_restored_at": "2026-09-22T01:08:55.002831+00:00",
   "current_version": "v1.0.0",
   "draftData": {
     "primary_color": "#0D5C3A",
     "target_bpm": 107.7
   },
   "memory_applied": true,
-  "memory_applied_at": "2026-09-22T00:00:35.994333+00:00"
+  "memory_applied_at": "2026-09-22T01:08:55.009191+00:00"
 }

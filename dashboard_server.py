@@ -147,6 +147,15 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
         elif parsed.path == "/api/ai/intent/execute":
             self.handle_api_ai_intent_execute()
             return
+        elif parsed.path == "/api/ai/capabilities/discover":
+            self.handle_api_ai_capabilities_discover()
+            return
+        elif parsed.path == "/api/ai/capabilities/probe":
+            self.handle_api_ai_capabilities_probe()
+            return
+        elif parsed.path == "/api/ai/routing/explain":
+            self.handle_api_ai_routing_explain()
+            return
         elif parsed.path == "/api/ai/providers/test":
             self.handle_api_ai_providers_test()
             return
@@ -283,6 +292,41 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
             return
         elif path == "/api/intake/pipeline/status":
             self.handle_api_intake_pipeline_status()
+            return
+        elif path == "/api/ai/control-plane/status":
+            self.handle_api_ai_control_plane_status()
+            return
+        elif path == "/api/ai/capabilities":
+            self.handle_api_ai_capabilities()
+            return
+        elif path.startswith("/api/ai/capabilities/"):
+            cap_id = path.split("/api/ai/capabilities/")[1]
+            self.handle_api_ai_capabilities(cap_id=cap_id)
+            return
+        elif path.startswith("/api/ai/brains/"):
+            brain_id = path.split("/api/ai/brains/")[1]
+            self.handle_api_ai_brains_detail(brain_id)
+            return
+        elif path.startswith("/api/ai/providers/") and path.endswith("/health"):
+            prov_id = path.split("/api/ai/providers/")[1].split("/health")[0]
+            self.handle_api_ai_provider_health(prov_id)
+            return
+        elif path.startswith("/api/ai/models/"):
+            model_id = path.split("/api/ai/models/")[1]
+            self.handle_api_ai_models_detail(model_id)
+            return
+        elif path == "/api/ai/routing/policies":
+            self.handle_api_ai_routing_policies()
+            return
+        elif path == "/api/ai/routing/aliases":
+            self.handle_api_ai_routing_aliases()
+            return
+        elif path.startswith("/api/ai/traces/"):
+            trace_id = path.split("/api/ai/traces/")[1]
+            self.handle_api_ai_traces_detail(trace_id)
+            return
+        elif path == "/api/ai/costs":
+            self.handle_api_ai_costs()
             return
         elif path == "/api/ai/health":
             self.handle_api_ai_health()
@@ -2079,6 +2123,165 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 break
 
     # ----------------- AI Brain & Agentic Handlers -----------------
+
+    # --------------------------------------------------------------------------
+    # AI INTELLIGENCE CONTROL PLANE v2.0 HANDLERS
+    # --------------------------------------------------------------------------
+
+    def handle_api_ai_capabilities(self, cap_id=None):
+        if not ai:
+            self.send_json([], 503)
+            return
+        reg = ai.get_capability_registry()
+        if cap_id:
+            cap = reg.get_capability(cap_id)
+            if cap:
+                self.send_json(cap.to_dict())
+            else:
+                self.send_json({"error": f"Capability '{cap_id}' not found"}, 404)
+        else:
+            self.send_json([c.to_dict() for c in reg.list_capabilities()])
+
+    def handle_api_ai_capabilities_discover(self):
+        if not ai:
+            self.send_json({"error": "AI subsystem unavailable"}, 503)
+            return
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length).decode("utf-8")
+            data = json.loads(body) if body else {}
+            model_id = data.get("model_id", "mock-creative-flash")
+            provider_id = data.get("provider_id", "mock")
+            raw_model = ai.get_model_registry().get_model(model_id) or {"capabilities": {}}
+            report = ai.get_discovery_engine().discover_model_capabilities(model_id, provider_id, raw_model)
+            self.send_json(report.to_dict())
+        except Exception as e:
+            self.send_json({"error": str(e)}, 400)
+
+    def handle_api_ai_capabilities_probe(self):
+        if not ai:
+            self.send_json({"error": "AI subsystem unavailable"}, 503)
+            return
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length).decode("utf-8")
+            data = json.loads(body) if body else {}
+            cap_id = data.get("capability_id", "text_generation")
+            prov_id = data.get("provider_id", "mock")
+            mod_id = data.get("model_id", "mock-creative-flash")
+            res = ai.get_capability_registry().run_probe(cap_id, prov_id, mod_id, ai.get_ai_gateway())
+            self.send_json(res)
+        except Exception as e:
+            self.send_json({"error": str(e)}, 400)
+
+    def handle_api_ai_brains_detail(self, brain_id):
+        if not ai:
+            self.send_json({"error": "AI subsystem unavailable"}, 503)
+            return
+        brain = ai.get_brain_registry().get_brain(brain_id)
+        if brain:
+            self.send_json(brain.to_dict())
+        else:
+            self.send_json({"error": f"Brain '{brain_id}' not found"}, 404)
+
+    def handle_api_ai_provider_health(self, provider_id):
+        if not ai:
+            self.send_json({"error": "AI subsystem unavailable"}, 503)
+            return
+        health = ai.get_health_monitor().get_provider_health(provider_id)
+        self.send_json(health)
+
+    def handle_api_ai_models_detail(self, model_id):
+        if not ai:
+            self.send_json({"error": "AI subsystem unavailable"}, 503)
+            return
+        model = ai.get_model_registry().get_model(model_id)
+        if model:
+            self.send_json(model)
+        else:
+            self.send_json({"error": f"Model '{model_id}' not found"}, 404)
+
+    def handle_api_ai_routing_policies(self):
+        if not ai:
+            self.send_json([], 503)
+            return
+        policies = [p.value for p in ai.ModelPolicy]
+        self.send_json({"default": "BALANCED", "policies": policies})
+
+    def handle_api_ai_routing_aliases(self):
+        if not ai:
+            self.send_json({}, 503)
+            return
+        self.send_json(ai.get_policy_engine().list_aliases())
+
+    def handle_api_ai_routing_explain(self):
+        if not ai:
+            self.send_json({"error": "AI subsystem unavailable"}, 503)
+            return
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length).decode("utf-8")
+            data = json.loads(body) if body else {}
+            task_type = data.get("task_type", "creative.concept")
+            policy_name = data.get("policy", "BALANCED")
+            req = ai.AIRequest(
+                request_id="req_explain",
+                task_type=ai.TaskType(task_type) if task_type in [t.value for t in ai.TaskType] else ai.TaskType.CUSTOM
+            )
+            policy = ai.ModelPolicy(policy_name) if policy_name in [p.value for p in ai.ModelPolicy] else ai.ModelPolicy.BALANCED
+            decision = ai.get_model_router().route_detailed(request=req, policy=policy)
+            explanation = ai.get_model_router().explain_routing(req, decision)
+            self.send_json(explanation)
+        except Exception as e:
+            self.send_json({"error": str(e)}, 400)
+
+    def handle_api_ai_traces_detail(self, trace_id):
+        if not ai:
+            self.send_json([], 503)
+            return
+        runs = [r for r in ai.get_observability().list_runs() if r.get("trace_id") == trace_id or r.get("run_id") == trace_id]
+        self.send_json(runs)
+
+    def handle_api_ai_costs(self):
+        if not ai:
+            self.send_json({}, 503)
+            return
+        self.send_json(ai.get_cost_ledger().get_summary())
+
+    def handle_api_ai_control_plane_status(self):
+        if not ai:
+            self.send_json({"status": "UNAVAILABLE", "error": "adcra.ai not loaded"}, 503)
+            return
+        try:
+            gw = ai.get_ai_gateway()
+            cap_reg = ai.get_capability_registry()
+            brain_reg = ai.get_brain_registry()
+            tool_reg = ai.get_tool_registry()
+            health_mon = ai.get_health_monitor()
+            providers = gw.list_providers()
+
+            provider_health_map = {}
+            for p in providers:
+                pid = p["provider_id"]
+                provider_health_map[pid] = health_mon.get_provider_health(pid)
+
+            self.send_json({
+                "status": "OPERATIONAL",
+                "control_plane_version": "2.0.0",
+                "components": {
+                    "capabilities": {"total": len(cap_reg.list_capabilities()), "status": "HEALTHY"},
+                    "brains": {"total": len(brain_reg.list_brains()), "status": "HEALTHY"},
+                    "tools": {"total": len(tool_reg.list_tools()), "status": "HEALTHY"},
+                    "providers": {"total": len(providers), "health": provider_health_map},
+                    "circuit_breakers": {"status": "ACTIVE"},
+                    "verbal_economy": {"status": "ENFORCED"},
+                    "governance": {"autonomy": "AUTOPILOT", "status": "ACTIVE"}
+                },
+                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
+            })
+        except Exception as e:
+            self.send_json({"error": str(e)}, 500)
+
     def handle_api_ai_health(self):
         if not ai:
             self.send_json({"status": "UNAVAILABLE", "error": "adcra.ai not loaded"}, 503)

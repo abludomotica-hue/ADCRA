@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "total_entries": 11,
-  "last_updated": "2026-09-22T00:00:11.765976+00:00",
+  "total_entries": 14,
+  "last_updated": "2026-09-22T01:08:30.335489+00:00",
   "entries": [
     {
       "entry_id": "mem_e4d7facc",
@@ -281,6 +281,87 @@
         ]
       },
       "created_at": "2026-09-22T00:00:11.765847+00:00"
+    },
+    {
+      "entry_id": "mem_9f3b1f72",
+      "tenant_id": "default_tenant",
+      "scope": "campaign",
+      "campaign_id": "camp_locos_materos_2026",
+      "memory_type": "DECISION",
+      "source": "AI_RECOMMENDATION",
+      "confidence": 0.92,
+      "confirmed_by_human": false,
+      "content": {
+        "intent": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico",
+        "plan_id": "plan_creative_concept",
+        "steps_completed": [
+          "step_load_brand_dna",
+          "step_audio_rhythm",
+          "step_generate_territories",
+          "step_evaluate_concept"
+        ],
+        "outputs_summary": [
+          "brand_dna",
+          "audio_profile",
+          "territories",
+          "evaluation"
+        ]
+      },
+      "created_at": "2026-09-22T00:47:54.175090+00:00"
+    },
+    {
+      "entry_id": "mem_00beebb5",
+      "tenant_id": "default_tenant",
+      "scope": "campaign",
+      "campaign_id": "camp_locos_materos_2026",
+      "memory_type": "DECISION",
+      "source": "AI_RECOMMENDATION",
+      "confidence": 0.92,
+      "confirmed_by_human": false,
+      "content": {
+        "intent": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico",
+        "plan_id": "plan_creative_concept",
+        "steps_completed": [
+          "step_load_brand_dna",
+          "step_audio_rhythm",
+          "step_generate_territories",
+          "step_evaluate_concept"
+        ],
+        "outputs_summary": [
+          "brand_dna",
+          "audio_profile",
+          "territories",
+          "evaluation"
+        ]
+      },
+      "created_at": "2026-09-22T00:57:11.666161+00:00"
+    },
+    {
+      "entry_id": "mem_65c82aa0",
+      "tenant_id": "default_tenant",
+      "scope": "campaign",
+      "campaign_id": "camp_locos_materos_2026",
+      "memory_type": "DECISION",
+      "source": "AI_RECOMMENDATION",
+      "confidence": 0.92,
+      "confirmed_by_human": false,
+      "content": {
+        "intent": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico",
+        "plan_id": "plan_creative_concept",
+        "steps_completed": [
+          "step_load_brand_dna",
+          "step_audio_rhythm",
+          "step_generate_territories",
+          "step_evaluate_concept"
+        ],
+        "outputs_summary": [
+          "brand_dna",
+          "audio_profile",
+          "territories",
+          "evaluation"
+        ]
+      },
+      "created_at": "2026-09-22T01:08:30.335362+00:00"
     }
   ]
 }

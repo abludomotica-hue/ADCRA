@@ -1,9 +1,9 @@
 {
-  "dispatch_id": "disp-35371",
+  "dispatch_id": "disp-34394",
   "campaign_id": "test-campaign-adcra-001",
   "mode": "AUTONOMOUS_APPROVALS",
   "status": "DISPATCHED",
-  "dispatched_at": "2026-09-22T00:00:35Z",
+  "dispatched_at": "2026-09-22T01:08:54Z",
   "agents_dispatched": [
     "campaign-director",
     "copywriting-engine",

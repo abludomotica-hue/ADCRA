@@ -412,100 +412,235 @@
           <span class="brain-large-icon">🧠</span>
           <div>
             <h3>ADCRA AI Brain Control Center</h3>
-            <p class="ai-modal-subtitle">Gobernanza de Modelos, Adaptadores Agénticos y Costos</p>
+            <p class="ai-modal-subtitle">AI Intelligence Control Plane v2.0 · Gobernanza, Model Routing, Fallback & Telemetría</p>
           </div>
         </div>
         <button class="ai-modal-close" id="btnCloseAiBrainModal">✕</button>
       </div>
+
+      <!-- Dual Mode Navigation Bar -->
+      <div class="ai-mode-tabs-bar">
+        <button class="ai-mode-tab-btn active" id="tabModeSimple" onclick="app.switchAiBrainMode('simple')">
+          <span class="tab-icon">👔</span>
+          <span class="tab-label">Modo Simple</span>
+          <small class="tab-sub">Directores & Creativos</small>
+        </button>
+        <button class="ai-mode-tab-btn" id="tabModeExpert" onclick="app.switchAiBrainMode('expert')">
+          <span class="tab-icon">⚙️</span>
+          <span class="tab-label">Modo Experto</span>
+          <small class="tab-sub">Control Plane, Breakers & Routing</small>
+        </button>
+      </div>
+
       <div class="ai-modal-body">
-        <div class="ai-brain-grid">
-          <!-- Card 1: Proveedores -->
-          <div class="ai-control-card">
-            <div class="card-title-row">
-              <h4>Proveedores de IA</h4>
-              <span class="badge badge-emerald" id="aiProvidersActiveCount">Activo</span>
+        <!-- VISTA MODO SIMPLE -->
+        <div id="aiBrainSimpleView" class="ai-brain-view">
+          <div class="ai-brain-grid">
+            <!-- Card 1: Proveedores -->
+            <div class="ai-control-card">
+              <div class="card-title-row">
+                <h4>Proveedores Conectados</h4>
+                <span class="badge badge-emerald" id="aiProvidersActiveCount">5 Activos</span>
+              </div>
+              <div class="providers-compact-list" id="aiProvidersList">
+                <div class="provider-item">
+                  <span class="prov-name">ADCRA Mock / Offline Engine</span>
+                  <span class="badge badge-emerald" id="badgeMock">OPERATIVO</span>
+                </div>
+                <div class="provider-item">
+                  <span class="prov-name">Google Gemini (2.5 Pro / Flash)</span>
+                  <span class="badge badge-emerald" id="badgeGemini">STANDBY</span>
+                </div>
+                <div class="provider-item">
+                  <span class="prov-name">Anthropic Claude (3.5 Sonnet / Haiku)</span>
+                  <span class="badge badge-emerald" id="badgeAnthropic">STANDBY</span>
+                </div>
+                <div class="provider-item">
+                  <span class="prov-name">OpenAI (GPT-4o / o1 / mini)</span>
+                  <span class="badge badge-emerald" id="badgeOpenAI">STANDBY</span>
+                </div>
+                <div class="provider-item">
+                  <span class="prov-name">OpenRouter Multi-Model Router</span>
+                  <span class="badge badge-emerald" id="badgeOpenRouter">STANDBY</span>
+                </div>
+              </div>
             </div>
-            <div class="providers-compact-list" id="aiProvidersList">
-              <div class="provider-item">
-                <span class="prov-name">ADCRA Mock Engine</span>
-                <span class="badge badge-emerald">CONECTADO</span>
+
+            <!-- Card 2: Perfil y Autonomía -->
+            <div class="ai-control-card">
+              <div class="card-title-row">
+                <h4>Perfil Cognitivo & Autonomía</h4>
+                <span class="badge badge-purple" id="aiBrainActiveDomain">Estrategia & Creatividad</span>
               </div>
-              <div class="provider-item">
-                <span class="prov-name">Google Gemini (2.5 Pro/Flash)</span>
-                <span class="badge badge-gold" id="badgeGemini">STANDBY</span>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.25rem;">Perfil de Director Activo:</label>
+                <select id="aiProfileSelect" class="form-input" style="width: 100%; font-size: 0.82rem;">
+                  <option value="creative_director">Creative Director (Narrativa, Concepto & Estética)</option>
+                  <option value="strategist">Brand Strategist (Objetivos, Audiencia & Posicionamiento)</option>
+                  <option value="copywriter">Creative Copywriter (Titulares, Guiones & Verbal Economy)</option>
+                  <option value="storyboard_director">Storyboard Director (Cinematografía & Composición Visual)</option>
+                  <option value="motion_director">Motion & Aesthetic Director (Color, Luces & Ritmo)</option>
+                  <option value="sound_architect">Sound Architect (Diseño Sonoro & Audio EBU R128)</option>
+                  <option value="qc_director">QC & Compliance Director (Auditoría Técnica & Legal)</option>
+                  <option value="campaign_producer">Campaign Producer (Presupuestos, Plazos & Recursos)</option>
+                  <option value="performance_marketer">Performance Marketer (Métricas, Conversión & A/B/n)</option>
+                  <option value="research_analyst">Research Analyst (Benchmarking & Tendencias de Mercado)</option>
+                  <option value="multimodal_synthesizer">Multimodal Synthesizer (Cohesión Audio-Visual-Texto)</option>
+                  <option value="davinci_engineer">DaVinci Automation Engineer (Líneas de Tiempo & Render)</option>
+                  <option value="security_auditor">Security Auditor (Redacción de Secretos & Gobernanza)</option>
+                  <option value="ai_orchestrator">AI Orchestrator (Orquestación & Handoff Inter-Cerebros)</option>
+                </select>
               </div>
-              <div class="provider-item">
-                <span class="prov-name">Anthropic Claude (3.5 Sonnet)</span>
-                <span class="badge badge-gold" id="badgeAnthropic">STANDBY</span>
+              <div class="form-group">
+                <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.25rem;">Nivel de Autonomía:</label>
+                <div class="autonomy-btn-group">
+                  <button class="btn-autonomy" data-mode="assist">Assist</button>
+                  <button class="btn-autonomy active" data-mode="autopilot">Autopilot</button>
+                  <button class="btn-autonomy" data-mode="autonomous">Autonomous</button>
+                </div>
+                <p class="autonomy-explainer" id="autonomyExplainer">
+                  Autopilot: Resuelve tareas creativas y técnicas de forma autónoma con supervisión en checkpoints críticos de entrega y presupuesto.
+                </p>
               </div>
-              <div class="provider-item">
-                <span class="prov-name">OpenAI (GPT-4o / o1)</span>
-                <span class="badge badge-gold" id="badgeOpenAI">STANDBY</span>
+            </div>
+
+            <!-- Card 3: Cost Ledger -->
+            <div class="ai-control-card">
+              <div class="card-title-row">
+                <h4>AI Cost Ledger (Tiempo Real)</h4>
+                <span class="badge badge-blue font-mono" id="aiLedgerPeriod">30 Días</span>
               </div>
-              <div class="provider-item">
-                <span class="prov-name">OpenRouter Multi-Model</span>
-                <span class="badge badge-gold" id="badgeOpenRouter">STANDBY</span>
+              <div class="cost-stats-container">
+                <div class="cost-stat-box">
+                  <span class="cost-stat-label">Gasto Total</span>
+                  <span class="cost-stat-val font-mono" id="aiCostLedgerTotal">$0.0004</span>
+                </div>
+                <div class="cost-stat-box">
+                  <span class="cost-stat-label">Tokens Procesados</span>
+                  <span class="cost-stat-val font-mono" id="aiCostLedgerTokens">1,159</span>
+                </div>
+                <div class="cost-stat-box">
+                  <span class="cost-stat-label">Llamadas Agénticas</span>
+                  <span class="cost-stat-val font-mono" id="aiCostLedgerCalls">2</span>
+                </div>
+              </div>
+              <div class="pending-approvals-box" id="pendingApprovalsContainer">
+                <span style="font-size: 0.75rem; color: var(--color-emerald);">✓ Sin acciones pendientes de aprobación humana</span>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Card 2: Perfil y Autonomía -->
-          <div class="ai-control-card">
-            <div class="card-title-row">
-              <h4>Perfil & Autonomía</h4>
-            </div>
-            <div class="form-group" style="margin-bottom: 1rem;">
-              <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.25rem;">Perfil de Director Activo:</label>
-              <select id="aiProfileSelect" class="form-input" style="width: 100%;">
-                <option value="creative_director">Creative Director (Narrativa & Estética)</option>
-                <option value="strategist">Brand Strategist (Objetivos & Audiencia)</option>
-                <option value="copywriter">Creative Copywriter (Titulares & Guiones)</option>
-                <option value="storyboard_director">Storyboard Director (Cinematografía)</option>
-                <option value="qc_director">QC & Compliance Director (Auditoría Técnica)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.25rem;">Nivel de Autonomía:</label>
-              <div class="autonomy-btn-group">
-                <button class="btn-autonomy" data-mode="assist">Assist</button>
-                <button class="btn-autonomy active" data-mode="autopilot">Autopilot</button>
-                <button class="btn-autonomy" data-mode="autonomous">Autonomous</button>
+        <!-- VISTA MODO EXPERTO (CONTROL PLANE) -->
+        <div id="aiBrainExpertView" class="ai-brain-view" style="display: none;">
+          <div class="ai-expert-layout">
+            <!-- Expert Col 1: Matriz de Capacidades -->
+            <div class="ai-control-card ai-card-wide">
+              <div class="card-title-row">
+                <div>
+                  <h4>Matriz de Capacidades Canónicas (24 Domains)</h4>
+                  <p style="font-size: 0.75rem; color: var(--text-dim); margin: 0.2rem 0 0 0;">Capacidades evaluadas dinámicamente según disponibilidad de adaptadores</p>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="btnProbeCapabilities" onclick="app.probeAiCapabilities()">
+                  <span id="probeSpinner" style="display:none;">⏳</span> ⚡ Sondear en Vivo
+                </button>
               </div>
-              <p class="autonomy-explainer" id="autonomyExplainer">
-                Autopilot: Resuelve tareas creativas y técnicas de forma autónoma. Se detiene ante acciones críticas de publicación o gasto financiero.
-              </p>
+              <div class="capabilities-matrix-container" id="capabilitiesMatrixList">
+                <div style="padding: 1rem; text-align: center; color: var(--text-dim);">Cargando catálogo de capacidades...</div>
+              </div>
             </div>
-          </div>
 
-          <!-- Card 3: Cost Ledger -->
-          <div class="ai-control-card">
-            <div class="card-title-row">
-              <h4>AI Cost Ledger (Uso Real)</h4>
-              <span class="badge badge-blue font-mono" id="aiLedgerPeriod">30 Días</span>
-            </div>
-            <div class="cost-stats-container">
-              <div class="cost-stat-box">
-                <span class="cost-stat-label">Gasto Total</span>
-                <span class="cost-stat-val font-mono" id="aiCostLedgerTotal">bash.0004</span>
+            <!-- Expert Col 2: Circuit Breakers & Salud de Proveedores -->
+            <div class="ai-control-card">
+              <div class="card-title-row">
+                <h4>Circuit Breakers & Telemetría</h4>
+                <span class="badge badge-gold" id="cbOverallStatus">MONITOREADO</span>
               </div>
-              <div class="cost-stat-box">
-                <span class="cost-stat-label">Tokens Procesados</span>
-                <span class="cost-stat-val font-mono" id="aiCostLedgerTokens">1,159</span>
-              </div>
-              <div class="cost-stat-box">
-                <span class="cost-stat-label">Llamadas Agénticas</span>
-                <span class="cost-stat-val font-mono" id="aiCostLedgerCalls">2</span>
+              <div class="circuit-breakers-container" id="circuitBreakersList">
+                <div style="padding: 1rem; text-align: center; color: var(--text-dim);">Cargando estado de circuitos...</div>
               </div>
             </div>
-            <div class="pending-approvals-box" id="pendingApprovalsContainer">
-              <span style="font-size: 0.75rem; color: var(--color-emerald);">✓ Sin acciones pendientes de aprobación humana</span>
+
+            <!-- Expert Col 3: Simulador & Explicador de Enrutamiento -->
+            <div class="ai-control-card ai-card-wide">
+              <div class="card-title-row">
+                <h4>Simulador & Explicador de Enrutamiento (Model Policy Engine)</h4>
+                <span class="badge badge-purple">Inspección Dinámica</span>
+              </div>
+              <div class="routing-sim-controls">
+                <div class="routing-field">
+                  <label>Tarea Operativa:</label>
+                  <select id="simTaskSelect" class="form-input">
+                    <option value="creative_ideation">creative_ideation (Ideación Conceptual & Brand Core)</option>
+                    <option value="script_drafting">script_drafting (Guionización Cinematográfica)</option>
+                    <option value="multimodal_vision">multimodal_vision (Inspección & Análisis Visual)</option>
+                    <option value="davinci_scripting">davinci_scripting (Scripting DaVinci Resolve Python)</option>
+                    <option value="qc_compliance">qc_compliance (Auditoría Legal, Audio & Gamut)</option>
+                    <option value="color_grading">color_grading (Recomendación de Nodos Color)</option>
+                    <option value="audio_mastering">audio_mastering (Fairlight -24 LUFS EBU R128)</option>
+                  </select>
+                </div>
+                <div class="routing-field">
+                  <label>Alias Lógico (Opcional):</label>
+                  <select id="simAliasSelect" class="form-input">
+                    <option value="">-- Sin Alias (Enrutar por Capacidades) --</option>
+                    <option value="creative.high">creative.high (Máxima Creatividad / Gemini-Pro)</option>
+                    <option value="copy.fast">copy.fast (Baja Latencia / Claude-Haiku)</option>
+                    <option value="strategy.deep">strategy.deep (Profundidad Estratégica / GPT-4o)</option>
+                    <option value="vision.multimodal">vision.multimodal (Análisis Visual)</option>
+                    <option value="coding.agentic">coding.agentic (Automatización & Scripting)</option>
+                    <option value="qc.compliance">qc.compliance (Reglas Estrictas & QC)</option>
+                    <option value="cost.minimal">cost.minimal (Economía & Agilidad)</option>
+                    <option value="fallback.safe">fallback.safe (Respaldo Garantizado Offline)</option>
+                  </select>
+                </div>
+                <div class="routing-field">
+                  <label>Política de Selección:</label>
+                  <select id="simPolicySelect" class="form-input">
+                    <option value="BALANCED">BALANCED (Equilibrio Calidad / Costo)</option>
+                    <option value="QUALITY_FIRST">QUALITY_FIRST (Máxima Inteligencia)</option>
+                    <option value="SPEED_FIRST">SPEED_FIRST (Mínima Latencia P50)</option>
+                    <option value="COST_MINIMAL">COST_MINIMAL (Mínimo Gasto USD)</option>
+                    <option value="OFFLINE_ONLY">OFFLINE_ONLY (Aislado / Mock Engine)</option>
+                  </select>
+                </div>
+                <div class="routing-field btn-col">
+                  <button class="btn btn-primary" id="btnSimulateRouting" onclick="app.explainRoutingSimulation()">
+                    🔍 Explicar Decisión
+                  </button>
+                </div>
+              </div>
+
+              <!-- Explanation Display Box -->
+              <div class="routing-decision-box" id="routingExplanationBox" style="display: none;">
+                <div class="decision-header">
+                  <div class="winner-badge">
+                    <span class="decision-icon">🏆</span>
+                    <div>
+                      <strong id="decModelName">google_gemini / gemini-2.5-pro</strong>
+                      <span class="decision-tag" id="decPolicyTag">QUALITY_FIRST</span>
+                    </div>
+                  </div>
+                  <div class="decision-metrics">
+                    <span class="metric-pill">Confianza: <strong id="decScore">95%</strong></span>
+                    <span class="metric-pill">Latencia Est: <strong id="decLatency">420ms</strong></span>
+                    <span class="metric-pill">Costo Est: <strong id="decCost">$0.0012</strong></span>
+                  </div>
+                </div>
+                <div class="decision-rationale" id="decRationale">
+                  Evaluación de capacidades completada con éxito.
+                </div>
+                <div class="decision-fallbacks" id="decFallbacks">
+                  <span class="fallbacks-title">Cadena de Fallback Asignada:</span>
+                  <div class="fallback-chips" id="decFallbackChips"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 
   <!-- ==========================================================================
        MODAL: CREATIVE DIRECTOR PRESENTATION VIEW (CLIENT PRESENTATION DECK)
