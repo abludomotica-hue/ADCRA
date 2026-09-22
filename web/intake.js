@@ -148,6 +148,13 @@ const IntakeApp = {
     this.renderActiveStep();
     this.evaluateAllStepStatuses();
     this.updateAssistant();
+
+    // Auto-abrir AI Brain Control Center si se accede con hash #ai-brain
+    if (window.location.hash === '#ai-brain' || window.location.search.includes('ai-brain')) {
+      setTimeout(() => {
+        this.openAiBrainModal('expert');
+      }, 350);
+    }
   },
 
   async fetchExistingClients() {
