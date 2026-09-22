@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  adcra:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: adcra-mission-control
+    restart: unless-stopped
+    ports:
+      - "${ADCRA_PORT:-8080}:8080"
+    environment:
+      - ADCRA_HOST=0.0.0.0
+      - ADCRA_PORT=8080
+      - ADCRA_ENV=production
+      - ADCRA_ROUTING_STRATEGY=balanced
+      - ADCRA_VERBAL_ECONOMY=true
+      - DEFAULT_RENDER_ENGINE=headless
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}
+    volumes:
+      - ./campaign:/app/campaign
+      - ./config:/app/config
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

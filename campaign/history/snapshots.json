@@ -142,5 +142,29 @@
     "delta_score": 0.0,
     "status": "APPROVED",
     "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790035006",
+    "version": "v1.12.6",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-21T23:56:46.557813+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790035235",
+    "version": "v1.13.35",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T00:00:35.989568+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
   }
 ]

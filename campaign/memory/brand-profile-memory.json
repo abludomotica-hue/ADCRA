@@ -1,7 +1,7 @@
 {
   "brand_id": "locos_materos",
   "brand_name": "Locos Materos",
-  "last_updated": "2026-09-21T23:16:18.163755+00:00",
+  "last_updated": "2026-09-22T00:00:35.996091+00:00",
   "historical_campaigns": [
     {
       "campaign_id": "camp_locos_materos_2026",
@@ -93,6 +93,14 @@
     {
       "timestamp": "2026-09-21T23:16:18.163744+00:00",
       "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-21T23:56:46.564009+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
+    },
+    {
+      "timestamp": "2026-09-22T00:00:35.996074+00:00",
+      "note": "Test Note UI-20: Iluminación cálida con tonos ambarinos."
     }
   ],
   "active_creative_experiment": {
@@ -101,6 +109,6 @@
     "variant_name": "Variante A — Intriga Emocional (Control)",
     "primary_kpi": "Hold_Rate_100 (Finalización de video)",
     "projected_lift_pct": 15.0,
-    "selected_at": "2026-09-21T23:15:54.641993+00:00"
+    "selected_at": "2026-09-22T00:00:11.796507+00:00"
   }
 }
