@@ -1,0 +1,15 @@
+{
+  "id": "camp_605998f1",
+  "client_id": "solaris-media",
+  "tenant_id": "default_tenant",
+  "name": "Solar Q4 Push",
+  "objective": "Leads",
+  "status": "PLANNING",
+  "created_at": "2026-09-22T03:12:55.504570+00:00",
+  "updated_at": "2026-09-22T03:12:55.504578+00:00",
+  "brief": {},
+  "delta_overrides": {},
+  "context_snapshot_id": "snap_camp_605998f1_init",
+  "active_run_id": null,
+  "metadata": {}
+}

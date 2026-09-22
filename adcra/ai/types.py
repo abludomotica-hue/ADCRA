@@ -32,6 +32,8 @@ class ModelCapability(str, enum.Enum):
     VISION = "vision"
     AUDIO_INPUT = "audioInput"
     AUDIO_OUTPUT = "audioOutput"
+    AUDIO = "audioInput"
+    LONG_CONTEXT = "longContext"
     IMAGE_GENERATION = "imageGeneration"
     VIDEO_GENERATION = "videoGeneration"
     TOOL_CALLING = "toolCalling"
@@ -106,6 +108,25 @@ class AutonomyLevel(str, enum.Enum):
     AUTOPILOT = "AUTOPILOT"
     AUTONOMOUS = "AUTONOMOUS"
 
+
+
+class ProviderStatus(str, enum.Enum):
+    AVAILABLE = "AVAILABLE"              # Adapter exists in registry
+    NOT_CONFIGURED = "NOT_CONFIGURED"    # No API credentials configured
+    CONFIGURED = "CONFIGURED"            # Credentials present/saved
+    CONNECTING = "CONNECTING"            # Handshake in progress
+    CONNECTED = "CONNECTED"              # Authentication successful
+    HEALTHY = "HEALTHY"                  # Health check / probe passed
+    DEGRADED = "DEGRADED"                # Responding slowly or intermittent errors
+    UNAVAILABLE = "UNAVAILABLE"          # Endpoint unreachable or circuit tripped
+    DISABLED = "DISABLED"                # Disabled by configuration
+    ERROR = "ERROR"                      # Authentication failed, network error, or invalid setup
+
+
+class CostConfidence(str, enum.Enum):
+    KNOWN_COST = "KNOWN_COST"          # Cost delivered from provider usage/invoice
+    ESTIMATED_COST = "ESTIMATED_COST"  # Calculated via published token pricing
+    UNKNOWN_COST = "UNKNOWN_COST"      # No pricing available; never invent values
 
 class BudgetStatus(str, enum.Enum):
     NORMAL = "NORMAL"
@@ -328,3 +349,19 @@ class CostEstimate:
     estimated_output_tokens: int
     estimated_cost_usd: float
     currency: str = "USD"
+    confidence: CostConfidence = CostConfidence.ESTIMATED_COST
+
+
+class AIError(Exception):
+    """Base exception for ADCRA AI system."""
+    pass
+
+
+class AIProviderError(AIError, RuntimeError):
+    """Raised when an AI provider fails or is unconfigured."""
+    pass
+
+
+class AIAuthenticationError(AIProviderError, PermissionError):
+    """Raised when provider credentials are missing or invalid."""
+    pass

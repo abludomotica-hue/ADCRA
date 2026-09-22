@@ -24,3 +24,14 @@ node_modules/
 .remotion/
 .DS_Store
 
+
+# Security: ADCRA Secret Storage
+storage/secrets/
+*.secret
+*.key
+
+.secrets.json
+
+# Runtime ephemeral runs
+storage/runs/*.json
+!storage/runs/.gitkeep

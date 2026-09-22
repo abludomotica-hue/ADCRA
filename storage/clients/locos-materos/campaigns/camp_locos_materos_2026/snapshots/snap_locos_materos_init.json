@@ -1,0 +1,94 @@
+{
+  "snapshot_id": "snap_locos_materos_init",
+  "campaign_id": "camp_locos_materos_2026",
+  "client_id": "locos-materos",
+  "tenant_id": "default_tenant",
+  "captured_at": "2026-09-22T03:03:27.671729+00:00",
+  "brand_dna_version": "1.0.0",
+  "brand_dna": {
+    "mission": "Revolucionar la experiencia del mate con accesorios de autor y yerba premium.",
+    "values": [
+      "Autenticidad",
+      "Diseño",
+      "Comunidad",
+      "Calidad Artesanal"
+    ],
+    "personality": [
+      "Cálido",
+      "Entusiasta",
+      "Urbano",
+      "Tradicional Moderno"
+    ],
+    "tone": {
+      "primary_tone": "Inspiring & Authentic",
+      "emotional_register": "Energetic / Warm",
+      "voice_guidelines": "Direct, conversational, respectful of heritage"
+    },
+    "colors": {
+      "primary": "#0D5C3A",
+      "secondary": "#C2A649",
+      "accent": "#E65100",
+      "background": "#0A0E17"
+    },
+    "typography": {
+      "heading": "Cabinet Grotesk",
+      "body": "Inter",
+      "accent": "JetBrains Mono"
+    },
+    "logo_url": null,
+    "visual_style": "Cinematic Warm / Contemporary Heritage",
+    "motion_style": "Dynamic Rhythmic Cuts / Beat-Synced",
+    "language": "es-CL",
+    "approved_claims": [
+      "El mejor mate térmico de Chile",
+      "Diseñado para durar toda la vida"
+    ],
+    "forbidden_claims": [],
+    "retention_rules": {
+      "mandatory_rules": [
+        "El mate debe mantenerse físicamente consistente y realista: calabaza tradicional, yerba real, bombilla de acero inoxidable y termo con proporciones exactas.",
+        "Garantizar legibilidad de textos respetando safe zones verticales 9:16 (TikTok, Reels, Shorts).",
+        "Cierre publicitario obligatorio con hero packshot del producto y claim '¿Dónde estás tú? Está tu mate' en escena 09."
+      ],
+      "prohibited_patterns": [
+        "Nunca generar, inventar ni distorsionar el logotipo oficial de Locos Materos; integrar el logo real en post-producción.",
+        "No usar CGI artificial, ralentizaciones exageradas ni elementos fantásticos.",
+        "Evitar colocar textos, títulos o llamadas a la acción dentro de las zonas de oclusión de interfaz móvil nativa."
+      ]
+    },
+    "aesthetic_learnings": {
+      "primary_palette": {
+        "primary_green": "#0D5C3A",
+        "golden_highlight": "#D4AF37",
+        "neutral_dark": "#1A1A1A"
+      },
+      "color_temperature_target_kelvin": 5900,
+      "recommended_luts": [
+        "locos_materos_warm_cinematic.cube",
+        "locos_materos_editorial_film.cube",
+        "locos_materos_master_grade.cube"
+      ],
+      "lighting_preference": "Golden hour natural lighting and warm morning soft diffusion"
+    },
+    "musical_tempo_learnings": {
+      "optimal_bpm_range": {
+        "min": 100.0,
+        "max": 115.0
+      },
+      "last_successful_bpm": 107.7,
+      "meter": "4/4",
+      "rhythmic_sync_rule": "Snap scene transition cuts to nearest downbeat with drift < 20ms"
+    }
+  },
+  "audience_snapshot": {
+    "primary": "Jóvenes profesionales 22-38 años amantes del mate y café de especialidad"
+  },
+  "product_snapshot": {
+    "primary_product": "Mate Térmico Autocebante Acero Inox 304"
+  },
+  "approved_claims_snapshot": [
+    "El mejor mate térmico de Chile",
+    "Diseñado para durar toda la vida"
+  ],
+  "creative_learnings_snapshot": []
+}

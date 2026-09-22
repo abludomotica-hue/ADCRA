@@ -1,23 +1,32 @@
 """
 ADCRA AI Brain — Google Gemini Provider Adapter
 Supports Gemini 2.5 Flash, Gemini 2.5 Pro, and multimodal audio/visual analysis.
+Features real connection testing via Google Generative Language API, SecretProvider integration,
+and model discovery.
 """
 
 import os
+import time
 import json
 import urllib.request
 import urllib.error
 from typing import Dict, List, Any, Optional, Iterator
+
 from adcra.ai.gateway import AIProviderAdapter
 from adcra.ai.types import (
+    AIAuthenticationError,
+    AIProviderError,
     AIRequest, AIResponse, AIStreamEvent, CostEstimate,
-    ModelCapability
+    ModelCapability, ProviderStatus
 )
+from adcra.infrastructure.secrets.secret_store import get_secret_provider
 
 
 class GeminiProvider(AIProviderAdapter):
     def __init__(self, api_key: Optional[str] = None):
-        self._api_key = api_key or os.environ.get("GEMINI_API_KEY", "")
+        self._explicit_key = api_key
+        self._is_connected = False
+        self._last_error: Optional[str] = None
         self._models = [
             {
                 "model_id": "gemini-2.5-flash",
@@ -29,17 +38,16 @@ class GeminiProvider(AIProviderAdapter):
                 "capabilities": {
                     ModelCapability.REASONING.value: True,
                     ModelCapability.VISION.value: True,
-                    ModelCapability.AUDIO_INPUT.value: True,
-                    ModelCapability.VIDEO_GENERATION.value: False,
+                    ModelCapability.AUDIO.value: True,
                     ModelCapability.TOOL_CALLING.value: True,
                     ModelCapability.STRUCTURED_OUTPUT.value: True,
                     ModelCapability.STREAMING.value: True,
-                    ModelCapability.WEB_SEARCH.value: True
+                    ModelCapability.LONG_CONTEXT.value: True
                 }
             },
             {
                 "model_id": "gemini-2.5-pro",
-                "name": "Gemini 2.5 Pro (Deep Reasoning)",
+                "name": "Gemini 2.5 Pro Multimodal",
                 "version": "2.5",
                 "context_window": 2097152,
                 "cost_per_million_input": 1.25,
@@ -47,15 +55,19 @@ class GeminiProvider(AIProviderAdapter):
                 "capabilities": {
                     ModelCapability.REASONING.value: True,
                     ModelCapability.VISION.value: True,
-                    ModelCapability.AUDIO_INPUT.value: True,
-                    ModelCapability.VIDEO_GENERATION.value: False,
+                    ModelCapability.AUDIO.value: True,
                     ModelCapability.TOOL_CALLING.value: True,
                     ModelCapability.STRUCTURED_OUTPUT.value: True,
                     ModelCapability.STREAMING.value: True,
-                    ModelCapability.WEB_SEARCH.value: True
+                    ModelCapability.LONG_CONTEXT.value: True
                 }
             }
         ]
+
+    def _get_api_key(self) -> str:
+        if self._explicit_key:
+            return self._explicit_key
+        return get_secret_provider().get_secret("GEMINI_API_KEY", "") or ""
 
     @property
     def provider_id(self) -> str:
@@ -75,8 +87,7 @@ class GeminiProvider(AIProviderAdapter):
         return {
             ModelCapability.REASONING.value: True,
             ModelCapability.VISION.value: True,
-            ModelCapability.AUDIO_INPUT.value: True,
-            ModelCapability.TOOL_CALLING.value: True,
+            ModelCapability.AUDIO.value: True,
             ModelCapability.STRUCTURED_OUTPUT.value: True
         }
 
@@ -87,7 +98,7 @@ class GeminiProvider(AIProviderAdapter):
         pricing = (0.075, 0.30)
         for m in self._models:
             if m["model_id"] == model_id:
-                pricing = (m["cost_per_million_input"], m["cost_per_million_output"])
+                pricing = (m.get("cost_per_million_input", 0.075), m.get("cost_per_million_output", 0.30))
                 break
         cost = (in_tokens * pricing[0] + out_tokens * pricing[1]) / 1_000_000.0
         return CostEstimate(
@@ -97,46 +108,143 @@ class GeminiProvider(AIProviderAdapter):
         )
 
     def validate_configuration(self) -> Dict[str, Any]:
-        has_key = bool(self._api_key and len(self._api_key) > 5)
+        key = self._get_api_key()
+        has_key = bool(key and len(key) > 5)
+        status = ProviderStatus.CONFIGURED.value if has_key else ProviderStatus.NOT_CONFIGURED.value
+        if self._is_connected and has_key:
+            status = ProviderStatus.CONNECTED.value
         return {
-            "connected": has_key,
-            "status": "CONNECTED" if has_key else "NOT_CONNECTED",
+            "configured": has_key,
+            "connected": self._is_connected if has_key else False,
+            "status": status,
             "provider": "gemini",
             "has_api_key": has_key,
             "models_available": [m["model_id"] for m in self._models] if has_key else []
         }
 
+    def test_connection(self) -> Dict[str, Any]:
+        key = self._get_api_key()
+        if not key or len(key) < 5:
+            self._is_connected = False
+            return {
+                "provider_id": "gemini",
+                "status": ProviderStatus.NOT_CONFIGURED.value,
+                "connected": False,
+                "configured": False,
+                "error": "Gemini API key not configured"
+            }
+
+        url = f"https://generativelanguage.googleapis.com/v1beta/models?key={key}"
+        req = urllib.request.Request(url, method="GET")
+        t0 = time.time()
+        try:
+            with urllib.request.urlopen(req, timeout=5.0) as resp:
+                lat = round((time.time() - t0) * 1000, 2)
+                if resp.status == 200:
+                    self._is_connected = True
+                    self._last_error = None
+                    return {
+                        "provider_id": "gemini",
+                        "status": ProviderStatus.CONNECTED.value,
+                        "connected": True,
+                        "configured": True,
+                        "latency_ms": lat,
+                        "message": "Google Gemini API connected and reachable"
+                    }
+        except urllib.error.HTTPError as e:
+            self._is_connected = False
+            lat = round((time.time() - t0) * 1000, 2)
+            code = e.code
+            if code in [400, 401, 403]:
+                err_status = "AUTHENTICATION_FAILED"
+                msg = "Invalid Gemini API key or unauthorized request"
+            elif code == 429:
+                err_status = "RATE_LIMITED"
+                msg = "Gemini rate limit or quota exceeded"
+            else:
+                err_status = "PROVIDER_ERROR"
+                msg = f"Gemini API error HTTP {code}"
+            self._last_error = msg
+            return {
+                "provider_id": "gemini",
+                "status": err_status,
+                "connected": False,
+                "configured": True,
+                "latency_ms": lat,
+                "error": msg
+            }
+        except Exception as e:
+            self._is_connected = False
+            lat = round((time.time() - t0) * 1000, 2)
+            msg = get_secret_provider().redact(str(e))
+            self._last_error = msg
+            return {
+                "provider_id": "gemini",
+                "status": "NETWORK_ERROR",
+                "connected": False,
+                "configured": True,
+                "latency_ms": lat,
+                "error": f"Network error connecting to Gemini: {msg}"
+            }
+
+    def discover_models(self) -> List[Dict[str, Any]]:
+        key = self._get_api_key()
+        if not key:
+            return self._models
+        url = f"https://generativelanguage.googleapis.com/v1beta/models?key={key}"
+        req = urllib.request.Request(url, method="GET")
+        try:
+            with urllib.request.urlopen(req, timeout=5.0) as resp:
+                if resp.status == 200:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    models_raw = data.get("models", [])
+                    discovered = []
+                    for m in models_raw:
+                        mid = m.get("name", "").replace("models/", "")
+                        if "gemini" in mid.lower():
+                            discovered.append({
+                                "model_id": mid,
+                                "name": m.get("displayName", f"Gemini {mid}"),
+                                "version": "discovered",
+                                "context_window": m.get("inputTokenLimit", 1048576),
+                                "cost_per_million_input": 0.075,
+                                "cost_per_million_output": 0.30,
+                                "capabilities": {
+                                    ModelCapability.REASONING.value: True,
+                                    ModelCapability.VISION.value: True,
+                                    ModelCapability.AUDIO.value: True,
+                                    ModelCapability.STRUCTURED_OUTPUT.value: True
+                                }
+                            })
+                    if discovered:
+                        self._models = discovered
+                        self._is_connected = True
+        except Exception:
+            pass
+        return self._models
+
+    def configure(self, credentials: Dict[str, Any]) -> None:
+        if "api_key" in credentials:
+            key = credentials["api_key"].strip()
+            get_secret_provider().set_secret("GEMINI_API_KEY", key)
+            self._explicit_key = key
+
     def generate(self, request: AIRequest) -> AIResponse:
-        if not self._api_key:
-            raise PermissionError("Gemini API key is missing or not configured")
+        key = self._get_api_key()
+        if not key:
+            raise AIAuthenticationError("Gemini API key is missing or not configured")
 
         model = request.model_preference or "gemini-2.5-flash"
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={self._api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
 
-        # Formatear mensajes Gemini
         contents = []
-        system_instruction = None
         for m in request.messages:
-            if m.role == "system":
-                system_instruction = {"parts": [{"text": str(m.content)}]}
-            else:
-                role = "user" if m.role == "user" else "model"
-                contents.append({
-                    "role": role,
-                    "parts": [{"text": str(m.content)}]
-                })
+            role = "user" if m.role in ["user", "system"] else "model"
+            contents.append({"role": role, "parts": [{"text": str(m.content)}]})
 
-        payload: Dict[str, Any] = {
-            "contents": contents,
-            "generationConfig": {
-                "temperature": request.temperature,
-                "maxOutputTokens": request.max_output_tokens
-            }
-        }
-        if system_instruction:
-            payload["systemInstruction"] = system_instruction
+        payload = {"contents": contents}
         if request.output_schema:
-            payload["generationConfig"]["responseMimeType"] = "application/json"
+            payload["generationConfig"] = {"responseMimeType": "application/json"}
 
         req = urllib.request.Request(
             url,
@@ -147,45 +255,33 @@ class GeminiProvider(AIProviderAdapter):
 
         try:
             with urllib.request.urlopen(req, timeout=request.timeout_ms / 1000.0) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                candidate = data.get("candidates", [{}])[0]
-                content = ""
-                parts = candidate.get("content", {}).get("parts", [])
-                if parts:
-                    content = parts[0].get("text", "")
-                finish_reason = candidate.get("finishReason", "STOP")
+                raw_data = json.loads(resp.read().decode("utf-8"))
+                candidate = raw_data["candidates"][0]
+                content = candidate["content"]["parts"][0]["text"]
+                meta = raw_data.get("usageMetadata", {})
 
                 structured = None
                 if request.output_schema:
                     try:
                         structured = json.loads(content)
-                    except Exception:
-                        structured = None
-
-                usage_meta = data.get("usageMetadata", {})
-                cost_est = self.estimate_cost(request, model)
+                    except json.JSONDecodeError:
+                        pass
 
                 return AIResponse(
-                    request_id=request.request_id,
-                    provider_id="gemini",
-                    model_id=model,
                     content=content,
-                    structured_data=structured,
+                    provider_id=self.provider_id,
+                    model_id=model,
                     usage={
-                        "input_tokens": usage_meta.get("promptTokenCount", 0),
-                        "output_tokens": usage_meta.get("candidatesTokenCount", 0),
-                        "cached_tokens": usage_meta.get("cachedContentTokenCount", 0),
-                        "estimated_cost_usd": cost_est.estimated_cost_usd
+                        "input_tokens": meta.get("promptTokenCount", 0),
+                        "output_tokens": meta.get("candidatesTokenCount", 0),
+                        "total_tokens": meta.get("totalTokenCount", 0)
                     },
-                    finish_reason=finish_reason
+                    structured_data=structured
                 )
-        except urllib.error.HTTPError as he:
-            err_body = he.read().decode("utf-8")
-            raise RuntimeError(f"Gemini HTTP Error {he.code}: {err_body}")
         except Exception as e:
-            raise RuntimeError(f"Gemini Connection Error: {str(e)}")
+            sanitized = get_secret_provider().redact(str(e))
+            raise RuntimeError(f"Gemini generation failed: {sanitized}")
 
     def stream(self, request: AIRequest) -> Iterator[AIStreamEvent]:
         resp = self.generate(request)
-        yield AIStreamEvent(event_type="content_chunk", data={"chunk": resp.content})
-        yield AIStreamEvent(event_type="completed", data={"response": resp.to_dict()})
+        yield AIStreamEvent(chunk=resp.content, is_final=True)

@@ -202,5 +202,89 @@
     "delta_score": 0.0,
     "status": "APPROVED",
     "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790042846",
+    "version": "v1.17.46",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T02:07:26.273723+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790045053",
+    "version": "v1.18.53",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T02:44:13.287438+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790045117",
+    "version": "v1.19.17",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T02:45:17.106164+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790046064",
+    "version": "v1.20.64",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T03:01:04.232250+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790046604",
+    "version": "v1.21.4",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T03:10:04.701163+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790046871",
+    "version": "v1.22.71",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T03:14:31.920766+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
+  },
+  {
+    "snapshot_id": "snap_manual_1790047626",
+    "version": "v1.23.26",
+    "name": "Checkpoint Test UI-19",
+    "timestamp": "2026-09-22T03:27:06.161735+00:00",
+    "author": "Test Runner",
+    "stage": "Automated Unit Test",
+    "quality_score": 100.0,
+    "delta_score": 0.0,
+    "status": "APPROVED",
+    "notes": "Validación de checkpoint automático."
   }
 ]

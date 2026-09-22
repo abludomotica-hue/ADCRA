@@ -72,11 +72,25 @@ class SecretRedaction:
         return clean
 
 
+from adcra.infrastructure.secrets.secret_store import get_secret_provider
+
 class SecretProvider:
-    """Abstracción de acceso a credenciales para permitir variables de entorno o gestores de secretos."""
+    """Abstracción de acceso a credenciales conectada al SecretStore de infraestructura."""
     @staticmethod
     def get_secret(key_name: str, default: Optional[str] = None) -> Optional[str]:
-        return os.environ.get(key_name, default)
+        return get_secret_provider().get_secret(key_name, default)
+
+    @staticmethod
+    def set_secret(key_name: str, value: str) -> None:
+        get_secret_provider().set_secret(key_name, value)
+
+    @staticmethod
+    def delete_secret(key_name: str) -> bool:
+        return get_secret_provider().delete_secret(key_name)
+
+    @staticmethod
+    def exists(key_name: str) -> bool:
+        return get_secret_provider().exists(key_name)
 
 
 # ------------------------------------------------------------------------------

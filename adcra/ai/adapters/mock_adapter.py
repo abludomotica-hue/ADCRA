@@ -103,11 +103,30 @@ class MockAIProvider(AIProviderAdapter):
     def validate_configuration(self) -> Dict[str, Any]:
         return {
             "connected": True,
-            "status": "CONNECTED",
+            "configured": True,
+            "status": "HEALTHY",
             "provider": "mock",
+            "execution_mode": "SIMULATION",
+            "provider_type": "MOCK",
             "latency_ms": self._simulate_latency_ms,
-            "auth_valid": True
+            "auth_valid": True,
+            "models_available": [m["model_id"] for m in self._models]
         }
+
+    def test_connection(self) -> Dict[str, Any]:
+        return {
+            "provider_id": "mock",
+            "status": "HEALTHY",
+            "connected": True,
+            "configured": True,
+            "execution_mode": "SIMULATION",
+            "provider_type": "MOCK",
+            "latency_ms": self._simulate_latency_ms,
+            "message": "ADCRA local simulation engine operational"
+        }
+
+    def discover_models(self) -> List[Dict[str, Any]]:
+        return self._models
 
     def generate(self, request: AIRequest) -> AIResponse:
         if self._force_failure:
@@ -217,7 +236,9 @@ class MockAIProvider(AIProviderAdapter):
                 "input_tokens": in_tokens,
                 "output_tokens": out_tokens,
                 "cached_tokens": 0,
-                "estimated_cost_usd": cost
+                "estimated_cost_usd": cost,
+                "execution_mode": "SIMULATION",
+                "provider_type": "MOCK"
             },
             latency_ms=self._simulate_latency_ms,
             finish_reason="stop"

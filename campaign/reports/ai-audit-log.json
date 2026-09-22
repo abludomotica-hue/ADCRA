@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "total_events": 94,
-  "last_updated": "2026-09-22T01:08:30.337731+00:00",
+  "total_events": 143,
+  "last_updated": "2026-09-22T03:26:39.757588+00:00",
   "audit_log": [
     {
       "timestamp": "2026-09-21T12:34:55.452612+00:00",
@@ -2108,6 +2108,1112 @@
     },
     {
       "timestamp": "2026-09-22T01:08:30.337615+00:00",
+      "event_type": "run.finished",
+      "actor": "AgentOrchestrator",
+      "action": "finish",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "status": "COMPLETED",
+        "steps": 4,
+        "cost": 0.000392
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:07:00.385069+00:00",
+      "event_type": "intent.parsed",
+      "actor": "IntentEngine",
+      "action": "parse",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "intent": {
+          "intent_type": "CREATIVE_CONCEPT",
+          "desired_action": "generate_creative_territories",
+          "target": "campaign",
+          "platform": null,
+          "count": 1,
+          "tone": "Aut\u00e9ntico & Realista",
+          "entities": {
+            "keywords": [
+              "crear",
+              "campa\u00f1a",
+              "locos",
+              "materos",
+              "enfocada",
+              "j\u00f3venes",
+              "aut\u00e9ntico"
+            ]
+          },
+          "constraints": [],
+          "raw_prompt": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:07:00.387802+00:00",
+      "event_type": "plan.created",
+      "actor": "PlanEngine",
+      "action": "create_plan",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "plan": {
+          "plan_id": "plan_creative_concept",
+          "intent": "CREATIVE_CONCEPT",
+          "steps": [
+            {
+              "step_id": "step_load_brand_dna",
+              "name": "Cargar Identidad de Marca y Memoria",
+              "task_type": "campaign.strategy",
+              "agent_role": "Strategist",
+              "description": "Recupera la memoria hist\u00f3rica y Brand DNA de 6 dimensiones",
+              "depends_on": [],
+              "tool_id": null,
+              "output_key": "brand_dna",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_audio_rhythm",
+              "name": "Perfilado R\u00edtmico Musical",
+              "task_type": "audio.analyze",
+              "agent_role": "Audio Analyst",
+              "description": "Analiza tempo musical, BPM y curvas de energ\u00eda",
+              "depends_on": [],
+              "tool_id": "audio_analysis",
+              "output_key": "audio_profile",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_generate_territories",
+              "name": "Generaci\u00f3n de Territorios Creativos",
+              "task_type": "creative.concept",
+              "agent_role": "Creative Director",
+              "description": "Desarrolla 3 territorios creativos basados en Brand DNA y audio",
+              "depends_on": [
+                "step_load_brand_dna",
+                "step_audio_rhythm"
+              ],
+              "tool_id": null,
+              "output_key": "territories",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_evaluate_concept",
+              "name": "Evaluaci\u00f3n de Coherencia de Marca",
+              "task_type": "creative.qc",
+              "agent_role": "QC Director",
+              "description": "Eval\u00faa adecuaci\u00f3n al tono, audiencia y claims de la marca",
+              "depends_on": [
+                "step_generate_territories"
+              ],
+              "tool_id": null,
+              "output_key": "evaluation",
+              "status": "PENDING"
+            }
+          ],
+          "total_steps": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:07:00.391561+00:00",
+      "event_type": "step.started",
+      "actor": "Strategist",
+      "action": "execute_step:step_load_brand_dna",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_load_brand_dna",
+        "name": "Cargar Identidad de Marca y Memoria"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:07:00.395512+00:00",
+      "event_type": "step.started",
+      "actor": "Audio Analyst",
+      "action": "execute_step:step_audio_rhythm",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_audio_rhythm",
+        "name": "Perfilado R\u00edtmico Musical"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:07:00.398137+00:00",
+      "event_type": "step.started",
+      "actor": "Creative Director",
+      "action": "execute_step:step_generate_territories",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_generate_territories",
+        "name": "Generaci\u00f3n de Territorios Creativos"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:07:00.402147+00:00",
+      "event_type": "step.started",
+      "actor": "QC Director",
+      "action": "execute_step:step_evaluate_concept",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_evaluate_concept",
+        "name": "Evaluaci\u00f3n de Coherencia de Marca"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:07:00.408219+00:00",
+      "event_type": "run.finished",
+      "actor": "AgentOrchestrator",
+      "action": "finish",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "status": "COMPLETED",
+        "steps": 4,
+        "cost": 0.000392
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:43:47.847740+00:00",
+      "event_type": "intent.parsed",
+      "actor": "IntentEngine",
+      "action": "parse",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "intent": {
+          "intent_type": "CREATIVE_CONCEPT",
+          "desired_action": "generate_creative_territories",
+          "target": "campaign",
+          "platform": null,
+          "count": 1,
+          "tone": "Aut\u00e9ntico & Realista",
+          "entities": {
+            "keywords": [
+              "crear",
+              "campa\u00f1a",
+              "locos",
+              "materos",
+              "enfocada",
+              "j\u00f3venes",
+              "aut\u00e9ntico"
+            ]
+          },
+          "constraints": [],
+          "raw_prompt": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:43:47.850526+00:00",
+      "event_type": "plan.created",
+      "actor": "PlanEngine",
+      "action": "create_plan",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "plan": {
+          "plan_id": "plan_creative_concept",
+          "intent": "CREATIVE_CONCEPT",
+          "steps": [
+            {
+              "step_id": "step_load_brand_dna",
+              "name": "Cargar Identidad de Marca y Memoria",
+              "task_type": "campaign.strategy",
+              "agent_role": "Strategist",
+              "description": "Recupera la memoria hist\u00f3rica y Brand DNA de 6 dimensiones",
+              "depends_on": [],
+              "tool_id": null,
+              "output_key": "brand_dna",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_audio_rhythm",
+              "name": "Perfilado R\u00edtmico Musical",
+              "task_type": "audio.analyze",
+              "agent_role": "Audio Analyst",
+              "description": "Analiza tempo musical, BPM y curvas de energ\u00eda",
+              "depends_on": [],
+              "tool_id": "audio_analysis",
+              "output_key": "audio_profile",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_generate_territories",
+              "name": "Generaci\u00f3n de Territorios Creativos",
+              "task_type": "creative.concept",
+              "agent_role": "Creative Director",
+              "description": "Desarrolla 3 territorios creativos basados en Brand DNA y audio",
+              "depends_on": [
+                "step_load_brand_dna",
+                "step_audio_rhythm"
+              ],
+              "tool_id": null,
+              "output_key": "territories",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_evaluate_concept",
+              "name": "Evaluaci\u00f3n de Coherencia de Marca",
+              "task_type": "creative.qc",
+              "agent_role": "QC Director",
+              "description": "Eval\u00faa adecuaci\u00f3n al tono, audiencia y claims de la marca",
+              "depends_on": [
+                "step_generate_territories"
+              ],
+              "tool_id": null,
+              "output_key": "evaluation",
+              "status": "PENDING"
+            }
+          ],
+          "total_steps": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:43:47.854447+00:00",
+      "event_type": "step.started",
+      "actor": "Strategist",
+      "action": "execute_step:step_load_brand_dna",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_load_brand_dna",
+        "name": "Cargar Identidad de Marca y Memoria"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:43:47.858634+00:00",
+      "event_type": "step.started",
+      "actor": "Audio Analyst",
+      "action": "execute_step:step_audio_rhythm",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_audio_rhythm",
+        "name": "Perfilado R\u00edtmico Musical"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:43:47.861449+00:00",
+      "event_type": "step.started",
+      "actor": "Creative Director",
+      "action": "execute_step:step_generate_territories",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_generate_territories",
+        "name": "Generaci\u00f3n de Territorios Creativos"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:43:47.867065+00:00",
+      "event_type": "step.started",
+      "actor": "QC Director",
+      "action": "execute_step:step_evaluate_concept",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_evaluate_concept",
+        "name": "Evaluaci\u00f3n de Coherencia de Marca"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:43:47.874018+00:00",
+      "event_type": "run.finished",
+      "actor": "AgentOrchestrator",
+      "action": "finish",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "status": "COMPLETED",
+        "steps": 4,
+        "cost": 0.000392
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:44:51.870261+00:00",
+      "event_type": "intent.parsed",
+      "actor": "IntentEngine",
+      "action": "parse",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "intent": {
+          "intent_type": "CREATIVE_CONCEPT",
+          "desired_action": "generate_creative_territories",
+          "target": "campaign",
+          "platform": null,
+          "count": 1,
+          "tone": "Aut\u00e9ntico & Realista",
+          "entities": {
+            "keywords": [
+              "crear",
+              "campa\u00f1a",
+              "locos",
+              "materos",
+              "enfocada",
+              "j\u00f3venes",
+              "aut\u00e9ntico"
+            ]
+          },
+          "constraints": [],
+          "raw_prompt": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:44:51.873270+00:00",
+      "event_type": "plan.created",
+      "actor": "PlanEngine",
+      "action": "create_plan",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "plan": {
+          "plan_id": "plan_creative_concept",
+          "intent": "CREATIVE_CONCEPT",
+          "steps": [
+            {
+              "step_id": "step_load_brand_dna",
+              "name": "Cargar Identidad de Marca y Memoria",
+              "task_type": "campaign.strategy",
+              "agent_role": "Strategist",
+              "description": "Recupera la memoria hist\u00f3rica y Brand DNA de 6 dimensiones",
+              "depends_on": [],
+              "tool_id": null,
+              "output_key": "brand_dna",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_audio_rhythm",
+              "name": "Perfilado R\u00edtmico Musical",
+              "task_type": "audio.analyze",
+              "agent_role": "Audio Analyst",
+              "description": "Analiza tempo musical, BPM y curvas de energ\u00eda",
+              "depends_on": [],
+              "tool_id": "audio_analysis",
+              "output_key": "audio_profile",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_generate_territories",
+              "name": "Generaci\u00f3n de Territorios Creativos",
+              "task_type": "creative.concept",
+              "agent_role": "Creative Director",
+              "description": "Desarrolla 3 territorios creativos basados en Brand DNA y audio",
+              "depends_on": [
+                "step_load_brand_dna",
+                "step_audio_rhythm"
+              ],
+              "tool_id": null,
+              "output_key": "territories",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_evaluate_concept",
+              "name": "Evaluaci\u00f3n de Coherencia de Marca",
+              "task_type": "creative.qc",
+              "agent_role": "QC Director",
+              "description": "Eval\u00faa adecuaci\u00f3n al tono, audiencia y claims de la marca",
+              "depends_on": [
+                "step_generate_territories"
+              ],
+              "tool_id": null,
+              "output_key": "evaluation",
+              "status": "PENDING"
+            }
+          ],
+          "total_steps": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:44:51.877361+00:00",
+      "event_type": "step.started",
+      "actor": "Strategist",
+      "action": "execute_step:step_load_brand_dna",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_load_brand_dna",
+        "name": "Cargar Identidad de Marca y Memoria"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:44:51.881941+00:00",
+      "event_type": "step.started",
+      "actor": "Audio Analyst",
+      "action": "execute_step:step_audio_rhythm",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_audio_rhythm",
+        "name": "Perfilado R\u00edtmico Musical"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:44:51.884943+00:00",
+      "event_type": "step.started",
+      "actor": "Creative Director",
+      "action": "execute_step:step_generate_territories",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_generate_territories",
+        "name": "Generaci\u00f3n de Territorios Creativos"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:44:51.889534+00:00",
+      "event_type": "step.started",
+      "actor": "QC Director",
+      "action": "execute_step:step_evaluate_concept",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_evaluate_concept",
+        "name": "Evaluaci\u00f3n de Coherencia de Marca"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T02:44:51.896602+00:00",
+      "event_type": "run.finished",
+      "actor": "AgentOrchestrator",
+      "action": "finish",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "status": "COMPLETED",
+        "steps": 4,
+        "cost": 0.000392
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:00:38.587439+00:00",
+      "event_type": "intent.parsed",
+      "actor": "IntentEngine",
+      "action": "parse",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "intent": {
+          "intent_type": "CREATIVE_CONCEPT",
+          "desired_action": "generate_creative_territories",
+          "target": "campaign",
+          "platform": null,
+          "count": 1,
+          "tone": "Aut\u00e9ntico & Realista",
+          "entities": {
+            "keywords": [
+              "crear",
+              "campa\u00f1a",
+              "locos",
+              "materos",
+              "enfocada",
+              "j\u00f3venes",
+              "aut\u00e9ntico"
+            ]
+          },
+          "constraints": [],
+          "raw_prompt": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:00:38.590694+00:00",
+      "event_type": "plan.created",
+      "actor": "PlanEngine",
+      "action": "create_plan",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "plan": {
+          "plan_id": "plan_creative_concept",
+          "intent": "CREATIVE_CONCEPT",
+          "steps": [
+            {
+              "step_id": "step_load_brand_dna",
+              "name": "Cargar Identidad de Marca y Memoria",
+              "task_type": "campaign.strategy",
+              "agent_role": "Strategist",
+              "description": "Recupera la memoria hist\u00f3rica y Brand DNA de 6 dimensiones",
+              "depends_on": [],
+              "tool_id": null,
+              "output_key": "brand_dna",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_audio_rhythm",
+              "name": "Perfilado R\u00edtmico Musical",
+              "task_type": "audio.analyze",
+              "agent_role": "Audio Analyst",
+              "description": "Analiza tempo musical, BPM y curvas de energ\u00eda",
+              "depends_on": [],
+              "tool_id": "audio_analysis",
+              "output_key": "audio_profile",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_generate_territories",
+              "name": "Generaci\u00f3n de Territorios Creativos",
+              "task_type": "creative.concept",
+              "agent_role": "Creative Director",
+              "description": "Desarrolla 3 territorios creativos basados en Brand DNA y audio",
+              "depends_on": [
+                "step_load_brand_dna",
+                "step_audio_rhythm"
+              ],
+              "tool_id": null,
+              "output_key": "territories",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_evaluate_concept",
+              "name": "Evaluaci\u00f3n de Coherencia de Marca",
+              "task_type": "creative.qc",
+              "agent_role": "QC Director",
+              "description": "Eval\u00faa adecuaci\u00f3n al tono, audiencia y claims de la marca",
+              "depends_on": [
+                "step_generate_territories"
+              ],
+              "tool_id": null,
+              "output_key": "evaluation",
+              "status": "PENDING"
+            }
+          ],
+          "total_steps": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:00:38.595182+00:00",
+      "event_type": "step.started",
+      "actor": "Strategist",
+      "action": "execute_step:step_load_brand_dna",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_load_brand_dna",
+        "name": "Cargar Identidad de Marca y Memoria"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:00:38.601266+00:00",
+      "event_type": "step.started",
+      "actor": "Audio Analyst",
+      "action": "execute_step:step_audio_rhythm",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_audio_rhythm",
+        "name": "Perfilado R\u00edtmico Musical"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:00:38.604458+00:00",
+      "event_type": "step.started",
+      "actor": "Creative Director",
+      "action": "execute_step:step_generate_territories",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_generate_territories",
+        "name": "Generaci\u00f3n de Territorios Creativos"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:00:38.609412+00:00",
+      "event_type": "step.started",
+      "actor": "QC Director",
+      "action": "execute_step:step_evaluate_concept",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_evaluate_concept",
+        "name": "Evaluaci\u00f3n de Coherencia de Marca"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:00:38.616680+00:00",
+      "event_type": "run.finished",
+      "actor": "AgentOrchestrator",
+      "action": "finish",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "status": "COMPLETED",
+        "steps": 4,
+        "cost": 0.000392
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:09:38.873136+00:00",
+      "event_type": "intent.parsed",
+      "actor": "IntentEngine",
+      "action": "parse",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "intent": {
+          "intent_type": "CREATIVE_CONCEPT",
+          "desired_action": "generate_creative_territories",
+          "target": "campaign",
+          "platform": null,
+          "count": 1,
+          "tone": "Aut\u00e9ntico & Realista",
+          "entities": {
+            "keywords": [
+              "crear",
+              "campa\u00f1a",
+              "locos",
+              "materos",
+              "enfocada",
+              "j\u00f3venes",
+              "aut\u00e9ntico"
+            ]
+          },
+          "constraints": [],
+          "raw_prompt": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:09:38.876462+00:00",
+      "event_type": "plan.created",
+      "actor": "PlanEngine",
+      "action": "create_plan",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "plan": {
+          "plan_id": "plan_creative_concept",
+          "intent": "CREATIVE_CONCEPT",
+          "steps": [
+            {
+              "step_id": "step_load_brand_dna",
+              "name": "Cargar Identidad de Marca y Memoria",
+              "task_type": "campaign.strategy",
+              "agent_role": "Strategist",
+              "description": "Recupera la memoria hist\u00f3rica y Brand DNA de 6 dimensiones",
+              "depends_on": [],
+              "tool_id": null,
+              "output_key": "brand_dna",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_audio_rhythm",
+              "name": "Perfilado R\u00edtmico Musical",
+              "task_type": "audio.analyze",
+              "agent_role": "Audio Analyst",
+              "description": "Analiza tempo musical, BPM y curvas de energ\u00eda",
+              "depends_on": [],
+              "tool_id": "audio_analysis",
+              "output_key": "audio_profile",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_generate_territories",
+              "name": "Generaci\u00f3n de Territorios Creativos",
+              "task_type": "creative.concept",
+              "agent_role": "Creative Director",
+              "description": "Desarrolla 3 territorios creativos basados en Brand DNA y audio",
+              "depends_on": [
+                "step_load_brand_dna",
+                "step_audio_rhythm"
+              ],
+              "tool_id": null,
+              "output_key": "territories",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_evaluate_concept",
+              "name": "Evaluaci\u00f3n de Coherencia de Marca",
+              "task_type": "creative.qc",
+              "agent_role": "QC Director",
+              "description": "Eval\u00faa adecuaci\u00f3n al tono, audiencia y claims de la marca",
+              "depends_on": [
+                "step_generate_territories"
+              ],
+              "tool_id": null,
+              "output_key": "evaluation",
+              "status": "PENDING"
+            }
+          ],
+          "total_steps": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:09:38.880842+00:00",
+      "event_type": "step.started",
+      "actor": "Strategist",
+      "action": "execute_step:step_load_brand_dna",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_load_brand_dna",
+        "name": "Cargar Identidad de Marca y Memoria"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:09:38.886209+00:00",
+      "event_type": "step.started",
+      "actor": "Audio Analyst",
+      "action": "execute_step:step_audio_rhythm",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_audio_rhythm",
+        "name": "Perfilado R\u00edtmico Musical"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:09:38.889494+00:00",
+      "event_type": "step.started",
+      "actor": "Creative Director",
+      "action": "execute_step:step_generate_territories",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_generate_territories",
+        "name": "Generaci\u00f3n de Territorios Creativos"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:09:38.894495+00:00",
+      "event_type": "step.started",
+      "actor": "QC Director",
+      "action": "execute_step:step_evaluate_concept",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_evaluate_concept",
+        "name": "Evaluaci\u00f3n de Coherencia de Marca"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:09:38.902023+00:00",
+      "event_type": "run.finished",
+      "actor": "AgentOrchestrator",
+      "action": "finish",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "status": "COMPLETED",
+        "steps": 4,
+        "cost": 0.000392
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:14:05.444458+00:00",
+      "event_type": "intent.parsed",
+      "actor": "IntentEngine",
+      "action": "parse",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "intent": {
+          "intent_type": "CREATIVE_CONCEPT",
+          "desired_action": "generate_creative_territories",
+          "target": "campaign",
+          "platform": null,
+          "count": 1,
+          "tone": "Aut\u00e9ntico & Realista",
+          "entities": {
+            "keywords": [
+              "crear",
+              "campa\u00f1a",
+              "locos",
+              "materos",
+              "enfocada",
+              "j\u00f3venes",
+              "aut\u00e9ntico"
+            ]
+          },
+          "constraints": [],
+          "raw_prompt": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:14:05.448652+00:00",
+      "event_type": "plan.created",
+      "actor": "PlanEngine",
+      "action": "create_plan",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "plan": {
+          "plan_id": "plan_creative_concept",
+          "intent": "CREATIVE_CONCEPT",
+          "steps": [
+            {
+              "step_id": "step_load_brand_dna",
+              "name": "Cargar Identidad de Marca y Memoria",
+              "task_type": "campaign.strategy",
+              "agent_role": "Strategist",
+              "description": "Recupera la memoria hist\u00f3rica y Brand DNA de 6 dimensiones",
+              "depends_on": [],
+              "tool_id": null,
+              "output_key": "brand_dna",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_audio_rhythm",
+              "name": "Perfilado R\u00edtmico Musical",
+              "task_type": "audio.analyze",
+              "agent_role": "Audio Analyst",
+              "description": "Analiza tempo musical, BPM y curvas de energ\u00eda",
+              "depends_on": [],
+              "tool_id": "audio_analysis",
+              "output_key": "audio_profile",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_generate_territories",
+              "name": "Generaci\u00f3n de Territorios Creativos",
+              "task_type": "creative.concept",
+              "agent_role": "Creative Director",
+              "description": "Desarrolla 3 territorios creativos basados en Brand DNA y audio",
+              "depends_on": [
+                "step_load_brand_dna",
+                "step_audio_rhythm"
+              ],
+              "tool_id": null,
+              "output_key": "territories",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_evaluate_concept",
+              "name": "Evaluaci\u00f3n de Coherencia de Marca",
+              "task_type": "creative.qc",
+              "agent_role": "QC Director",
+              "description": "Eval\u00faa adecuaci\u00f3n al tono, audiencia y claims de la marca",
+              "depends_on": [
+                "step_generate_territories"
+              ],
+              "tool_id": null,
+              "output_key": "evaluation",
+              "status": "PENDING"
+            }
+          ],
+          "total_steps": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:14:05.453668+00:00",
+      "event_type": "step.started",
+      "actor": "Strategist",
+      "action": "execute_step:step_load_brand_dna",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_load_brand_dna",
+        "name": "Cargar Identidad de Marca y Memoria"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:14:05.459464+00:00",
+      "event_type": "step.started",
+      "actor": "Audio Analyst",
+      "action": "execute_step:step_audio_rhythm",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_audio_rhythm",
+        "name": "Perfilado R\u00edtmico Musical"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:14:05.463013+00:00",
+      "event_type": "step.started",
+      "actor": "Creative Director",
+      "action": "execute_step:step_generate_territories",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_generate_territories",
+        "name": "Generaci\u00f3n de Territorios Creativos"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:14:05.468366+00:00",
+      "event_type": "step.started",
+      "actor": "QC Director",
+      "action": "execute_step:step_evaluate_concept",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_evaluate_concept",
+        "name": "Evaluaci\u00f3n de Coherencia de Marca"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:14:05.476221+00:00",
+      "event_type": "run.finished",
+      "actor": "AgentOrchestrator",
+      "action": "finish",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "status": "COMPLETED",
+        "steps": 4,
+        "cost": 0.000392
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:26:39.725715+00:00",
+      "event_type": "intent.parsed",
+      "actor": "IntentEngine",
+      "action": "parse",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "intent": {
+          "intent_type": "CREATIVE_CONCEPT",
+          "desired_action": "generate_creative_territories",
+          "target": "campaign",
+          "platform": null,
+          "count": 1,
+          "tone": "Aut\u00e9ntico & Realista",
+          "entities": {
+            "keywords": [
+              "crear",
+              "campa\u00f1a",
+              "locos",
+              "materos",
+              "enfocada",
+              "j\u00f3venes",
+              "aut\u00e9ntico"
+            ]
+          },
+          "constraints": [],
+          "raw_prompt": "Crear una campa\u00f1a para Locos Materos enfocada en j\u00f3venes y con un tono m\u00e1s aut\u00e9ntico"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:26:39.729411+00:00",
+      "event_type": "plan.created",
+      "actor": "PlanEngine",
+      "action": "create_plan",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "plan": {
+          "plan_id": "plan_creative_concept",
+          "intent": "CREATIVE_CONCEPT",
+          "steps": [
+            {
+              "step_id": "step_load_brand_dna",
+              "name": "Cargar Identidad de Marca y Memoria",
+              "task_type": "campaign.strategy",
+              "agent_role": "Strategist",
+              "description": "Recupera la memoria hist\u00f3rica y Brand DNA de 6 dimensiones",
+              "depends_on": [],
+              "tool_id": null,
+              "output_key": "brand_dna",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_audio_rhythm",
+              "name": "Perfilado R\u00edtmico Musical",
+              "task_type": "audio.analyze",
+              "agent_role": "Audio Analyst",
+              "description": "Analiza tempo musical, BPM y curvas de energ\u00eda",
+              "depends_on": [],
+              "tool_id": "audio_analysis",
+              "output_key": "audio_profile",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_generate_territories",
+              "name": "Generaci\u00f3n de Territorios Creativos",
+              "task_type": "creative.concept",
+              "agent_role": "Creative Director",
+              "description": "Desarrolla 3 territorios creativos basados en Brand DNA y audio",
+              "depends_on": [
+                "step_load_brand_dna",
+                "step_audio_rhythm"
+              ],
+              "tool_id": null,
+              "output_key": "territories",
+              "status": "PENDING"
+            },
+            {
+              "step_id": "step_evaluate_concept",
+              "name": "Evaluaci\u00f3n de Coherencia de Marca",
+              "task_type": "creative.qc",
+              "agent_role": "QC Director",
+              "description": "Eval\u00faa adecuaci\u00f3n al tono, audiencia y claims de la marca",
+              "depends_on": [
+                "step_generate_territories"
+              ],
+              "tool_id": null,
+              "output_key": "evaluation",
+              "status": "PENDING"
+            }
+          ],
+          "total_steps": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:26:39.734268+00:00",
+      "event_type": "step.started",
+      "actor": "Strategist",
+      "action": "execute_step:step_load_brand_dna",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_load_brand_dna",
+        "name": "Cargar Identidad de Marca y Memoria"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:26:39.739879+00:00",
+      "event_type": "step.started",
+      "actor": "Audio Analyst",
+      "action": "execute_step:step_audio_rhythm",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_audio_rhythm",
+        "name": "Perfilado R\u00edtmico Musical"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:26:39.743599+00:00",
+      "event_type": "step.started",
+      "actor": "Creative Director",
+      "action": "execute_step:step_generate_territories",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_generate_territories",
+        "name": "Generaci\u00f3n de Territorios Creativos"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:26:39.749083+00:00",
+      "event_type": "step.started",
+      "actor": "QC Director",
+      "action": "execute_step:step_evaluate_concept",
+      "tenant_id": "default_tenant",
+      "campaign_id": "camp_locos_materos_2026",
+      "details": {
+        "step_id": "step_evaluate_concept",
+        "name": "Evaluaci\u00f3n de Coherencia de Marca"
+      }
+    },
+    {
+      "timestamp": "2026-09-22T03:26:39.757473+00:00",
       "event_type": "run.finished",
       "actor": "AgentOrchestrator",
       "action": "finish",

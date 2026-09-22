@@ -68,13 +68,33 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
         """Manejo de pre-flight CORS."""
         self.send_response(204)
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type, Range")
         self.end_headers()
 
     def do_POST(self):
         """Manejo de acciones POST (ej. ejecutar benchmark en vivo)."""
         parsed = urlparse(self.path)
+
+        # ----------------- Rutas Modulares ADCRA v2.1 -----------------
+        is_v2_post = (
+            parsed.path == "/api/clients" or parsed.path.startswith("/api/clients/") or
+            parsed.path == "/api/campaigns" or parsed.path.startswith("/api/campaigns/") or
+            (parsed.path.startswith("/api/ai/providers/") and parsed.path != "/api/ai/providers/test") or
+            parsed.path == "/api/ai/runs" or parsed.path.startswith("/api/ai/runs/")
+        )
+        if is_v2_post:
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length).decode("utf-8") if length > 0 else "{}"
+            try:
+                data = json.loads(body)
+            except Exception:
+                data = {}
+            from adcra.api.router import dispatch_api_request
+            res = dispatch_api_request("POST", parsed.path, body_data=data)
+            if res is not None:
+                self.send_json(res[1], res[0])
+                return
         if parsed.path == "/api/intake/draft":
             self.handle_api_intake_draft_post()
             return
@@ -230,10 +250,52 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
 
+    def do_PATCH(self):
+        parsed = urlparse(self.path)
+        length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(length).decode("utf-8") if length > 0 else "{}"
+        try:
+            data = json.loads(body)
+        except Exception:
+            data = {}
+        from adcra.api.router import dispatch_api_request
+        res = dispatch_api_request("PATCH", parsed.path, body_data=data)
+        if res is not None:
+            self.send_json(res[1], res[0])
+        else:
+            self.send_json({"error": "NOT_FOUND"}, 404)
+
+    def do_DELETE(self):
+        parsed = urlparse(self.path)
+        from adcra.api.router import dispatch_api_request
+        res = dispatch_api_request("DELETE", parsed.path)
+        if res is not None:
+            self.send_json(res[1], res[0])
+        else:
+            self.send_json({"error": "NOT_FOUND"}, 404)
+
     def do_GET(self):
         """Manejo de peticiones GET para API y recursos estáticos con byte-ranges."""
         parsed = urlparse(self.path)
         path = parsed.path
+
+        # ----------------- Rutas Modulares ADCRA v2.1 -----------------
+        is_v2_get = (
+            path == "/api/clients" or path.startswith("/api/clients/") or
+            path == "/api/campaigns" or path.startswith("/api/campaigns/") or
+            path == "/api/events" or path.startswith("/api/events/") or path.endswith("/events") or
+            path == "/api/ai/runs" or path.startswith("/api/ai/runs/") or
+            path == "/api/ai/providers" or
+            (path.startswith("/api/ai/providers/") and path.endswith("/health"))
+        )
+        if is_v2_get:
+            from urllib.parse import parse_qsl
+            query_params = dict(parse_qsl(parsed.query))
+            from adcra.api.router import dispatch_api_request
+            res = dispatch_api_request("GET", path, query_params=query_params)
+            if res is not None:
+                self.send_json(res[1], res[0])
+                return
 
         # ----------------- Rutas REST API -----------------
         if path == "/api/status":
@@ -2562,6 +2624,12 @@ def run_server(port=8080, host="0.0.0.0"):
     except KeyboardInterrupt:
         print("\n[*] Servidor detenido ordenadamente.")
         httpd.server_close()
+
+try:
+    from adcra.infrastructure.persistence.migration import run_legacy_migration
+    run_legacy_migration()
+except Exception as _me:
+    logger.warning(f"Initial migration note: {_me}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="ADCRA Mission Control Web Server")

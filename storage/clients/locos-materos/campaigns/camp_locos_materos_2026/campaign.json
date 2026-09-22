@@ -1,0 +1,25 @@
+{
+  "id": "camp_locos_materos_2026",
+  "client_id": "locos-materos",
+  "tenant_id": "default_tenant",
+  "name": "Locos Materos — Lanzamiento Verano 2026",
+  "objective": "Conversión directa e-commerce para sets de mate de autor 9x16",
+  "status": "DELIVERED",
+  "created_at": "2026-09-22T03:03:27.671354+00:00",
+  "updated_at": "2026-09-22T03:03:27.671364+00:00",
+  "brief": {
+    "target_channels": [
+      "instagram_reels",
+      "tiktok",
+      "youtube_shorts"
+    ],
+    "aspect_ratio": "9:16",
+    "optimal_bpm": 107.7
+  },
+  "delta_overrides": {},
+  "context_snapshot_id": null,
+  "active_run_id": null,
+  "metadata": {
+    "legacy_migrated": true
+  }
+}

@@ -62,6 +62,24 @@ class AIProviderAdapter(ABC):
         """Health-check credentials and connectivity."""
         pass
 
+    def test_connection(self) -> Dict[str, Any]:
+        """Perform real network handshake and return connectivity report."""
+        return self.validate_configuration()
+
+    def discover_models(self) -> List[Dict[str, Any]]:
+        """Fetch models dynamically from provider endpoint if available."""
+        return self.list_models()
+
+    def configure(self, credentials: Dict[str, Any]) -> None:
+        """Update provider configuration dynamically."""
+        pass
+
+    def initialize(self, config: Optional[Dict[str, Any]] = None) -> bool:
+        """Initialize adapter state and optional configuration."""
+        if config:
+            self.configure(config)
+        return True
+
 
 class AIProviderGateway:
     """
@@ -89,15 +107,42 @@ class AIProviderGateway:
         result = []
         for pid, adapter in self._adapters.items():
             health = adapter.validate_configuration()
+            is_mock = (pid == "mock")
+            configured = health.get("configured", False) or is_mock
+            connected = health.get("connected", False)
+            status = health.get("status", "CONFIGURED" if configured else "NOT_CONFIGURED")
+
             result.append({
                 "provider_id": pid,
                 "name": adapter.name,
-                "connected": health.get("connected", False),
-                "status": health.get("status", "UNKNOWN"),
-                "models_count": len(adapter.list_models()),
+                "configured": configured,
+                "connected": connected,
+                "status": status,
+                "models_count": len(adapter.list_models()) if (configured or is_mock) else 0,
+                "execution_mode": "SIMULATION" if is_mock else "REAL",
                 "details": health
             })
         return result
+
+    def test_provider(self, provider_id: str) -> Dict[str, Any]:
+        adapter = self.get_adapter(provider_id)
+        if hasattr(adapter, "test_connection"):
+            return adapter.test_connection()
+        return adapter.validate_configuration()
+
+    def discover_models(self, provider_id: str) -> List[Dict[str, Any]]:
+        adapter = self.get_adapter(provider_id)
+        if hasattr(adapter, "discover_models"):
+            return adapter.discover_models()
+        return adapter.list_models()
+
+    def configure_provider(self, provider_id: str, credentials: Dict[str, Any]) -> Dict[str, Any]:
+        adapter = self.get_adapter(provider_id)
+        if hasattr(adapter, "configure"):
+            adapter.configure(credentials)
+        if hasattr(adapter, "test_connection"):
+            return adapter.test_connection()
+        return adapter.validate_configuration()
 
     def set_default_provider(self, provider_id: str) -> None:
         if provider_id not in self._adapters:

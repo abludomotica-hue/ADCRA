@@ -144,6 +144,7 @@ const IntakeApp = {
     this.setupEventListeners();
     this.setupKeyboardShortcuts();
     await this.fetchExistingClients();
+    await this.loadAIProvidersStatus();
     await this.loadDraft();
     this.renderActiveStep();
     this.evaluateAllStepStatuses();
@@ -159,12 +160,29 @@ const IntakeApp = {
 
   async fetchExistingClients() {
     try {
+      const resp = await fetch('/api/clients');
+      if (resp.ok) {
+        const data = await resp.json();
+        const clients = data.clients || (Array.isArray(data) ? data : []);
+        if (clients.length > 0) {
+          this.clientsList = clients;
+          if (!this.selectedClientId || !this.clientsList.find(c => c.id === this.selectedClientId)) {
+            this.selectedClientId = this.clientsList[0].id;
+          }
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn('Error fetching /api/clients:', e);
+    }
+
+    try {
       const resp = await fetch('/api/intake/clients');
       if (resp.ok) {
         const data = await resp.json();
         if (data.status === 'SUCCESS' && Array.isArray(data.clients)) {
           this.clientsList = data.clients;
-          if (this.clientsList.length > 0 && this.draft.client.brand_name === 'Locos Materos') {
+          if (this.clientsList.length > 0 && !this.selectedClientId) {
             this.selectedClientId = this.clientsList[0].id;
           }
         }
@@ -970,15 +988,25 @@ const IntakeApp = {
 
   renderStep01_Client() {
     if (this.clientMode === 'EXISTING_CLIENT') {
-      const clients = (this.clientsList && this.clientsList.length > 0)
-        ? this.clientsList
-        : [{
-            id: 'locos-materos',
-            name: 'Locos Materos',
-            industry: 'Alimentos y Bebidas / Yerba Mate',
-            has_memory: true
-          }];
+      if (!this.clientsList || this.clientsList.length === 0) {
+        return `
+        <div class="form-section">
+          <div class="form-section-title"><span>🏛️</span> Clientes Registrados en ADCRA</div>
+          <div class="empty-state-card" style="padding: 3rem 1.5rem; text-align: center; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.12); border-radius: 12px; margin-top: 1rem;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;">📂</span>
+            <h4 style="color: #FFF; font-size: 1.1rem; margin-bottom: 0.5rem;">No hay clientes registrados</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 450px; margin: 0 auto 1.5rem auto;">
+              Actualmente no existen perfiles de cliente en el sistema. Configura un nuevo cliente con su Brand DNA o importa una marca existente.
+            </p>
+            <button class="btn btn-primary" onclick="document.getElementById('btnModeNewClient').click()">
+              ✨ Registrar Primer Cliente
+            </button>
+          </div>
+        </div>
+        `;
+      }
 
+      const clients = this.clientsList;
       const selectedClient = clients.find(c => c.id === this.selectedClientId) || clients[0];
 
       return `
@@ -6437,6 +6465,7 @@ const IntakeApp = {
     if (!modal) return;
     modal.style.display = 'flex';
     this.switchAiBrainMode(initialMode);
+    await this.loadAIProvidersStatus();
     try {
       const [resHealth, resUsage] = await Promise.all([
         fetch('/api/ai/health').then(r => r.json()),
@@ -6843,6 +6872,94 @@ const IntakeApp = {
     } catch (e) {
       console.error('Error loading circuit breakers:', e);
       container.innerHTML = '<div style="padding: 1rem; color: var(--text-dim);">Telemetría no disponible temporalmente.</div>';
+    }
+  },
+
+  async loadAIProvidersStatus() {
+    const activeCountEl = document.getElementById('aiProvidersActiveCount');
+    const listEl = document.getElementById('aiProvidersList');
+    if (!listEl) return;
+
+    try {
+      const res = await fetch('/api/ai/providers');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const providers = await res.json();
+      if (!Array.isArray(providers)) return;
+
+      const configuredReal = providers.filter(p => p.is_configured && p.execution_mode !== 'SIMULATION');
+      const connectedReal = providers.filter(p => p.connected && p.execution_mode !== 'SIMULATION');
+
+      if (activeCountEl) {
+        if (connectedReal.length > 0) {
+          activeCountEl.textContent = `${connectedReal.length} Conectado${connectedReal.length > 1 ? 's' : ''}`;
+          activeCountEl.className = 'badge badge-emerald';
+        } else if (configuredReal.length > 0) {
+          activeCountEl.textContent = `${configuredReal.length} Configurado${configuredReal.length > 1 ? 's' : ''} (Sin Conectar)`;
+          activeCountEl.className = 'badge badge-gold';
+        } else {
+          activeCountEl.textContent = '0 Conectados';
+          activeCountEl.className = 'badge badge-neutral';
+        }
+      }
+
+      listEl.innerHTML = providers.map(p => {
+        let badgeClass = 'badge-neutral';
+        let badgeText = p.status || 'NO CONFIGURADO';
+        let subText = p.masked_key ? ` · Key: ${p.masked_key}` : '';
+
+        if (p.execution_mode === 'SIMULATION') {
+          badgeClass = 'badge-purple';
+          badgeText = 'SIMULACIÓN (MOCK)';
+        } else if (p.status === 'HEALTHY' || p.status === 'CONNECTED') {
+          badgeClass = 'badge-emerald';
+          badgeText = 'CONECTADO';
+        } else if (p.status === 'NOT_CONFIGURED') {
+          badgeClass = 'badge-neutral';
+          badgeText = 'NO CONFIGURADO';
+        } else if (p.status === 'DEGRADED') {
+          badgeClass = 'badge-yellow';
+          badgeText = 'DEGRADADO';
+        } else if (p.status === 'DISABLED') {
+          badgeClass = 'badge-neutral';
+          badgeText = 'DESHABILITADO';
+        } else {
+          badgeClass = 'badge-rose';
+          badgeText = (p.status || 'ERROR').toUpperCase();
+        }
+
+        return `
+          <div class="provider-item" style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div>
+              <span class="prov-name" style="font-weight: 600; color: #FFF; font-size: 0.85rem;">${p.name}</span>
+              <div style="font-size: 0.72rem; color: var(--text-dim); margin-top: 2px;">
+                ${p.execution_mode === 'SIMULATION' ? 'Modo de prueba local determinista' : (p.is_configured ? 'Credenciales configuradas' + subText : 'Sin credenciales (API key no configurada)')}
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="badge ${badgeClass}" style="font-size: 0.7rem;">${badgeText}</span>
+              ${p.execution_mode !== 'SIMULATION' ? `<button class="btn btn-secondary btn-xs" onclick="app.testAiProvider('${p.provider_id}')" style="padding: 2px 7px; font-size: 0.68rem;">Test</button>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    } catch (e) {
+      console.warn('Error loading AI providers status:', e);
+    }
+  },
+
+  async testAiProvider(providerId) {
+    this.showToast(`Probando conectividad con ${providerId}...`);
+    try {
+      const res = await fetch(`/api/ai/providers/${providerId}/test`, { method: 'POST' });
+      const data = await res.json();
+      if (data.connected) {
+        this.showToast(`✅ ${providerId.toUpperCase()}: Conectado exitosamente (${data.latency_ms || 0}ms)`);
+      } else {
+        this.showToast(`⚠️ ${providerId.toUpperCase()}: ${data.error || 'No conectado'}`);
+      }
+      await this.loadAIProvidersStatus();
+    } catch (e) {
+      this.showToast(`Error probando ${providerId}: ${e.message}`);
     }
   },
 

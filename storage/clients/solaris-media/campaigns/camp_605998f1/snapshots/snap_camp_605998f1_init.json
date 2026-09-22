@@ -1,0 +1,42 @@
+{
+  "snapshot_id": "snap_camp_605998f1_init",
+  "campaign_id": "camp_605998f1",
+  "client_id": "solaris-media",
+  "tenant_id": "default_tenant",
+  "captured_at": "2026-09-22T03:12:55.504907+00:00",
+  "brand_dna_version": "1.0.0",
+  "brand_dna": {
+    "mission": "",
+    "values": [],
+    "personality": [],
+    "tone": {
+      "primary_tone": "Inspiring & Authentic",
+      "emotional_register": "Energetic / Warm",
+      "voice_guidelines": "Direct, conversational, respectful of heritage"
+    },
+    "colors": {
+      "primary": "#0D5C3A",
+      "secondary": "#C2A649",
+      "accent": "#E65100",
+      "background": "#0A0E17"
+    },
+    "typography": {
+      "heading": "Cabinet Grotesk",
+      "body": "Inter",
+      "accent": "JetBrains Mono"
+    },
+    "logo_url": null,
+    "visual_style": "Cinematic Warm / Contemporary Heritage",
+    "motion_style": "Dynamic Rhythmic Cuts / Beat-Synced",
+    "language": "es-CL",
+    "approved_claims": [],
+    "forbidden_claims": [],
+    "retention_rules": {},
+    "aesthetic_learnings": {},
+    "musical_tempo_learnings": {}
+  },
+  "audience_snapshot": {},
+  "product_snapshot": {},
+  "approved_claims_snapshot": [],
+  "creative_learnings_snapshot": []
+}

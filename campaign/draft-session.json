@@ -1,10 +1,198 @@
 {
-  "clientMode": "EXISTING_CLIENT",
+  "clientMode": "NEW_CLIENT",
   "activeStep": 10,
   "draft": {
     "client": {
       "brand_name": "Locos Materos"
     },
+    "objective": {
+      "primary": "AWARENESS",
+      "secondary": [
+        "CONVERSION"
+      ],
+      "desired_outcome": "recordar_marca",
+      "custom_outcome_note": ""
+    },
+    "audience": {
+      "primary": {
+        "demographics": {
+          "age_range": [
+            20,
+            45
+          ],
+          "location": "Chile / Santiago",
+          "language": "es",
+          "gender": "todos",
+          "occupation": "Profesionales y Jóvenes Adultos"
+        },
+        "psychographics": {
+          "interests": [
+            "cultura",
+            "calidad",
+            "autenticidad",
+            "bienestar"
+          ],
+          "needs": [
+            "pausa consciente",
+            "socialización"
+          ],
+          "motivations": [
+            "compartir buenos momentos",
+            "disfrutar sabor auténtico"
+          ],
+          "objections": [
+            "tiempo de preparación",
+            "precio percibido"
+          ]
+        },
+        "digital_behavior": {
+          "primary_platforms": [
+            "INSTAGRAM",
+            "TIKTOK",
+            "YOUTUBE"
+          ]
+        },
+        "is_ai_suggested": false
+      },
+      "secondary": {
+        "demographics": {
+          "age_range": [
+            30,
+            60
+          ],
+          "location": "Chile / Regiones",
+          "language": "es",
+          "gender": "todos",
+          "occupation": "Familias y Hogar"
+        },
+        "psychographics": {
+          "interests": [
+            "tradición",
+            "hogar",
+            "salud"
+          ],
+          "needs": [
+            "hábitos saludables"
+          ],
+          "motivations": [
+            "mantener rituales"
+          ],
+          "objections": []
+        },
+        "digital_behavior": {
+          "primary_platforms": [
+            "INSTAGRAM",
+            "FACEBOOK"
+          ]
+        },
+        "is_ai_suggested": true
+      },
+      "exploratory": {
+        "demographics": {
+          "age_range": [
+            18,
+            25
+          ],
+          "location": "Latinoamérica / Cono Sur",
+          "language": "es",
+          "gender": "todos",
+          "occupation": "Estudiantes Universitarios"
+        },
+        "psychographics": {
+          "interests": [
+            "estudio",
+            "música",
+            "creatividad"
+          ],
+          "needs": [
+            "energía natural sin bajón"
+          ],
+          "motivations": [
+            "acompañamiento para estudiar"
+          ],
+          "objections": [
+            "amargor inicial"
+          ]
+        },
+        "digital_behavior": {
+          "primary_platforms": [
+            "TIKTOK",
+            "TWITCH",
+            "SPOTIFY"
+          ]
+        },
+        "is_ai_suggested": true
+      }
+    },
+    "brand": {
+      "claim": "",
+      "purpose": "",
+      "values": [
+        "calidad",
+        "compromiso"
+      ],
+      "primary_color": "#0D5C3A",
+      "secondary_color": "#D4AF37",
+      "accent_color": "#10B981",
+      "color_temperature_target_kelvin": 5900,
+      "tone_of_voice": [
+        "auténtico",
+        "cálido",
+        "cercano"
+      ],
+      "mandatory_words": [],
+      "forbidden_words": [],
+      "logo_files": [
+        "logo_master_vector.svg"
+      ],
+      "brand_manual_pdf": "manual_identidad_2026.pdf"
+    },
+    "products": [
+      {
+        "id": "prod-1",
+        "name": "",
+        "description": "",
+        "price": 15000,
+        "benefits": [
+          "100% Auténtico",
+          "Calidad Premium"
+        ]
+      }
+    ],
+    "offer": {
+      "is_branding_only": false,
+      "offer_title": "Descuento Exclusivo",
+      "discount_percentage": 20,
+      "terms_conditions": "Válido hasta agotar stock"
+    },
+    "creative": {
+      "target_emotions": [
+        "confianza",
+        "alegria"
+      ],
+      "key_takeaway": "",
+      "forbidden_concepts": "",
+      "visual_style": "cinematic",
+      "narrative_arc_preference": "hook_build_climax"
+    },
+    "audio": {
+      "filename": "",
+      "duration_seconds": 30,
+      "bpm": 124,
+      "meter": "4/4",
+      "has_commercial_rights": true
+    },
+    "assets": [
+      {
+        "id": "asset-1",
+        "filename": "clip_hero_01.mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 29.97,
+        "codec": "H.264",
+        "status": "READY"
+      }
+    ],
     "references": [
       {
         "id": "ref-01",
@@ -28,16 +216,49 @@
         ],
         "notes": "Efecto foley de agua hirviendo muy nítido"
       }
-    ]
+    ],
+    "channels": [
+      "TIKTOK_9_16",
+      "INSTAGRAM_REELS_9_16"
+    ],
+    "duration": {
+      "target_seconds": 30,
+      "strategy": "AUDIO_DRIVEN"
+    },
+    "cta": {
+      "primary": "Conocer más",
+      "url": "https://",
+      "whatsapp": ""
+    },
+    "constraints": {
+      "forbidden_words": [
+        "artificial",
+        "químico"
+      ],
+      "legal_disclaimer": "Consumo informado y responsable.",
+      "music_rights_cleared": true,
+      "image_rights_cleared": true
+    },
+    "budget": {
+      "currency": "USD",
+      "media_investment": 500,
+      "mode": "ORGANIC_AND_PAID"
+    },
+    "automation": {
+      "mode": "AUTONOMOUS_APPROVALS",
+      "approval_checkpoints": {
+        "concept": true,
+        "copy": true,
+        "storyboard": true,
+        "master": true
+      }
+    },
+    "approvals": {
+      "concept": true,
+      "copy": false,
+      "storyboard": false,
+      "master": false
+    }
   },
-  "updated_at": "2026-09-20T14:15:00Z",
-  "restored_from_snapshot": "snap_v1_0_0_brief",
-  "last_restored_at": "2026-09-22T01:08:55.002831+00:00",
-  "current_version": "v1.0.0",
-  "draftData": {
-    "primary_color": "#0D5C3A",
-    "target_bpm": 107.7
-  },
-  "memory_applied": true,
-  "memory_applied_at": "2026-09-22T01:08:55.009191+00:00"
+  "updated_at": "2026-09-22T09:36:31.863Z"
 }

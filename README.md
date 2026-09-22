@@ -4,7 +4,7 @@
 ### Autonomous Digital Campaign & Creative Production System
 **The Creative Operating System for Autonomous Advertising, Audiovisual Mastery & Brand Intelligence**
 
-[![Tests Passing](https://img.shields.io/badge/Tests-317%20Passed%20(100%25)-success?style=flat-square&logo=pytest)](tests/)
+[![Tests Passing](https://img.shields.io/badge/Tests-367%20Passed%20(100%25)-success?style=flat-square&logo=pytest)](tests/)
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue?style=flat-square&logo=python)](requirements.txt)
 [![Node.js Version](https://img.shields.io/badge/Node.js-%3E%3D18.0%20LTS-green?style=flat-square&logo=node.js)](package.json)
 [![License](https://img.shields.io/badge/License-Apache%202.0-orange?style=flat-square)](LICENSE)
@@ -206,9 +206,26 @@ ADCRA includes an executable command-line wrapper at `./bin/adcra`:
 # Introspect registered skills and agent tools
 ./bin/adcra introspect
 
-# Run complete regression test suite (317 tests)
+# Run complete regression test suite (367 tests)
 ./bin/adcra test
 ```
+
+---
+
+## 🚀 ADCRA v2.1 — Production-Hardened Creative Operating System
+
+ADCRA v2.1 evolves the AI Control Plane into a durable, multi-tenant capable, production-hardened platform enforcing the **Zero Fake State Directive**:
+> **"NO DATA MAY BE PRESENTED AS REAL UNLESS IT IS BACKED BY REAL SYSTEM STATE."**
+
+Key architectural additions in v2.1:
+- **Real Provider Connectivity & Dynamic Discovery:** Real HTTP network verification handshakes against OpenAI, Google Gemini, Anthropic Claude, and OpenRouter endpoints (`/models`). In the absence of API keys, providers strictly report `NOT_CONFIGURED` (`configured: false`, `connected: false`, `models_count: 0`). Mock mode is explicitly isolated and tagged as `SIMULATION MODE`.
+- **Hardened Secret Keystore (`adcra/infrastructure/secrets/`):** Enforces POSIX file permissions `0600` on secrets storage and `0700` on directories, with machine-derived key obfuscation, key masking (`sk-...a1b2`), regex redaction in logs/events, and `.gitignore` safety.
+- **Client Management & Brand DNA (`adcra/domain/clients/`):** Full multi-client support with structured Brand DNA (visual rules, color palettes, fonts, approved claims, legal disclaimers).
+- **Campaign Management & Snapshotting (`adcra/domain/campaigns/`):** Strict client ownership invariant and immutable point-in-time context freezing (`CampaignContextSnapshot`).
+- **Execution Plane & Durable Runs (`adcra/domain/execution/`):** `DurableRun` and `RunCheckpoint` engine with transaction recovery (`can_resume()` and `resume()`) across process restarts.
+- **Thread-Safe Priority Job Queue (`adcra/infrastructure/queue/`):** In-memory priority scheduling (`CRITICAL`, `HIGH`, `NORMAL`, `LOW`) with automatic retries and cancellation.
+- **Reactive Event Bus (`adcra/infrastructure/events/`):** Pub/sub event broker with wildcard patterns (`run.*`, `campaign.*`), automatic secret redaction, and Server-Sent Events (SSE) queues for live UI streaming.
+- **Documentation:** See the full [ADCRA v2.1 Implementation Report](docs/ADCRA_V2_1_IMPLEMENTATION_REPORT.md) and [ADCRA v2.1 Architectural Audit](docs/architecture/ADCRA_V2_1_AUDIT.md).
 
 ---
 
@@ -225,7 +242,18 @@ The Mission Control server exposes a high-performance JSON REST API on port `808
 | `POST` | `/api/intake/preflight-audit` | Audit draft against schema before allocating generative resources. |
 | `POST` | `/api/intake/blueprint/generate` | Compile validated draft into an immutable campaign blueprint. |
 | `POST` | `/api/ai/intent/execute` | Dispatch natural language creative commands to the AI Brain. |
-| `POST` | `/api/ai/providers/test` | Test connectivity and latency for all configured LLM providers. |
+| `POST` | `/api/ai/providers/test` | Legacy test connectivity and latency for configured LLM providers. |
+| `GET` | `/api/ai/providers` | List all AI providers with real configuration status, masked keys, and model counts. |
+| `POST` | `/api/ai/providers/{id}/test` | Real HTTP verification handshake against specific provider API. |
+| `POST` | `/api/ai/providers/{id}/configure` | Securely configure provider credentials into hardened keystore. |
+| `POST` | `/api/ai/providers/{id}/discover-models` | Fetch real models dynamically from vendor endpoint. |
+| `GET` | `/api/clients` | List registered client profiles and Brand DNA. |
+| `POST` | `/api/clients` | Register a new client with Brand DNA guidelines. |
+| `GET` | `/api/campaigns` | List active, planned, and completed campaigns. |
+| `POST` | `/api/campaigns` | Create a campaign scoped to a client with context snapshot. |
+| `GET` | `/api/ai/runs` | List durable AI runs, checkpoints, and execution states. |
+| `POST` | `/api/ai/runs/{id}/resume` | Resume failed or paused durable run from last valid checkpoint. |
+| `GET` | `/api/events` | Stream reactive system events via Server-Sent Events (SSE). |
 | `GET` | `/api/ai/cost` | Retrieve token consumption ledgers and financial expenditure. |
 | `GET` | `/api/experiments` | List all active and completed creative A/B experiments. |
 | `POST` | `/api/experiments/run` | Execute multi-variant matrix experiment generation. |
@@ -240,6 +268,8 @@ The Mission Control server exposes a high-performance JSON REST API on port `808
 
 Detailed documentation is organized in the [`docs/`](docs/) directory:
 
+- 🧠 **[ADCRA v2.1 Implementation Report](docs/ADCRA_V2_1_IMPLEMENTATION_REPORT.md):** Complete architectural report for v2.1 Creative Operating System.
+- 🔍 **[ADCRA v2.1 Architectural Audit](docs/architecture/ADCRA_V2_1_AUDIT.md):** Exhaustive system audit, gap analysis, and reality verification.
 - 🚀 **[Getting Started Guide](docs/GETTING_STARTED.md):** Complete installation guide for Linux, macOS, and Windows WSL2.
 - 🏗️ **[System Architecture](docs/ARCHITECTURE.md):** In-depth technical architecture, data flows, and security model.
 - 💻 **[Hardware & Platform Matrix](docs/HARDWARE_AND_PLATFORMS.md):** GPU requirements, VRAM tuning, and cloud deployment tiers.
@@ -254,14 +284,14 @@ Detailed documentation is organized in the [`docs/`](docs/) directory:
 ADCRA maintains a comprehensive automated test suite covering all 22 phases, AI Brain routing, permissions, verbal economy, and hardware detection:
 
 ```bash
-# Run all 317 unit and integration tests
+# Run all 367 unit and integration tests
 python3 -m unittest discover -s tests -q
 
 # Or via the CLI wrapper
 ./bin/adcra test
 ```
 
-Current test suite status: **317 tests passed, 0 failures, 0 regressions.**
+Current test suite status: **367 tests passed, 0 failures, 0 regressions.**
 
 ---
 
