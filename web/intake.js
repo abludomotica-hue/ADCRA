@@ -6732,24 +6732,27 @@ const IntakeApp = {
     try {
       const res = await fetch('/api/ai/capabilities');
       const data = await res.json();
-      const caps = data.capabilities || [];
+      const caps = Array.isArray(data) ? data : (data.capabilities || []);
 
       if (caps.length === 0) {
         container.innerHTML = '<div style="padding: 1rem; color: var(--text-dim);">No hay capacidades registradas.</div>';
         return;
       }
 
-      container.innerHTML = caps.map(c => `
-        <div class="cap-matrix-item ${c.status === 'ACTIVE' ? 'active' : 'standby'}">
-          <div class="cap-info">
-            <span class="cap-title">${c.name || c.id}</span>
-            <span class="cap-cat">${c.category} · ${c.id}</span>
+      container.innerHTML = caps.map(c => {
+        const isAct = c.status === 'stable' || c.status === 'ACTIVE' || c.status === 'SUPPORTED';
+        return `
+          <div class="cap-matrix-item ${isAct ? 'active' : 'standby'}">
+            <div class="cap-info">
+              <span class="cap-title">${c.name || c.id}</span>
+              <span class="cap-cat">${c.category} · ${c.id}</span>
+            </div>
+            <span class="badge ${isAct ? 'badge-emerald' : 'badge-gold'} font-mono" style="font-size: 0.68rem;">
+              ${(c.status || 'ACTIVE').toUpperCase()}
+            </span>
           </div>
-          <span class="badge ${c.status === 'ACTIVE' ? 'badge-emerald' : 'badge-gold'} font-mono" style="font-size: 0.68rem;">
-            ${c.status}
-          </span>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     } catch (e) {
       console.error('Error loading capabilities:', e);
       container.innerHTML = '<div style="padding: 1rem; color: var(--color-error);">Error al cargar matriz de capacidades</div>';
@@ -6787,23 +6790,45 @@ const IntakeApp = {
     try {
       const res = await fetch('/api/ai/control-plane/status');
       const data = await res.json();
-      const providers = data.providers || {};
+      
+      let providers = {};
+      if (data.components && data.components.providers && data.components.providers.health) {
+        providers = data.components.providers.health;
+      } else if (data.providers) {
+        providers = data.providers;
+      }
 
-      const items = Object.entries(providers).map(([id, p]) => {
-        const state = p.circuit_breaker ? p.circuit_breaker.state : 'CLOSED';
+      const provNames = {
+        gemini: 'Google Gemini (2.5 Pro / Flash)',
+        anthropic: 'Anthropic Claude (3.5 Sonnet)',
+        openai: 'OpenAI (GPT-4o / o1)',
+        openrouter: 'OpenRouter Multi-Model',
+        mock: 'ADCRA Offline Mock Engine'
+      };
+
+      const entries = Object.entries(providers);
+      if (entries.length === 0) {
+        container.innerHTML = '<div style="padding: 1rem; color: var(--text-dim);">Sin telemetría de circuitos disponible.</div>';
+        return;
+      }
+
+      const items = entries.map(([id, p]) => {
+        const state = p.circuit_state || (p.circuit_breaker ? p.circuit_breaker.state : 'CLOSED');
         const badgeClass = state === 'CLOSED' ? 'closed' : (state === 'OPEN' ? 'open' : 'half-open');
-        const p50 = p.metrics ? (p.metrics.p50_latency_ms || 0).toFixed(0) : '0';
-        const p95 = p.metrics ? (p.metrics.p95_latency_ms || 0).toFixed(0) : '0';
-        const fails = p.circuit_breaker ? p.circuit_breaker.consecutive_failures : 0;
+        const p50 = (p.latency_p50_ms !== undefined) ? p.latency_p50_ms.toFixed(0) : (p.metrics ? (p.metrics.p50_latency_ms || 0).toFixed(0) : '0');
+        const p95 = (p.latency_p95_ms !== undefined) ? p.latency_p95_ms.toFixed(0) : (p.metrics ? (p.metrics.p95_latency_ms || 0).toFixed(0) : '0');
+        const fails = p.consecutive_failures || (p.circuit_breaker ? p.circuit_breaker.consecutive_failures : 0);
+        const displayName = provNames[id] || p.name || id.toUpperCase();
+        const statusText = p.status === 'UNKNOWN' ? 'OPERATIVO' : (p.status || 'HEALTHY');
 
         return `
           <div class="circuit-card-item">
             <div class="circuit-card-header">
-              <span class="circuit-prov-name">${p.name || id}</span>
+              <span class="circuit-prov-name">${displayName}</span>
               <span class="circuit-badge ${badgeClass}">${state}</span>
             </div>
             <div class="circuit-metrics-row">
-              <span>Estado: <strong>${p.status || 'HEALTHY'}</strong></span>
+              <span>Estado: <strong>${statusText}</strong></span>
               <span>Fallas: <strong>${fails}</strong></span>
             </div>
             <div class="circuit-metrics-row">
@@ -6816,6 +6841,7 @@ const IntakeApp = {
 
       container.innerHTML = items.join('');
     } catch (e) {
+      console.error('Error loading circuit breakers:', e);
       container.innerHTML = '<div style="padding: 1rem; color: var(--text-dim);">Telemetría no disponible temporalmente.</div>';
     }
   },

@@ -4833,3 +4833,49 @@ body.intake-body {
   font-size: 0.72rem;
   color: #94A3B8;
 }
+
+
+/* ==========================================================================
+   DROPDOWN MENUS (SELECT & OPTION) DARK THEME FIX FOR ALL BROWSERS
+   ========================================================================== */
+
+select,
+select.form-input,
+.form-input select,
+.routing-field select,
+.ai-brain-modal select {
+  background-color: #0B101B !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 8px !important;
+  padding: 0.65rem 0.9rem !important;
+  font-family: var(--font-primary, sans-serif) !important;
+  font-size: 0.85rem !important;
+  cursor: pointer !important;
+}
+
+select option,
+select optgroup,
+.form-input option,
+.routing-field select option,
+.ai-brain-modal select option {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  padding: 0.65rem 0.9rem !important;
+  font-size: 0.85rem !important;
+}
+
+select option:checked,
+select option:hover,
+select option:focus {
+  background-color: #1E293B !important;
+  color: #F59E0B !important;
+}
+
+select:focus,
+select.form-input:focus,
+.routing-field select:focus {
+  border-color: #F59E0B !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25) !important;
+}
